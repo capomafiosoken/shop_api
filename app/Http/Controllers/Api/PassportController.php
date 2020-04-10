@@ -21,6 +21,7 @@ class PassportController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
+        $user->roles()->attach(3);
 
         $token = $user->createToken('TutsForWeb')->accessToken;
 
@@ -36,7 +37,9 @@ class PassportController extends Controller
 
         if (auth()->attempt($credentials)) {
             $token = auth()->user()->createToken('TutsForWeb')->accessToken;
-            return response()->json(['token' => $token]);
+            return response()->json([
+                'token' => $token,
+                'roles' => auth()->user()->roles]);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
