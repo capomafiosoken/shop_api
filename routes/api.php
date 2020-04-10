@@ -17,18 +17,11 @@ use Illuminate\Support\Facades\Route;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-Route::apiResources([
-    'user' => 'Api\UserController',
-    'address' => 'Api\AddressController',
-    'brand' =>'Api\BrandController',
-    'category' =>'Api\CategoryController',
-    'city' => 'Api\CityController',
-    'currency' => 'Api\CurrencyController',
-    'filterGroup' => 'Api\FilterGroupController',
-    'filterValue' => 'Api\FilterValueController',
-    'order' => 'Api\OrderController',
-    'product' => 'Api\ProductController',
-    'productImage' => 'Api\ProductImageController',
-    'region' => 'Api\RegionController',
-    'role' => 'Api\RoleController'
-]);
+
+Route::post('login', 'Api\PassportController@login');
+Route::post('register', 'Api\PassportController@register');
+
+Route::middleware('auth:api')->group(function () {
+//    Route::get('user', 'PassportController@details');
+    Route::apiResource('products', 'Api\ProductController');
+});
