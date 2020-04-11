@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authenticate;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -43,7 +43,6 @@ class UserController extends Controller
             'photo' => $request['photo'],
             'password' => bcrypt($request['password'])
         ]);
-        $user->roles()->attach($request['role_id']);
         return $user;
     }
 
@@ -55,7 +54,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::with('roles')->findOrFail($id);
+        return User::with('role')->findOrFail($id);
     }
 
     public function profile()
@@ -71,8 +70,6 @@ class UserController extends Controller
             'email' => 'required|string|email|max:191|unique:users,email,'.$user->id,
             'password' => 'sometimes|required|string|min:6'
         ]);
-        $currentPhoto = $user->photo;
-
 
         $user ->update($request ->all());
         return ['message' =>'success'];
@@ -96,7 +93,7 @@ class UserController extends Controller
             'password' => 'sometimes|string|min:6'
         ]);
         $user->update($request->all());
-        $user->roles()->attach($request['role_id']);
+
         return ['message'=> 'User Updated'];
     }
 
