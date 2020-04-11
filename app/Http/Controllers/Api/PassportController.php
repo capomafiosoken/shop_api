@@ -21,7 +21,6 @@ class PassportController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
-        $user->roles()->attach(3);
 
         $token = $user->createToken('shop_api')->accessToken;
 
@@ -36,10 +35,11 @@ class PassportController extends Controller
         ];
 
         if (auth()->attempt($credentials)) {
-            $token = auth()->user()->createToken('shop_api')->accessToken;
+            $user = auth()->user();
+            $token = $user->createToken('shop_api')->accessToken;
             return response()->json([
                 'token' => $token,
-                'roles' => auth()->user()->roles]);
+                'role' => $user->role]);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
         }

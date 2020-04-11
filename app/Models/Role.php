@@ -32,12 +32,11 @@ class Role extends Model
 	];
 	protected $hidden = [
         'deleted_at',
-        'pivot'
+        'id'
     ];
 
 	public function users()
 	{
-		return $this->belongsToMany(User::class, 'user_role')
-					->withPivot('id');
+		return $this->hasMany(User::class);
 	}
 }

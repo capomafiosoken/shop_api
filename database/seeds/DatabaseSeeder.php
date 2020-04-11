@@ -28,8 +28,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => bcrypt('123456'),
             'email_verified_at' => now(),
+            'role_id'=> '1',
             'remember_token'=> Str::random(25)
         ]);
+
         DB::table('user_role')->insert([
             'user_id' => 1,
             'role_id' => 1,
