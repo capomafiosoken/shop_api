@@ -23,6 +23,7 @@ Route::post('register', 'Api\PassportController@register');
 
 Route::middleware('auth:api')->group(function () {
     Route::get('details', 'Api\PassportController@details');
+<<<<<<< HEAD
     Route::apiResources([
         'products'=>'Api\ProductController',
         'users' => 'Api\UserController',
@@ -38,4 +39,9 @@ Route::middleware('auth:api')->group(function () {
         'regions' => 'Api\RegionController',
         'roles' => 'Api\RoleController'
     ]);
+=======
+});
+Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
+    Route::apiResource('users', 'Api\UserController');
+>>>>>>> 0e08dac05eb6dcbb0083e109fb026f581086bab5
 });
