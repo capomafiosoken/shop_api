@@ -34,6 +34,47 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
             'role_id' => 1,
         ]);
+        DB::table('regions')->insert([
+            [
+                'name'=>'Акмолинская область'
+            ],
+            [
+                'name'=>'Актюбинская область'
+            ],
+            [
+                'name'=>'Алматинская область'
+            ],
+            [
+                'name'=>'Атырауская область'
+            ],
+        ]);
+        DB::table('cities')->insert([
+            [
+                'region_id'=>1,
+                'zip_code'=>'8359',
+                'name'=>'Нур-Султан'
+            ],
+            [
+                'region_id'=>1,
+                'zip_code'=>'8360',
+                'name'=>'Атбасар'
+            ],
+            [
+                'region_id'=>2,
+                'zip_code'=>'8364',
+                'name'=>'Акшимрау'
+            ],
+            [
+                'region_id'=>3,
+                'zip_code'=>'8408',
+                'name'=>'Алматы'
+            ],
+            [
+                'region_id'=>4,
+                'zip_code'=>'8427',
+                'name'=>'Атырау'
+            ],
+        ]);
         // $this->call(UserSeeder::class);
     }
 }
