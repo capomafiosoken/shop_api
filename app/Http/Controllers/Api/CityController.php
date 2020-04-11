@@ -27,6 +27,9 @@ class CityController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'region_id'=>'required|digit:20',
+            'zip_code'=>'nullable|size:6',
+
 
         ]);
         City::create([
@@ -57,6 +60,8 @@ class CityController extends Controller
     {
         $city = City::findOrFail($id);
         $this->validate($request,[
+            'region_id'=>'required|digit:20',
+            'zip_code'=>'nullable|size:6',
 
         ]);
         $city->update($request->all());

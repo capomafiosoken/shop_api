@@ -27,6 +27,8 @@ class FilterValueController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'value'=>'required|max:255',
+            'filter_group_id'=>'required|digit:20',
 
         ]);
         return FilterValue::create([
@@ -57,6 +59,8 @@ class FilterValueController extends Controller
     {
         $filterValue = FilterValue::findOrFail($id);
         $this->validate($request,[
+            'value'=>'required|max:255',
+            'filter_group_id'=>'required|digit:20',
 
         ]);
         $filterValue->update($request->all());

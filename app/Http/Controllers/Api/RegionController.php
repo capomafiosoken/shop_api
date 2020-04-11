@@ -27,7 +27,7 @@ class RegionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-
+            'name'=>'required|max:255'
         ]);
         Region::create([
             'name'=>$request['name']
@@ -56,7 +56,7 @@ class RegionController extends Controller
     {
         $region = Region::findOrFail($id);
         $this->validate($request,[
-
+            'name'=>'required|max:255'
         ]);
         $region->update($request->all());
         return ['message'=> 'Region Updated'];
