@@ -10,11 +10,11 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class UserRole
- * 
+ *
  * @property int $id
  * @property int $user_id
  * @property int $role_id
- * 
+ *
  * @property Role $role
  * @property User $user
  *

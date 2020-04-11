@@ -21,18 +21,13 @@ class PassportController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
+        $user->roles()->attach(3);
 
         $token = $user->createToken('TutsForWeb')->accessToken;
 
         return response()->json(['token' => $token]);
     }
 
-    /**
-     * Handles Login Request
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function login(Request $request)
     {
         $credentials = [
@@ -42,9 +37,23 @@ class PassportController extends Controller
 
         if (auth()->attempt($credentials)) {
             $token = auth()->user()->createToken('TutsForWeb')->accessToken;
-            return response()->json(['token' => $token], 200);
+            return response()->json([
+                'token' => $token,
+                'roles' => auth()->user()->roles]);
         } else {
-            return response()->json(['error' => 'UnAuthorised'], 401);
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
+    }
+
+
+    /**
+     * Returns Authenticated User Details
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+
+    public function details()
+    {
+        return response()->json(['user' => auth()->user()]);
     }
 }
