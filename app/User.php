@@ -28,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'role_id'
     ];
 
     /**
@@ -40,26 +40,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function orders()
+    public function role()
     {
-        return $this->hasMany(Order::class);
-    }
-
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class, 'user_role')
-            ->withPivot('id');
+        return $this->belongsTo(Role::class);
     }
 
     public function isAdmin(){
-        return $this->roles()->where('name','admin')->first();
+        return $this->role->name == 'admin';
     }
 
     public function isModerator(){
-        return $this->roles()->where('name','moderator')->first();
+        return $this->role->name == 'moderator';
     }
 
     public function isUser(){
-        return $this->roles()->where('name','user')->first();
+        return $this->role->name == 'user';
     }
 }

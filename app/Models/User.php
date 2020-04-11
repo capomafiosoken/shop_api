@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class User
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $email
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $remember_token
  * @property Carbon $created_at
  * @property Carbon $updated_at
- * 
+ *
  * @property Collection|Order[] $orders
  * @property Collection|Role[] $roles
  *
@@ -37,7 +37,8 @@ class User extends Model
 
 	protected $hidden = [
 		'password',
-		'remember_token'
+		'remember_token',
+        'role_id'
 	];
 
 	protected $fillable = [
@@ -53,9 +54,8 @@ class User extends Model
 		return $this->hasMany(Order::class);
 	}
 
-	public function roles()
+	public function role()
 	{
-		return $this->belongsToMany(Role::class, 'user_role')
-					->withPivot('id');
+		return $this->belongsTo(Role::class);
 	}
 }
