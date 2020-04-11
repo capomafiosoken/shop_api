@@ -23,7 +23,7 @@ class PassportController extends Controller
         ]);
         $user->roles()->attach(3);
 
-        $token = $user->createToken('TutsForWeb')->accessToken;
+        $token = $user->createToken('shop_api')->accessToken;
 
         return response()->json(['token' => $token]);
     }
@@ -36,7 +36,7 @@ class PassportController extends Controller
         ];
 
         if (auth()->attempt($credentials)) {
-            $token = auth()->user()->createToken('TutsForWeb')->accessToken;
+            $token = auth()->user()->createToken('shop_api')->accessToken;
             return response()->json([
                 'token' => $token,
                 'roles' => auth()->user()->roles]);

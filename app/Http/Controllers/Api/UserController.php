@@ -7,7 +7,6 @@ use App\Http\Middleware\Authenticate;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController extends Controller
 {
@@ -42,7 +41,7 @@ class UserController extends Controller
             'type' => $request['type'],
             'bio' => $request['bio'],
             'photo' => $request['photo'],
-            'password' => Hash::make($request['password'])
+            'password' => bcrypt($request['password'])
         ]);
         $user->roles()->attach($request['role_id']);
         return $user;
@@ -74,20 +73,7 @@ class UserController extends Controller
         ]);
         $currentPhoto = $user->photo;
 
-        if($request->photo != $currentPhoto){
-            $name = time().'.'.explode('/',explode(':',
-                    substr($request->photo,0,strpos($request->photo,';')))[1])[1];
-            Image::make($request->photo)->save(public_path('storage').'/profiles/'.$name);
-            $request->merge(['photo' => $name]);
 
-            $userPhoto = public_path('storage').'/profiles/'.$currentPhoto;
-            if(file_exists($userPhoto)){
-                @unlink($userPhoto);
-            }
-        }
-        if(!empty($request->password)){
-            $request->merge(['password' => Hash::make($request['password'])]);
-        }
         $user ->update($request ->all());
         return ['message' =>'success'];
     }

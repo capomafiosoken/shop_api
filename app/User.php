@@ -50,4 +50,16 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'user_role')
             ->withPivot('id');
     }
+
+    public function isAdmin(){
+        return $this->roles()->where('name','admin')->first();
+    }
+
+    public function isModerator(){
+        return $this->roles()->where('name','moderator')->first();
+    }
+
+    public function isUser(){
+        return $this->roles()->where('name','user')->first();
+    }
 }
