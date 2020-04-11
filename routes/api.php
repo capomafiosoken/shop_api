@@ -23,5 +23,19 @@ Route::post('register', 'Api\PassportController@register');
 
 Route::middleware('auth:api')->group(function () {
     Route::get('details', 'Api\PassportController@details');
-    Route::apiResource('products', 'Api\ProductController');
+    Route::apiResources([
+        'products'=>'Api\ProductController',
+        'users' => 'Api\UserController',
+        'addresses' => 'Api\AddressController',
+        'brands' =>'Api\BrandController',
+        'categories' =>'Api\CategoryController',
+        'cities' => 'Api\CityController',
+        'currencies' => 'Api\CurrencyController',
+        'filterGroups' => 'Api\FilterGroupController',
+        'filterValues' => 'Api\FilterValueController',
+        'orders' => 'Api\OrderController',
+        'productImages' => 'Api\ProductImageController',
+        'regions' => 'Api\RegionController',
+        'roles' => 'Api\RoleController'
+    ]);
 });

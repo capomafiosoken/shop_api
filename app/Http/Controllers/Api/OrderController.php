@@ -28,6 +28,11 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'user_id'=>'required|digits:20',
+            'status'=>'required|in:0,1,2',
+            'currency_id'=>'required|digits:10',
+            'address_id'=>'required|digits:20',
+            //'sum'=>'',
 
         ]);
         $order = Order::create([
@@ -67,6 +72,11 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $this->validate($request,[
+            'user_id'=>'required|digits:20',
+            'status'=>'required|in:0,1,2',
+            'currency_id'=>'required|digits:10',
+            'address_id'=>'required|digits:20',
+            //'sum'=>'',
 
         ]);
         $order->update($request->all());

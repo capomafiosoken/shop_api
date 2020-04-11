@@ -42,6 +42,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'name'=>'required|max:255',
+            'alias'=>'required|max:255',
+            'parent_id'=>'required|digit:20',
+            'keyword'=>'nullable|max:255',
+            'description'=>'nullable|max:255',
+            'image'=>'bail|required|image',
+
         ]);
         Category::create([
             'name'=>$request['name'],
@@ -49,6 +56,7 @@ class CategoryController extends Controller
             'parent_id'=>$request['parent_id'],
             'keyword'=>$request['keyword'],
             'description'=>$request['description'],
+            'image'=>$request['image']
         ]);
     }
 
@@ -73,6 +81,12 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $this->validate($request,[
+            'name'=>'required|max:255',
+            'alias'=>'required|max:255',
+            'parent_id'=>'required|digit:20',
+            'keyword'=>'nullable|max:255',
+            'description'=>'nullable|max:255',
+            'image'=>'bail|required|image',
 
         ]);
         $category->update($request->all());

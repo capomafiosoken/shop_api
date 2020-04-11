@@ -28,6 +28,10 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'name'=>'required|max:255',
+            'alias'=>'required|max:255',
+            'description'=>'nullable|max:255',
+            'image'=>'bail|required|image',
 
         ]);
         $name = time().'.'.explode('/',explode(':',
@@ -64,6 +68,10 @@ class BrandController extends Controller
     {
         $brand = Brand::findOrFail($id);
         $this->validate($request,[
+            'name'=>'required|max:255',
+            'alias'=>'required|max:255',
+            'description'=>'nullable|max:255',
+            'image'=>'bail|required|image',
 
         ]);
         $currentPhoto = $brand->image;

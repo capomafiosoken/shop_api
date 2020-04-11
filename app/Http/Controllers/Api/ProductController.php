@@ -28,7 +28,15 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-
+            'name'=>'required|max:255',
+            'alias'=>'required|max:255',
+            'description'=>'nullable|max:255',
+            'content'=>'nullable|max:1000',
+            'brand_id'=>'required|digits:20',
+            'price'=>'required|numeric|max:18',
+            'keywords'=>'nullable|max:255',
+            'image'=>'bail|required|image',
+            'pieces_left'=>'required|numeric'
         ]);
         $name = time().'.'.explode('/',explode(':',
                 substr($request->image,0,strpos($request->image,';')))[1])[1];
@@ -81,7 +89,15 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $this->validate($request,[
-
+            'name'=>'required|max:255',
+            'alias'=>'required|max:255',
+            'description'=>'nullable|max:255',
+            'content'=>'nullable|max:1000',
+            'brand_id'=>'required|digits:20',
+            'price'=>'required|numeric|max:18',
+            'keywords'=>'nullable|max:255',
+            'image'=>'bail|required|image',
+            'pieces_left'=>'required|numeric'
         ]);
         $product->update($request->all());
         return ['message'=>'Product Updated'];

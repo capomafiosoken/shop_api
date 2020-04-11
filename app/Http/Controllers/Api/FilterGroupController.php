@@ -27,6 +27,7 @@ class FilterGroupController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'name'=>'required|max:255',
 
         ]);
         return FilterGroup::create([
@@ -55,6 +56,7 @@ class FilterGroupController extends Controller
     {
         $filterGroup = FilterGroup::findOrFail($id);
         $this->validate($request,[
+            'name'=>'required|max:255',
 
         ]);
         $filterGroup->update($request->all());

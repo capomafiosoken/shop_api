@@ -27,6 +27,8 @@ class ProductImageController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'product_id'=>'required|digits:20',
+            'image'=>'bail|required|image',
 
         ]);
         ProductImage::create([
@@ -57,6 +59,8 @@ class ProductImageController extends Controller
     {
         $productImage = ProductImage::findOrFail($id);
         $this->validate($request,[
+            'product_id'=>'required|digits:20',
+            'image'=>'bail|required|image',
 
         ]);
         $productImage->update($request->all());
