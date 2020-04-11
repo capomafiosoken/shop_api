@@ -32,10 +32,6 @@ class DatabaseSeeder extends Seeder
             'remember_token'=> Str::random(25)
         ]);
 
-        DB::table('user_role')->insert([
-            'user_id' => 1,
-            'role_id' => 1,
-        ]);
         DB::table('regions')->insert([
             [
                 'name'=>'Акмолинская область'

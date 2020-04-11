@@ -19,6 +19,7 @@ class CreateCitiesTable extends Migration
             $table->foreign('region_id')->references('id')->on('regions')->onUpdate('cascade')->onDelete('cascade');;
             $table->string('zip_code',6)->nullable();
             $table->string('name');
+            $table->timestamps();
             $table->softDeletes();
         });
     }
