@@ -278,11 +278,11 @@ class DatabaseSeeder extends Seeder
                 'filter_group_id'=>2,
             ],
             [
-                'value'=>'Нет',
+                'value'=>'50%',
                 'filter_group_id'=>3,
             ],
             [
-                'value'=>'Есть',
+                'value'=>'10%',
                 'filter_group_id'=>3,
             ],
             [
