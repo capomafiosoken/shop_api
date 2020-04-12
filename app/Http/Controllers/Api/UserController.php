@@ -4,25 +4,22 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authenticate;
+use App\Http\Resources\UserResource;
 use App\Models\User;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Psy\Util\Json;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return JsonResponse
      */
     public function index()
     {
-        return response()->json(User::with('role')->latest()->paginate(10));
+        return UserResource::collection(User::with('role')->latest()->paginate(10));
     }
 
-    /**r
+    /**
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
@@ -52,16 +49,16 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return JsonResponse
      */
     public function show($id)
     {
-        return response()->json(['data'=>User::with('role')->findOrFail($id)]);
+        $user = User::with('role')->findOrFail($id);
+        return new UserResource($user);
     }
 
     public function profile()
     {
-        return Auth('api')->user();
+        return response()->json(['data'=>auth()->user()]);
     }
 
     public function updateProfile(Request $request)
