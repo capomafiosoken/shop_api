@@ -44,16 +44,4 @@ class PassportController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
     }
-
-
-    /**
-     * Returns Authenticated User Details
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-
-    public function details()
-    {
-        return response()->json(['user' => auth()->user()]);
-    }
 }

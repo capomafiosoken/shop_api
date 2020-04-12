@@ -21,12 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'Api\PassportController@login');
 Route::post('register', 'Api\PassportController@register');
 
-Route::middleware('auth:api')->group(function () {
-    Route::get('details', 'Api\PassportController@details');
-});
 Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
-    Route::apiResource('users', 'Api\UserController');
-});
     Route::apiResources([
         'products'=>'Api\ProductController',
         'users' => 'Api\UserController',
@@ -42,6 +37,6 @@ Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
         'regions' => 'Api\RegionController',
         'roles' => 'Api\RoleController'
     ]);
-
+});
 
 
