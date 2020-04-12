@@ -49,6 +49,10 @@ class User extends Model
 		'remember_token'
 	];
 
+    protected $with = [
+        'role'
+    ];
+
 	public function orders()
 	{
 		return $this->hasMany(Order::class);

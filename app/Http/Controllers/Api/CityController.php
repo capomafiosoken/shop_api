@@ -30,8 +30,6 @@ class CityController extends Controller
             'region_id'=>'required|numeric|max:20',
             'zip_code'=>'nullable|size:6',
             'name'=>'required|string|max:255'
-
-
         ]);
         City::create([
             'region_id'=>$request['region_id'],

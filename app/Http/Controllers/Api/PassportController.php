@@ -11,13 +11,16 @@ class PassportController extends Controller
 {
 
     /**
-     * @throws ValidationException
-     * @api {post} /api/register
-     * @apiName Register User
-     * @apiGroup Passport
-     * @apiParam {string} name User Name
-     * @apiParam {string} email User Email
-     * @apiParam {string} password User Password
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws ValidationException User Registration
+     * @group Passport
+     * @bodyParam name string required User Name
+     * @bodyParam email string required User Email
+     * @bodyParam password string required User Password
+     * @response {
+     *  "message":"Registered"
+     * }
      */
     public function register(Request $request)
     {
@@ -27,17 +30,30 @@ class PassportController extends Controller
             'password' => 'required|string|min:6'
         ]);
 
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
 
-        $token = $user->createToken('shop_api')->accessToken;
-
-        return response()->json(['token' => $token]);
+        return response()->json(['message' => 'Registered']);
     }
 
+    /**
+     * User Authorization
+     * @group Passport
+     * @bodyParam name string required User Name
+     * @bodyParam email string required User Email
+     * @response {
+     *  "token": "Bearer token",
+     *  "role": "user"
+     * }
+     * @response 401 {
+     *  "error": "Unauthorized"
+     * }
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
     {
         $credentials = [
@@ -55,4 +71,16 @@ class PassportController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
     }
+
+    /**
+     * @authenticated
+     * @response {
+     *  "message":"Logged Out"
+     * }
+     */
+    public function logout(){
+        auth()->logout();
+        return response()->json(['message'=>'Logged Out']);
+    }
+
 }

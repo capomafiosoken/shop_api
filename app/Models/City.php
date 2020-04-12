@@ -12,12 +12,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class City
- * 
+ *
  * @property int $id
  * @property int $region_id
  * @property string $zip_code
  * @property string $deleted_at
- * 
+ * @property string $name
+ *
  * @property Region $region
  * @property Collection|Address[] $addresses
  *
@@ -35,7 +36,8 @@ class City extends Model
 
 	protected $fillable = [
 		'region_id',
-		'zip_code'
+		'zip_code',
+        'name'
 	];
 
 	public function region()
