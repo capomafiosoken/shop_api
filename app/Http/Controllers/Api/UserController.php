@@ -5,22 +5,24 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authenticate;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Psy\Util\Json;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function index()
     {
-        return User::with('role')->latest()->paginate(10);
+        return response()->json(User::with('role')->latest()->paginate(10));
     }
 
-    /**
+    /**r
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
@@ -50,11 +52,11 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function show($id)
     {
-        return User::with('role')->findOrFail($id);
+        return response()->json(['data'=>User::with('role')->findOrFail($id)]);
     }
 
     public function profile()
