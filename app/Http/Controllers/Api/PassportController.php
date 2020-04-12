@@ -5,9 +5,20 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class PassportController extends Controller
 {
+
+    /**
+     * @throws ValidationException
+     * @api {post} /api/register
+     * @apiName Register User
+     * @apiGroup Passport
+     * @apiParam {string} name User Name
+     * @apiParam {string} email User Email
+     * @apiParam {string} password User Password
+     */
     public function register(Request $request)
     {
         $this->validate($request, [
