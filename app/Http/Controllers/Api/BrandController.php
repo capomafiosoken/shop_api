@@ -31,7 +31,7 @@ class BrandController extends Controller
             'name'=>'required|max:255',
             'alias'=>'required|max:255',
             'description'=>'nullable|max:255',
-            'image'=>'bail|required|image',
+            //'image'=>'bail|required|image',
 
         ]);
         $name = time().'.'.explode('/',explode(':',
@@ -71,7 +71,7 @@ class BrandController extends Controller
             'name'=>'required|max:255',
             'alias'=>'required|max:255',
             'description'=>'nullable|max:255',
-            'image'=>'bail|required|image',
+            //'image'=>'bail|required|image',
 
         ]);
         $currentPhoto = $brand->image;

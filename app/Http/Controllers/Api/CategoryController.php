@@ -31,10 +31,10 @@ class CategoryController extends Controller
             'parent_id'=>'required|numeric|max:20',
             'keyword'=>'nullable|max:255',
             'description'=>'nullable|max:255',
-            'image'=>'bail|required|image',
+            //'image'=>'bail|required|image',
 
         ]);
-        Category::create([
+        return Category::create([
             'name'=>$request['name'],
             'alias'=>$request['alias'],
             'parent_id'=>$request['parent_id'],
@@ -70,7 +70,7 @@ class CategoryController extends Controller
             'parent_id'=>'required|numeric|max:20',
             'keyword'=>'nullable|max:255',
             'description'=>'nullable|max:255',
-            'image'=>'bail|required|image',
+            //'image'=>'bail|required|image',
 
         ]);
         $category->update($request->all());

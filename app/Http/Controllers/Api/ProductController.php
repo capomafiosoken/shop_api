@@ -51,7 +51,7 @@ class ProductController extends Controller
             'brand_id' => $request['brand_id'],
             'price' => $request['price'],
             'keywords' => $request['keywords'],
-            'image' => $request['image'],
+            //'image' => $request['image'],
             'pieces_left' => $request['pieces_left'],
         ]);
         if ($request->filled('product_images')) {

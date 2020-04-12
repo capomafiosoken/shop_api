@@ -35,7 +35,7 @@ class CurrencyController extends Controller
             'base'=>'required|in:0,1',
 
         ]);
-        Currency::create([
+        return Currency::create([
             'name'=>$request['name'],
             'code'=>$request['code'],
             'symbol_left'=>$request['symbol_left'],

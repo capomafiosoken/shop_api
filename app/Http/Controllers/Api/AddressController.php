@@ -29,14 +29,14 @@ class AddressController extends Controller
     {
         $this->validate($request,[
             'city_id'=>'required|numeric|max:20',
-            'zip_code'=>'required|size:6',
+            'zip_code'=>'required|max:6',
             'address'=>'required|max:255',
             'full_name'=>'required|max:255',
             'telephone_number'=>'required|max:255',
             'note'=>'nullable|max:255'
 
         ]);
-        Address::create([
+       return  Address::create([
             'city_id'=>$request['city_id'],
             'zip_code'=>$request['zip_code'],
             'address'=>$request['address'],
@@ -70,7 +70,7 @@ class AddressController extends Controller
         $address = Address::findOrFail($id);
         $this->validate($request,[
             'city_id'=>'required|numeric|max:20',
-            'zip_code'=>'required|size:6',
+            'zip_code'=>'required|max:6',
             'address'=>'required|max:255',
             'full_name'=>'required|max:255',
             'telephone_number'=>'required|max:255',
