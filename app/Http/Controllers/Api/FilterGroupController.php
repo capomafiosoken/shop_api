@@ -42,7 +42,7 @@ class FilterGroupController extends Controller
      */
     public function show($id)
     {
-        return FilterGroup::with('filterValues')->findOrFail($id);
+        return FilterGroup::findOrFail($id);
     }
 
     /**
