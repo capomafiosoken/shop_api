@@ -4,41 +4,54 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Role;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Role management
+ * APIs for managing roles
+ */
 class RoleController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Display a listing of the role.
+     * @authenticated
+     * @return JsonResource
      */
     public function index()
     {
-        return Role::latest()->paginate(10);
+        return new JsonResource(Role::all());
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created role in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @authenticated
+     * @bodyParam name string required Name
+     * @param Request $request
+     * @return JsonResource
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
         $this->validate($request,[
             'name'=>'required|unique:roles,name'
         ]);
-        Role::create([
+        $role = Role::create([
             'name'=>$request['name']
         ]);
+        return new JsonResource($role);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Role  $role
-     * @return \Illuminate\Http\Response
+     * Display the specified role.
+     * @authenticated
+     * @urlParam id required Role Id
+     * @param $id
+     * @return Response
      */
     public function show($id)
     {
@@ -46,32 +59,36 @@ class RoleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Role  $role
-     * @return \Illuminate\Http\Response
+     * Update the specified role in storage.
+     * @authenticated
+     * @urlParam id required Role Id
+     * @bodyParam name string Name
+     * @param Request $request
+     * @param $id
+     * @return JsonResource
+     * @throws ValidationException
      */
     public function update(Request $request,$id)
     {
         $role = Role::findOrFail($id);
         $this->validate($request,[
-            'name'=>'required|unique:roles,name'
+            'name'=>'sometimes|unique:roles,name'
         ]);
-        $role->update($request->all());
-        return ['message'=>'Role Updated'];
+        $role->update(array_filter($request->all()));
+        return new JsonResource($role);
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Role  $role
-     * @return \Illuminate\Http\Response
+     * Remove the specified role from storage.
+     * @authenticated
+     * @urlParam integer Role Id
+     * @param $id
+     * @return JsonResponse
      */
     public function destroy($id)
     {
         $role = Role::findOrFail($id);
         $role->delete();
-        return ['message'=>'Role Deleted'];
+        return response()->json(['message'=>'Role Deleted'], Response::HTTP_ACCEPTED);
     }
 }

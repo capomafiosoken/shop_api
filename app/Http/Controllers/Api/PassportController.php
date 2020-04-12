@@ -9,14 +9,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Access management
+ *
+ * APIs for managing access
+ */
 class PassportController extends Controller
 {
 
     /**
+     * Registration User
      * @param Request $request
      * @return JsonResponse
      * @throws ValidationException User Registration
-     * @group Passport
      * @bodyParam name string required User Name
      * @bodyParam email string required User Email
      * @bodyParam password string required User Password
@@ -42,8 +47,7 @@ class PassportController extends Controller
     }
 
     /**
-     * User Authorization
-     * @group Passport
+     * Log In User
      * @bodyParam name string required User Name
      * @bodyParam email string required User Email
      * @response {
@@ -72,6 +76,7 @@ class PassportController extends Controller
     }
 
     /**
+     * Log out Authenticated User
      * @authenticated
      * @response {
      *  "message":"Logged Out"

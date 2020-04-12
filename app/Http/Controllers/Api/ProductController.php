@@ -10,11 +10,14 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Product management
+ * APis for managing products
+ */
 class ProductController extends Controller
 {
     /**
      * Display a listing of the product.
-     * @group Product management
      * @authenticated
      * @queryParam page required The page number. default = 1
      * @queryParam per_page required The number of items per list. default = 15
@@ -30,7 +33,6 @@ class ProductController extends Controller
 
     /**
      * Store a newly created product in storage.
-     * @group Product management
      * @authenticated
      * @bodyParam name string required Product Name
      * @bodyParam alias string required Product Alias
@@ -74,7 +76,6 @@ class ProductController extends Controller
 
     /**
      * Display the specified product.
-     * @group Product management
      * @authenticated
      * @urlParam id required Product Id
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
@@ -89,7 +90,6 @@ class ProductController extends Controller
 
     /**
      * Update the specified product in storage.
-     * @group Product management
      * @authenticated
      * @bodyParam name string Product Name
      * @bodyParam alias string Product Alias
@@ -126,7 +126,6 @@ class ProductController extends Controller
 
     /**
      * Remove the specified product from storage.
-     * @group Product management
      * @authenticated
      * @urlParam id required Product Id
      * @response {

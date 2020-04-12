@@ -10,11 +10,14 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @group User management
+ * APIs for managing users
+ */
 class UserController extends Controller
 {
     /**
      * Display a listing of the Users.
-     * @group User management
      * @authenticated
      * @queryParam page required The page number. default = 1
      * @queryParam per_page required The number of items per list. default = 15
@@ -30,7 +33,6 @@ class UserController extends Controller
 
     /**
      * Store a newly created User in storage.
-     * @group User management
      * @authenticated
      * @bodyParam name string required User Name
      * @bodyParam email string required User Email
@@ -60,7 +62,6 @@ class UserController extends Controller
 
     /**
      * Display the specified User
-     * @group User management
      * @authenticated
      * @urlParam id required User ID
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
@@ -75,7 +76,6 @@ class UserController extends Controller
     }
     /**
      * Display the authenticated User
-     * @group User management
      * @authenticated
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\User
@@ -87,11 +87,9 @@ class UserController extends Controller
 
     /**
      * Updates the authenticated User
-     * @group User management
      * @authenticated
-     * @bodyParam name string required User Name
-     * @bodyParam email string required User Email
-     * @bodyParam password string required User Password
+     * @bodyParam name string  User Name
+     * @bodyParam password string  User Password
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\User
      * @param Request $request
@@ -102,24 +100,21 @@ class UserController extends Controller
     {
         $user = auth()->user();
         $this->validate($request,[
-            'name' => 'required|string|max:191',
-            'email' => 'required|string|email|max:191|unique:users,email,'.$user->id,
+            'name' => 'sometimes|string|max:191',
             'password' => 'sometimes|required|string|min:6'
         ]);
 
-        $user ->update($request ->all());
+        $user ->update(array_filter($request ->all()));
         return new JsonResource($user);
     }
 
 
     /**
      * Update the specified User
-     * @group User management
      * @authenticated
      * @urlParam id User's Id to be Updated
-     * @bodyParam name string required User Name
-     * @bodyParam email string required User Email
-     * @bodyParam password string required User Password
+     * @bodyParam name string User Name
+     * @bodyParam password string User Password
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\User
      * @param Request $request
@@ -131,8 +126,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $this->validate($request, [
-            'name' => 'required|string|max:191',
-            'email' => 'required|string|email|max:191|unique:users,email,'.$user->id,
+            'name' => 'sometimes|string|max:191',
             'password' => 'sometimes|string|min:6'
         ]);
         $user->update($request->all());
@@ -142,7 +136,6 @@ class UserController extends Controller
 
     /**
      * Remove the specified User from storage.
-     * @group User management
      * @authenticated
      * @urlParam id User's Id to be Deleted
      * @response {
