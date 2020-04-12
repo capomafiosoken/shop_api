@@ -243,6 +243,57 @@ class DatabaseSeeder extends Seeder
                 'price'=>14490,
             ],
         ]);
+        DB::table('filter_groups')->insert([
+            [
+                'name'=>'Цвет',
+
+            ],
+            [
+                'name'=>'Страна производитель',
+
+            ],
+            [
+                'name'=>'Скидки',
+            ],
+            [
+                'name'=>'Доставка',
+            ]
+
+        ]);
+        DB::table('filter_values')->insert([
+            [
+                'value'=>'белый',
+                'filter_group_id'=>1,
+            ],
+            [
+                'value'=>'черный',
+                'filter_group_id'=>1,
+            ],
+            [
+                'value'=>'Америка',
+                'filter_group_id'=>2,
+            ],
+            [
+                'value'=>'Китай',
+                'filter_group_id'=>2,
+            ],
+            [
+                'value'=>'Нет',
+                'filter_group_id'=>3,
+            ],
+            [
+                'value'=>'Есть',
+                'filter_group_id'=>3,
+            ],
+            [
+                'value'=>'Нет',
+                'filter_group_id'=>4,
+            ],
+            [
+                'value'=>'Есть',
+                'filter_group_id'=>4,
+            ],
+        ]);
         // $this->call(UserSeeder::class);
     }
 }
