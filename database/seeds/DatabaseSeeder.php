@@ -74,14 +74,14 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
         DB::table('addresses')->insert([
-           [
-              'city_id'=>1,
-              'zip_code'=>'6666',
-              'address'=>'Дом Ерсына',
-               'full_name'=>'Зачем нам это поле?',
-               'telephone_number'=>'87021234567',
-               'note'=>'ывфывфывфывфыввфыв ыфввфывф фывфы'
-           ] ,
+            [
+                'city_id'=>1,
+                'zip_code'=>'6666',
+                'address'=>'Дом Ерсына',
+                'full_name'=>'Зачем нам это поле?',
+                'telephone_number'=>'87021234567',
+                'note'=>'ывфывфывфывфыввфыв ыфввфывф фывфы'
+            ] ,
             [
                 'city_id'=>2,
                 'zip_code'=>'6666',
@@ -162,10 +162,10 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('orders')->insert([
             [
-              'user_id'=>1,
-              'status'=>'0',
-              'currency_id'=>1,
-              'address_id'=>1,
+                'user_id'=>1,
+                'status'=>'0',
+                'currency_id'=>1,
+                'address_id'=>1,
 
             ],
             [

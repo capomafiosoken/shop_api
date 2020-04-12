@@ -23,7 +23,6 @@ class UserController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
@@ -37,12 +36,9 @@ class UserController extends Controller
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'type' => $request['type'],
-            'bio' => $request['bio'],
-            'photo' => $request['photo'],
             'password' => bcrypt($request['password'])
         ]);
-        return $user;
+        return new UserResource($user);
     }
 
     /**

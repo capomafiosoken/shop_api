@@ -5,34 +5,18 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return Category::with('parentCategory')->latest()->paginate(10);
+        return new JsonResource(Category::with('categories')->whereNull('parent_id')->get());
     }
-
-    public function showTree(){
-        $roots = Category::whereNull('parent_id')->get();
-        foreach ($roots as $root){
-            $this->getChild($root);
-        }
-        return $roots;
-    }
-
-    public function getChild($root){
-        foreach ($root->childCategories as $childCategory){
-            $this->getChild($childCategory);
-        }
-        return $root;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
