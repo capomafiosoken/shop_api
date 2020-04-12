@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Address
- * 
+ *
  * @property int $id
  * @property int $city_id
  * @property string $zip_code
@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property string $deleted_at
- * 
+ *
  * @property City $city
  * @property Collection|Order[] $orders
  *
@@ -47,6 +47,14 @@ class Address extends Model
 		'telephone_number',
 		'note'
 	];
+
+	protected $with = [
+	    'city'
+    ];
+
+	protected $hidden = [
+	    'city_id'
+    ];
 
 	public function city()
 	{

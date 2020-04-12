@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -24,7 +25,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        return JsonResource::collection(User::latest()->paginate($request->per_page));
+        return JsonResource::collection(User::latest()->paginate($request['per_page']));
     }
 
     /**
@@ -53,6 +54,7 @@ class UserController extends Controller
             'email' => $request['email'],
             'password' => bcrypt($request['password'])
         ]);
+
         return new JsonResource($user);
     }
 
@@ -147,13 +149,12 @@ class UserController extends Controller
      *  "message" : "User Deleted"
      * }
      * @param  int  $id
-     * @return array
+     * @return JsonResponse
      */
     public function destroy($id)
     {
         $user = User::findOrFail($id);
-        //delete the user
         $user->delete();
-        return ['message'=> 'User Deleted'];
+        return response()->json(['message'=> 'User Deleted']);
     }
 }

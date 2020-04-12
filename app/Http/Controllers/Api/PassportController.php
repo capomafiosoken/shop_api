@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 class PassportController extends Controller
@@ -12,7 +14,7 @@ class PassportController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      * @throws ValidationException User Registration
      * @group Passport
      * @bodyParam name string required User Name
@@ -31,9 +33,9 @@ class PassportController extends Controller
         ]);
 
         User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password'])
         ]);
 
         return response()->json(['message' => 'Registered']);
@@ -52,14 +54,11 @@ class PassportController extends Controller
      *  "error": "Unauthorized"
      * }
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function login(Request $request)
     {
-        $credentials = [
-            'email' => $request->email,
-            'password' => $request->password
-        ];
+        $credentials = $request->only(['email', 'password']);
 
         if (auth()->attempt($credentials)) {
             $user = auth()->user();

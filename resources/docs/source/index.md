@@ -32,7 +32,7 @@ curl -X POST \
     "http://localhost/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"consequuntur","email":"eveniet"}'
+    -d '{"name":"impedit","email":"non"}'
 
 ```
 
@@ -47,8 +47,8 @@ let headers = {
 };
 
 let body = {
-    "name": "consequuntur",
-    "email": "eveniet"
+    "name": "impedit",
+    "email": "non"
 }
 
 fetch(url, {
@@ -97,7 +97,7 @@ curl -X POST \
     "http://localhost/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"debitis","email":"minima","password":"non"}'
+    -d '{"name":"saepe","email":"cum","password":"est"}'
 
 ```
 
@@ -112,9 +112,9 @@ let headers = {
 };
 
 let body = {
-    "name": "debitis",
-    "email": "minima",
-    "password": "non"
+    "name": "saepe",
+    "email": "cum",
+    "password": "est"
 }
 
 fetch(url, {
@@ -147,30 +147,30 @@ Parameter | Type | Status | Description
     
 <!-- END_d7b7952e7fdddc07c978c9bdaf757acf -->
 
-#User management
+#Product management
 
 
-<!-- START_fc1e4f6a697e3c48257de845299b71d5 -->
-## Display a listing of the Users.
+<!-- START_86e0ac5d4f8ce9853bc22fd08f2a0109 -->
+## Display a listing of the product.
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/users?page=19&per_page=14" \
+    -G "http://localhost/api/products?page=14&per_page=19" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/users"
+    "http://localhost/api/products"
 );
 
 let params = {
-    "page": "19",
-    "per_page": "14",
+    "page": "14",
+    "per_page": "19",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -196,25 +196,378 @@ fetch(url, {
     "data": [
         {
             "id": 1,
-            "name": "admin",
-            "email": "admin@admin.com",
-            "email_verified_at": "2020-04-12T11:55:50.000000Z",
+            "status": "0",
+            "name": "Ноутбук HP 2RR85EA ProBook",
+            "alias": "HP-2RR85EA",
+            "description": null,
+            "content": null,
+            "brand_id": 3,
+            "price": 441590,
+            "keywords": null,
+            "is_hit": false,
+            "image": "no_image.jpg",
+            "pieces_left": 0,
             "created_at": null,
             "updated_at": null,
-            "role": {
-                "name": "admin"
-            }
+            "deleted_at": null
         },
         {
             "id": 1,
-            "name": "admin",
-            "email": "admin@admin.com",
-            "email_verified_at": "2020-04-12T11:55:50.000000Z",
+            "status": "0",
+            "name": "Ноутбук HP 2RR85EA ProBook",
+            "alias": "HP-2RR85EA",
+            "description": null,
+            "content": null,
+            "brand_id": 3,
+            "price": 441590,
+            "keywords": null,
+            "is_hit": false,
+            "image": "no_image.jpg",
+            "pieces_left": 0,
             "created_at": null,
             "updated_at": null,
-            "role": {
-                "name": "admin"
-            }
+            "deleted_at": null
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/products`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `page` |  required  | The page number. default = 1
+    `per_page` |  required  | The number of items per list. default = 15
+
+<!-- END_86e0ac5d4f8ce9853bc22fd08f2a0109 -->
+
+<!-- START_05b4383f00fd57c4828a831e7057e920 -->
+## Store a newly created product in storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/products" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"et","alias":"necessitatibus","description":"quo","content":"occaecati","brand_id":"id","price":"eligendi","keywords":"sunt","image":"excepturi","pieces_left":"ut"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/products"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "et",
+    "alias": "necessitatibus",
+    "description": "quo",
+    "content": "occaecati",
+    "brand_id": "id",
+    "price": "eligendi",
+    "keywords": "sunt",
+    "image": "excepturi",
+    "pieces_left": "ut"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 1,
+        "status": "0",
+        "name": "Ноутбук HP 2RR85EA ProBook",
+        "alias": "HP-2RR85EA",
+        "description": null,
+        "content": null,
+        "brand_id": 3,
+        "price": 441590,
+        "keywords": null,
+        "is_hit": false,
+        "image": "no_image.jpg",
+        "pieces_left": 0,
+        "created_at": null,
+        "updated_at": null,
+        "deleted_at": null
+    }
+}
+```
+
+### HTTP Request
+`POST api/products`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  required  | Product Name
+        `alias` | string |  required  | Product Alias
+        `description` | string |  optional  | Description
+        `content` | string |  optional  | Content of Product page
+        `brand_id` | numeric |  required  | Brand Id
+        `price` | numeric |  required  | Product Price
+        `keywords` | string |  optional  | Product keywords
+        `image` | image |  required  | Product Image
+        `pieces_left` | numeric |  required  | Left pieces of Product
+    
+<!-- END_05b4383f00fd57c4828a831e7057e920 -->
+
+<!-- START_a285e63bc2d1a5b9428ae9aed745c779 -->
+## Display the specified product.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/products/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/products/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 1,
+        "status": "0",
+        "name": "Ноутбук HP 2RR85EA ProBook",
+        "alias": "HP-2RR85EA",
+        "description": null,
+        "content": null,
+        "brand_id": 3,
+        "price": 441590,
+        "keywords": null,
+        "is_hit": false,
+        "image": "no_image.jpg",
+        "pieces_left": 0,
+        "created_at": null,
+        "updated_at": null,
+        "deleted_at": null
+    }
+}
+```
+
+### HTTP Request
+`GET api/products/{product}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Product Id
+
+<!-- END_a285e63bc2d1a5b9428ae9aed745c779 -->
+
+<!-- START_b7842ce7893c09eb3c53713f82c2e12d -->
+## Update the specified product in storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/products/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"ex","alias":"aperiam","description":"quam","content":"doloribus","brand_id":"occaecati","price":"dolores","keywords":"eveniet","image":"ipsam","pieces_left":"est"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/products/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "ex",
+    "alias": "aperiam",
+    "description": "quam",
+    "content": "doloribus",
+    "brand_id": "occaecati",
+    "price": "dolores",
+    "keywords": "eveniet",
+    "image": "ipsam",
+    "pieces_left": "est"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/products/{product}`
+
+`PATCH api/products/{product}`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  optional  | Product Name
+        `alias` | string |  optional  | Product Alias
+        `description` | string |  optional  | Description
+        `content` | string |  optional  | Content of Product page
+        `brand_id` | numeric |  optional  | Brand Id
+        `price` | numeric |  optional  | Product Price
+        `keywords` | string |  optional  | Product keywords
+        `image` | image |  optional  | Product Image
+        `pieces_left` | numeric |  optional  | Left pieces of Product
+    
+<!-- END_b7842ce7893c09eb3c53713f82c2e12d -->
+
+<!-- START_1d809ca5e8b10fa7fdc75d04506a55ea -->
+## Remove the specified product from storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/products/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/products/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/products/{product}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Product Id
+
+<!-- END_1d809ca5e8b10fa7fdc75d04506a55ea -->
+
+#User management
+
+
+<!-- START_fc1e4f6a697e3c48257de845299b71d5 -->
+## Display a listing of the Users.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/users?page=8&per_page=6" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/users"
+);
+
+let params = {
+    "page": "8",
+    "per_page": "6",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "name": "Darrick Weber",
+            "email": "katherine.dach@example.com",
+            "email_verified_at": "2020-04-12T17:45:50.000000Z"
+        },
+        {
+            "name": "Zechariah Sawayn",
+            "email": "danyka26@example.net",
+            "email_verified_at": "2020-04-12T17:45:50.000000Z"
         }
     ]
 }
@@ -243,7 +596,7 @@ curl -X POST \
     "http://localhost/api/users" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"sed","email":"unde","password":"a"}'
+    -d '{"name":"quia","email":"explicabo","password":"magni"}'
 
 ```
 
@@ -258,9 +611,9 @@ let headers = {
 };
 
 let body = {
-    "name": "sed",
-    "email": "unde",
-    "password": "a"
+    "name": "quia",
+    "email": "explicabo",
+    "password": "magni"
 }
 
 fetch(url, {
@@ -278,15 +631,9 @@ fetch(url, {
 ```json
 {
     "data": {
-        "id": 1,
-        "name": "admin",
-        "email": "admin@admin.com",
-        "email_verified_at": "2020-04-12T11:55:50.000000Z",
-        "created_at": null,
-        "updated_at": null,
-        "role": {
-            "name": "admin"
-        }
+        "name": "Candice Moen",
+        "email": "waylon53@example.net",
+        "email_verified_at": "2020-04-12T17:45:50.000000Z"
     }
 }
 ```
@@ -304,7 +651,7 @@ Parameter | Type | Status | Description
 <!-- END_12e37982cc5398c7100e59625ebb5514 -->
 
 <!-- START_8653614346cb0e3d444d164579a0a0a2 -->
-## Display the specified User.
+## Display the specified User
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
@@ -340,15 +687,9 @@ fetch(url, {
 ```json
 {
     "data": {
-        "id": 1,
-        "name": "admin",
-        "email": "admin@admin.com",
-        "email_verified_at": "2020-04-12T11:55:50.000000Z",
-        "created_at": null,
-        "updated_at": null,
-        "role": {
-            "name": "admin"
-        }
+        "name": "Theodora Turner",
+        "email": "kaci51@example.net",
+        "email_verified_at": "2020-04-12T17:45:50.000000Z"
     }
 }
 ```
@@ -375,7 +716,7 @@ curl -X PUT \
     "http://localhost/api/users/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"ut","email":"id","password":"quis"}'
+    -d '{"name":"rerum","email":"possimus","password":"facilis"}'
 
 ```
 
@@ -390,9 +731,9 @@ let headers = {
 };
 
 let body = {
-    "name": "ut",
-    "email": "id",
-    "password": "quis"
+    "name": "rerum",
+    "email": "possimus",
+    "password": "facilis"
 }
 
 fetch(url, {
@@ -410,15 +751,9 @@ fetch(url, {
 ```json
 {
     "data": {
-        "id": 1,
-        "name": "admin",
-        "email": "admin@admin.com",
-        "email_verified_at": "2020-04-12T11:55:50.000000Z",
-        "created_at": null,
-        "updated_at": null,
-        "role": {
-            "name": "admin"
-        }
+        "name": "Woodrow Bruen",
+        "email": "carley.abshire@example.com",
+        "email_verified_at": "2020-04-12T17:45:50.000000Z"
     }
 }
 ```
@@ -1101,129 +1436,21 @@ fetch(url, {
 
 <!-- END_bae65df80fd9d72a01439241a9ea20d0 -->
 
-<!-- START_86e0ac5d4f8ce9853bc22fd08f2a0109 -->
-## Display a listing of the resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/products" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/products"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "status": "0",
-            "name": "Ноутбук HP 2RR85EA ProBook",
-            "alias": "HP-2RR85EA",
-            "description": null,
-            "content": null,
-            "brand_id": 3,
-            "price": 441590,
-            "keywords": null,
-            "is_hit": false,
-            "image": "no_image.jpg",
-            "pieces_left": 0,
-            "created_at": null,
-            "updated_at": null,
-            "deleted_at": null
-        },
-        {
-            "id": 2,
-            "status": "0",
-            "name": "КОФТА ONTHEGO GM",
-            "alias": "ONTHEGO-GM",
-            "description": null,
-            "content": null,
-            "brand_id": 1,
-            "price": 800000,
-            "keywords": null,
-            "is_hit": false,
-            "image": "no_image.jpg",
-            "pieces_left": 0,
-            "created_at": null,
-            "updated_at": null,
-            "deleted_at": null
-        },
-        {
-            "id": 3,
-            "status": "0",
-            "name": "Футболка Supreme",
-            "alias": "shirt-supreme",
-            "description": null,
-            "content": null,
-            "brand_id": 2,
-            "price": 14490,
-            "keywords": null,
-            "is_hit": false,
-            "image": "no_image.jpg",
-            "pieces_left": 0,
-            "created_at": null,
-            "updated_at": null,
-            "deleted_at": null
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/products?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/products?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/products",
-    "per_page": 10,
-    "prev_page_url": null,
-    "to": 3,
-    "total": 3
-}
-```
-
-### HTTP Request
-`GET api/products`
-
-
-<!-- END_86e0ac5d4f8ce9853bc22fd08f2a0109 -->
-
-<!-- START_05b4383f00fd57c4828a831e7057e920 -->
-## Store a newly created resource in storage.
-
+<!-- START_61739f3220a224b34228600649230ad1 -->
+## api/logout
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://localhost/api/products" \
+    "http://localhost/api/logout" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/products"
+    "http://localhost/api/logout"
 );
 
 let headers = {
@@ -1240,149 +1467,19 @@ fetch(url, {
 ```
 
 
-
-### HTTP Request
-`POST api/products`
-
-
-<!-- END_05b4383f00fd57c4828a831e7057e920 -->
-
-<!-- START_a285e63bc2d1a5b9428ae9aed745c779 -->
-## Display the specified resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/products/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/products/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
 > Example response (200):
 
 ```json
 {
-    "id": 1,
-    "status": "0",
-    "name": "Ноутбук HP 2RR85EA ProBook",
-    "alias": "HP-2RR85EA",
-    "description": null,
-    "content": null,
-    "brand_id": 3,
-    "price": 441590,
-    "keywords": null,
-    "is_hit": false,
-    "image": "no_image.jpg",
-    "pieces_left": 0,
-    "created_at": null,
-    "updated_at": null,
-    "deleted_at": null
+    "message": "Logged Out"
 }
 ```
 
 ### HTTP Request
-`GET api/products/{product}`
+`POST api/logout`
 
 
-<!-- END_a285e63bc2d1a5b9428ae9aed745c779 -->
-
-<!-- START_b7842ce7893c09eb3c53713f82c2e12d -->
-## Update the specified resource in storage.
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "http://localhost/api/products/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/products/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`PUT api/products/{product}`
-
-`PATCH api/products/{product}`
-
-
-<!-- END_b7842ce7893c09eb3c53713f82c2e12d -->
-
-<!-- START_1d809ca5e8b10fa7fdc75d04506a55ea -->
-## Remove the specified resource from storage.
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://localhost/api/products/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/products/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE api/products/{product}`
-
-
-<!-- END_1d809ca5e8b10fa7fdc75d04506a55ea -->
+<!-- END_61739f3220a224b34228600649230ad1 -->
 
 <!-- START_f62d434079dff3acd53aa774d160d2ad -->
 ## Display a listing of the resource.

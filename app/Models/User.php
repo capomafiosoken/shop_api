@@ -9,6 +9,9 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
 /**
  * Class User
@@ -27,9 +30,11 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class User extends Model
+class User extends Authenticatable
 {
-	protected $table = 'users';
+    use HasApiTokens, Notifiable;
+
+    protected $table = 'users';
 
 	protected $dates = [
 		'email_verified_at'
@@ -53,7 +58,7 @@ class User extends Model
         'role'
     ];
 
-	public function orders()
+    public function orders()
 	{
 		return $this->hasMany(Order::class);
 	}
@@ -62,4 +67,16 @@ class User extends Model
 	{
 		return $this->belongsTo(Role::class);
 	}
+
+    public function isAdmin(){
+        return $this->role->name == 'admin';
+    }
+
+    public function isModerator(){
+        return $this->role->name == 'moderator';
+    }
+
+    public function isUser(){
+        return $this->role->name == 'user';
+    }
 }
