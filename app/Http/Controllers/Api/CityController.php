@@ -27,14 +27,16 @@ class CityController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'region_id'=>'required|digit:20',
+            'region_id'=>'required|numeric|max:20',
             'zip_code'=>'nullable|size:6',
+            'name'=>'required|string|max:255'
 
 
         ]);
         City::create([
             'region_id'=>$request['region_id'],
             'zip_code'=>$request['zip_code'],
+            'name'=>$request['name']
         ]);
     }
 
@@ -60,8 +62,9 @@ class CityController extends Controller
     {
         $city = City::findOrFail($id);
         $this->validate($request,[
-            'region_id'=>'required|digit:20',
+            'region_id'=>'required|numeric|max:20',
             'zip_code'=>'nullable|size:6',
+            'name'=>'required|string|max:255'
 
         ]);
         $city->update($request->all());

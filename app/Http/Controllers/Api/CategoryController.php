@@ -44,7 +44,7 @@ class CategoryController extends Controller
         $this->validate($request,[
             'name'=>'required|max:255',
             'alias'=>'required|max:255',
-            'parent_id'=>'required|digit:20',
+            'parent_id'=>'required|numeric|max:20',
             'keyword'=>'nullable|max:255',
             'description'=>'nullable|max:255',
             'image'=>'bail|required|image',
@@ -83,7 +83,7 @@ class CategoryController extends Controller
         $this->validate($request,[
             'name'=>'required|max:255',
             'alias'=>'required|max:255',
-            'parent_id'=>'required|digit:20',
+            'parent_id'=>'required|numeric|max:20',
             'keyword'=>'nullable|max:255',
             'description'=>'nullable|max:255',
             'image'=>'bail|required|image',

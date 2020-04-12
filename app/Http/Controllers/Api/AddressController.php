@@ -28,7 +28,7 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'city_id'=>'required|digits:20',
+            'city_id'=>'required|numeric|max:20',
             'zip_code'=>'required|size:6',
             'address'=>'required|max:255',
             'full_name'=>'required|max:255',
@@ -69,7 +69,7 @@ class AddressController extends Controller
     {
         $address = Address::findOrFail($id);
         $this->validate($request,[
-            'city_id'=>'required|digits:20',
+            'city_id'=>'required|numeric|max:20',
             'zip_code'=>'required|size:6',
             'address'=>'required|max:255',
             'full_name'=>'required|max:255',
