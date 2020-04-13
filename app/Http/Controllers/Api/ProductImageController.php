@@ -5,55 +5,81 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Validation\ValidationException;
+
+/**
+ * @group ProductImage management
+ * APIs for managing addresses
+ */
 
 class ProductImageController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Display a listing of the address.
+     * @authenticated
+     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\ProductImage
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
-        return ProductImage::latest()->paginate(10);
+        return JsonResource::collection(ProductImage::latest()->paginate(10));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Store a newly created address in storage.
+     * @authenticated
+     * @bodyParam product_id numeric required Product Id That This Image Belongs To
+     * @bodyParam image image Image
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Address
+     * @param Request $request
+     * @return JsonResource
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
         $this->validate($request,[
             'product_id'=>'required|numeric|max:20',
-            'image'=>'bail|required|image',
+            'image'=>'nullable|image',
 
         ]);
-        ProductImage::create([
+        $pImage=ProductImage::create([
             'product_id'=>$request['product_id'],
             'image'=>$request['image'],
         ]);
+        return new JsonResource($pImage);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\ProductImage  $productImage
-     * @return \Illuminate\Http\Response
+     * Display the specified address.
+     * @authenticated
+     * @urlParam id required Product Id
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\ProductImage
+     * @param $id
+     * @return JsonResource
      */
     public function show($id)
     {
-        return ProductImage::findOrFail($id);
+        return new JsonResource(ProductImage::findOrFail($id));
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ProductImage  $productImage
-     * @return \Illuminate\Http\Response
+     * Update the specified address in storage.
+     * @authenticated
+     * @urlParam id required Address's Id to be Updated
+     * @bodyParam product_id numeric required Product Id That This Image Belongs To
+     * @bodyParam image image Image
+
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Address
+     * @param Request $request
+     * @param $id
+     * @return JsonResource
+     * @throws ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -64,7 +90,7 @@ class ProductImageController extends Controller
 
         ]);
         $productImage->update($request->all());
-        return ['message'=> 'ProductImage Updated'];
+        return new JsonResource($productImage);
     }
 
     /**

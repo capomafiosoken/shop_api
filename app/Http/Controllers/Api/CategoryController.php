@@ -4,24 +4,43 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Category management
+ * APIs for managing addresses
+ */
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Display a listing of the category.
+     * @authenticated
+     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Category
+     * @param Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
-        return new JsonResource(Category::with('categories')->whereNull('parent_id')->get());
+        return JsonResource::collection(Category::with('categories')->whereNull('parent_id')->get());
     }
+
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @authenticated
+     * @bodyParam name string required Category name
+     * @bodyParam alias string required Category alias for future use as routes
+     * @bodyParam parent_id string required Category parent Id if it's child category
+     * @bodyParam keyword string Keyword
+     * @bodyParam description string Description
+     * @bodyParam image image Image
+     * @param \Illuminate\Http\Request $request
+     * @return JsonResource
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
@@ -34,7 +53,7 @@ class CategoryController extends Controller
             //'image'=>'bail|required|image',
 
         ]);
-        return Category::create([
+         $category = Category::create([
             'name'=>$request['name'],
             'alias'=>$request['alias'],
             'parent_id'=>$request['parent_id'],
@@ -42,24 +61,39 @@ class CategoryController extends Controller
             'description'=>$request['description'],
             'image'=>$request['image']
         ]);
+         return new JsonResource($category);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Category  $category
+     * Display the specified category.
+     *@authenticated
+     * @urlParam id required Category Id
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Category
+     * @param $id
+     * @return JsonResource
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Category::findOrFail($id)->products->paginate(10);
+        return new JsonResource(Category::findOrFail($id)->with('products')->paginate(10));
     }
+
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
+     * Update the specified category in storage.
+     * @authenticated
+     * @urlParam id Category's Id to be Updated
+     * @bodyParam name string required Category name
+     * @bodyParam alias string required Category alias for future use as routes
+     * @bodyParam parent_id string required Category parent Id if it's child category
+     * @bodyParam keyword string Keyword
+     * @bodyParam image image Image
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Category
+     * @param Request $request
+     * @param $id
+     * @return JsonResource
+     * @throws ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -74,19 +108,23 @@ class CategoryController extends Controller
 
         ]);
         $category->update($request->all());
-        return ['message'=> 'Category Updated'];
+        return new JsonResource($category);
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
+     * Remove the specified category from storage.
+     * @authenticated
+     * @urlParam id Category's Id to be Deleted
+     * @response {
+     *  "message" : "Category Deleted"
+     * }
+     * @param $id
+     * @return JsonResponse
      */
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
         $category->delete();
-        return ['message'=> 'Category Deleted'];
+        return response()->json(['message'=> 'Category Deleted']);
     }
 }
