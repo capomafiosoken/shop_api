@@ -13,7 +13,7 @@ use Illuminate\Validation\ValidationException;
 
 /**
  * @group ProductImage management
- * APIs for managing addresses
+ * APIs for managing product images
  */
 
 class ProductImageController extends Controller

@@ -13,7 +13,7 @@ use Illuminate\Validation\ValidationException;
 
 /**
  * @group Region management
- * APIs for managing addresses
+ * APIs for managing regions
  */
 class RegionController extends Controller
 {

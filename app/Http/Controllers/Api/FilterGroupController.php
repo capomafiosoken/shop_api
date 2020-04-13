@@ -12,7 +12,7 @@ use Illuminate\Validation\ValidationException;
 
 /**
  * @group FilterGroup management
- * APIs for managing addresses
+ * APIs for managing filter groups
  */
 
 class FilterGroupController extends Controller
@@ -82,7 +82,6 @@ class FilterGroupController extends Controller
         $filterGroup = FilterGroup::findOrFail($id);
         $this->validate($request,[
             'name'=>'required|max:255',
-
         ]);
         $filterGroup->update($request->all());
         return new JsonResource($filterGroup);

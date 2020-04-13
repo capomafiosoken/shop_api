@@ -104,14 +104,14 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $this->validate($request,[
-            'user_id'=>'required|numeric|digits_between:1,20',
-            'status'=>'required|in:0,1,2',
-            'currency_id'=>'required|numeric|digits_between:1,10',
-            'address_id'=>'required|numeric|digits_between:1,20',
+            'user_id'=>'sometimes|numeric|digits_between:1,20',
+            'status'=>'sometimes|in:0,1,2',
+            'currency_id'=>'sometimes|numeric|digits_between:1,10',
+            'address_id'=>'sometimes|numeric|digits_between:1,20',
             //'sum'=>'',
 
         ]);
-        $order->update($request->all());
+        $order->update(array_filter($request->all()));
         return new JsonResource($order);
     }
 
