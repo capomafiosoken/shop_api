@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 
 /**
@@ -24,11 +24,11 @@ class BrandController extends Controller
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Brand
      * @param Request $request
-     * @return Response
+     * @return AnonymousResourceCollection
      */
     public function index(Request $request)
     {
-        return Brand::Latest()->paginate($request['per_page']);
+        return JsonResource::collection(Brand::Latest()->paginate($request['per_page']));
     }
 
     /**
@@ -111,8 +111,9 @@ class BrandController extends Controller
      * Remove the specified brand from storage.
      * @authenticated
      * @urlParam id required Brand Id
-     * @apiResource Illuminate\Http\Resources\Json\JsonResource
-     * @apiResourceModel App\Models\Brand
+     * @response {
+     *  "message" : "Brand Deleted"
+     * }
      * @param $id
      * @return JsonResponse
      */
