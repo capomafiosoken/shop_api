@@ -17,7 +17,7 @@ use Illuminate\Validation\ValidationException;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the Users.
+     * Display a listing of the users.
      * @authenticated
      * @queryParam page required The page number. default = 1
      * @queryParam per_page required The number of items per list. default = 15
@@ -32,7 +32,7 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created User in storage.
+     * Store a newly created user in storage.
      * @authenticated
      * @bodyParam name string required User Name
      * @bodyParam email string required User Email
@@ -61,7 +61,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified User
+     * Display the specified user
      * @authenticated
      * @urlParam id required User Id
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
@@ -76,7 +76,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified User
+     * Update the specified user.
      * @authenticated
      * @urlParam id required User's Id to be Updated
      * @bodyParam name string User Name
@@ -95,13 +95,13 @@ class UserController extends Controller
             'name' => 'sometimes|string|max:191',
             'password' => 'sometimes|string|min:6'
         ]);
-        $user->update($request->all());
+        $user->update(array_filter($request->all()));
 
         return new JsonResource($user);
     }
 
     /**
-     * Remove the specified User from storage.
+     * Remove the specified user from storage.
      * @authenticated
      * @urlParam id User's Id to be Deleted
      * @response {
