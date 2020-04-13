@@ -71,7 +71,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::with('role')->findOrFail($id);
+        $user = User::with('role')->with('orders')->findOrFail($id);
         return new JsonResource($user);
     }
     /**

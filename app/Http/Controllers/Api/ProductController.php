@@ -55,8 +55,8 @@ class ProductController extends Controller
             'alias' => 'required|max:255',
             'description' => 'nullable|max:255',
             'content' => 'nullable|max:1000',
-            'brand_id' => 'required|numeric|max:20',
-            'price' => 'required|numeric|max:18',
+            'brand_id' => 'required|numeric|digits_between:1,20',
+            'price' => 'required|numeric|digits_between:1,18',
             'keywords' => 'nullable|max:255',
             'pieces_left' => 'required|numeric'
         ]);
@@ -111,14 +111,14 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $this->validate($request,[
-            'name'=>'nullable|max:255',
-            'alias'=>'nullable|max:255',
-            'description'=>'nullable|max:255',
-            'content'=>'nullable|max:1000',
-            'brand_id'=>'nullable|numeric|max:20',
-            'price'=>'nullable|numeric|max:18',
-            'keywords'=>'nullable|max:255',
-            'pieces_left'=>'nullable|numeric'
+            'name' => 'required|max:255',
+            'alias' => 'required|max:255',
+            'description' => 'nullable|max:255',
+            'content' => 'nullable|max:1000',
+            'brand_id' => 'required|numeric|digits_between:1,20',
+            'price' => 'required|numeric|digits_between:1,18',
+            'keywords' => 'nullable|max:255',
+            'pieces_left' => 'required|numeric'
         ]);
         $product->update(array_filter($request->all()));
         return new JsonResource($product);
