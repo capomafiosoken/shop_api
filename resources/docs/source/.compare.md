@@ -33,7 +33,11 @@ curl -X POST \
     "http://localhost/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"aliquid","email":"ex"}'
+=======
+    -d '{"name":"dolores","email":"commodi"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -48,8 +52,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "aliquid",
     "email": "ex"
+=======
+    "name": "dolores",
+    "email": "commodi"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -145,7 +154,11 @@ curl -X POST \
     "http://localhost/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"ratione","email":"praesentium","password":"consequatur"}'
+=======
+    -d '{"name":"distinctio","email":"assumenda","password":"animi"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -160,9 +173,15 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "ratione",
     "email": "praesentium",
     "password": "consequatur"
+=======
+    "name": "distinctio",
+    "email": "assumenda",
+    "password": "animi"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -206,7 +225,11 @@ APIs for managing addresses
 
 ```bash
 curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/addresses?page=7&per_page=19" \
+=======
+    -G "http://localhost/api/addresses?page=6&per_page=4" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -217,8 +240,13 @@ const url = new URL(
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "7",
     "per_page": "19",
+=======
+    "page": "6",
+    "per_page": "4",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -309,7 +337,11 @@ curl -X POST \
     "http://localhost/api/addresses" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"city_id":"possimus","zip_code":"ratione","address":"quos","full_name":"quae","telephone_number":"voluptatem","note":"repellendus"}'
+=======
+    -d '{"city_id":"enim","zip_code":"fugit","address":"minus","full_name":"explicabo","telephone_number":"dolorem","note":"commodi"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -324,12 +356,21 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "city_id": "possimus",
     "zip_code": "ratione",
     "address": "quos",
     "full_name": "quae",
     "telephone_number": "voluptatem",
     "note": "repellendus"
+=======
+    "city_id": "enim",
+    "zip_code": "fugit",
+    "address": "minus",
+    "full_name": "explicabo",
+    "telephone_number": "dolorem",
+    "note": "commodi"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -465,7 +506,11 @@ curl -X PUT \
     "http://localhost/api/addresses/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"city_id":"sapiente","zip_code":"vero","address":"qui","full_name":"ducimus","telephone_number":"eveniet","note":"sunt"}'
+=======
+    -d '{"city_id":"dicta","zip_code":"sit","address":"et","full_name":"laborum","telephone_number":"impedit","note":"cupiditate"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -480,12 +525,21 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "city_id": "sapiente",
     "zip_code": "vero",
     "address": "qui",
     "full_name": "ducimus",
     "telephone_number": "eveniet",
     "note": "sunt"
+=======
+    "city_id": "dicta",
+    "zip_code": "sit",
+    "address": "et",
+    "full_name": "laborum",
+    "telephone_number": "impedit",
+    "note": "cupiditate"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -609,7 +663,11 @@ APIs for managing brands
 
 ```bash
 curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/brands?page=16&per_page=8" \
+=======
+    -G "http://localhost/api/brands?page=8&per_page=16" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -620,8 +678,13 @@ const url = new URL(
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "16",
     "per_page": "8",
+=======
+    "page": "8",
+    "per_page": "16",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -649,7 +712,7 @@ fetch(url, {
             "id": 1,
             "name": "louis vuitton",
             "alias": "LV",
-            "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+            "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
             "image": "no_image.jpg",
             "created_at": null,
             "updated_at": null,
@@ -659,7 +722,7 @@ fetch(url, {
             "id": 1,
             "name": "louis vuitton",
             "alias": "LV",
-            "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+            "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
             "image": "no_image.jpg",
             "created_at": null,
             "updated_at": null,
@@ -692,7 +755,11 @@ curl -X POST \
     "http://localhost/api/brands" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"repellendus","alias":"et","description":"quia","image":"eius"}'
+=======
+    -d '{"name":"id","alias":"odit","description":"aut","image":"dicta"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -707,10 +774,17 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "repellendus",
     "alias": "et",
     "description": "quia",
     "image": "eius"
+=======
+    "name": "id",
+    "alias": "odit",
+    "description": "aut",
+    "image": "dicta"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -731,7 +805,7 @@ fetch(url, {
         "id": 1,
         "name": "louis vuitton",
         "alias": "LV",
-        "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+        "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
         "image": "no_image.jpg",
         "created_at": null,
         "updated_at": null,
@@ -793,7 +867,7 @@ fetch(url, {
         "id": 1,
         "name": "louis vuitton",
         "alias": "LV",
-        "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+        "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
         "image": "no_image.jpg",
         "created_at": null,
         "updated_at": null,
@@ -824,7 +898,11 @@ curl -X PUT \
     "http://localhost/api/brands/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"suscipit","alias":"consequatur","description":"error","image":"ducimus"}'
+=======
+    -d '{"name":"dolores","alias":"placeat","description":"suscipit","image":"est"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -839,10 +917,17 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "suscipit",
     "alias": "consequatur",
     "description": "error",
     "image": "ducimus"
+=======
+    "name": "dolores",
+    "alias": "placeat",
+    "description": "suscipit",
+    "image": "est"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -863,7 +948,7 @@ fetch(url, {
         "id": 1,
         "name": "louis vuitton",
         "alias": "LV",
-        "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+        "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
         "image": "no_image.jpg",
         "created_at": null,
         "updated_at": null,
@@ -945,7 +1030,7 @@ Parameter | Status | Description
 
 #Category management
 
-APIs for managing addresses
+APIs for managing categories
 <!-- START_109013899e0bc43247b0f00b67f889cf -->
 ## Display a listing of the category.
 
@@ -1058,7 +1143,11 @@ curl -X POST \
     "http://localhost/api/categories" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"qui","alias":"alias","parent_id":"repellat","keyword":"rem","description":"temporibus","image":"dicta"}'
+=======
+    -d '{"name":"minus","alias":"pariatur","parent_id":"esse","keyword":"suscipit","description":"quia","image":"minus"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -1073,12 +1162,21 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "qui",
     "alias": "alias",
     "parent_id": "repellat",
     "keyword": "rem",
     "description": "temporibus",
     "image": "dicta"
+=======
+    "name": "minus",
+    "alias": "pariatur",
+    "parent_id": "esse",
+    "keyword": "suscipit",
+    "description": "quia",
+    "image": "minus"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -1195,7 +1293,11 @@ curl -X PUT \
     "http://localhost/api/categories/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"sint","alias":"ipsam","parent_id":"atque","keyword":"ea","image":"exercitationem"}'
+=======
+    -d '{"name":"laudantium","alias":"nisi","parent_id":"recusandae","keyword":"doloribus","image":"omnis"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -1210,11 +1312,19 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "sint",
     "alias": "ipsam",
     "parent_id": "atque",
     "keyword": "ea",
     "image": "exercitationem"
+=======
+    "name": "laudantium",
+    "alias": "nisi",
+    "parent_id": "recusandae",
+    "keyword": "doloribus",
+    "image": "omnis"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -1344,7 +1454,11 @@ APIs for managing cities
 
 ```bash
 curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/cities?page=7&per_page=9" \
+=======
+    -G "http://localhost/api/cities?page=13&per_page=3" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1355,8 +1469,13 @@ const url = new URL(
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "7",
     "per_page": "9",
+=======
+    "page": "13",
+    "per_page": "3",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1425,7 +1544,11 @@ curl -X POST \
     "http://localhost/api/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"similique","region_id":"ea","zip_code":"possimus"}'
+=======
+    -d '{"name":"alias","region_id":"quia","zip_code":"quo"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -1440,9 +1563,15 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "similique",
     "region_id": "ea",
     "zip_code": "possimus"
+=======
+    "name": "alias",
+    "region_id": "quia",
+    "zip_code": "quo"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -1552,7 +1681,11 @@ curl -X PUT \
     "http://localhost/api/cities/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"molestiae","region_id":"nostrum","zip_code":"molestiae"}'
+=======
+    -d '{"name":"et","region_id":"maxime","zip_code":"officia"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -1567,9 +1700,15 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "molestiae",
     "region_id": "nostrum",
     "zip_code": "molestiae"
+=======
+    "name": "et",
+    "region_id": "maxime",
+    "zip_code": "officia"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -1679,7 +1818,11 @@ APIs for managing currency
 
 ```bash
 curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/currencies?page=3&per_page=12" \
+=======
+    -G "http://localhost/api/currencies?page=4&per_page=6" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1690,8 +1833,13 @@ const url = new URL(
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "3",
     "per_page": "12",
+=======
+    "page": "4",
+    "per_page": "6",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1766,7 +1914,11 @@ curl -X POST \
     "http://localhost/api/currencies" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"voluptatem","code":"cum","symbol_left":"numquam","symbol_right":"possimus","value":"quibusdam","base":"amet"}'
+=======
+    -d '{"name":"et","code":"ea","symbol_left":"accusantium","symbol_right":"voluptas","value":"corporis","base":"doloremque"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -1781,12 +1933,21 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "voluptatem",
     "code": "cum",
     "symbol_left": "numquam",
     "symbol_right": "possimus",
     "value": "quibusdam",
     "base": "amet"
+=======
+    "name": "et",
+    "code": "ea",
+    "symbol_left": "accusantium",
+    "symbol_right": "voluptas",
+    "value": "corporis",
+    "base": "doloremque"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -1905,7 +2066,11 @@ curl -X PUT \
     "http://localhost/api/currencies/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"quis","code":"nihil","symbol_left":"totam","symbol_right":"cumque","value":"illum","base":"placeat"}'
+=======
+    -d '{"name":"veritatis","code":"voluptatem","symbol_left":"eum","symbol_right":"velit","value":"ipsum","base":"voluptates"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -1920,12 +2085,21 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "quis",
     "code": "nihil",
     "symbol_left": "totam",
     "symbol_right": "cumque",
     "value": "illum",
     "base": "placeat"
+=======
+    "name": "veritatis",
+    "code": "voluptatem",
+    "symbol_left": "eum",
+    "symbol_right": "velit",
+    "value": "ipsum",
+    "base": "voluptates"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2032,7 +2206,11 @@ Parameter | Status | Description
 
 #FilterGroup management
 
+<<<<<<< HEAD
 APIs for managing addresses
+=======
+APIs for managing filter groups
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <!-- START_ea79b130426ba62aa89eb615fe141273 -->
 ## Display a listing of the FilterGroup.
 
@@ -2071,12 +2249,21 @@ fetch(url, {
 {
     "data": [
         {
+<<<<<<< HEAD
             "id": 1,
             "name": "Цвет"
         },
         {
             "id": 1,
             "name": "Цвет"
+=======
+            "id": 3,
+            "name": "Скидки"
+        },
+        {
+            "id": 3,
+            "name": "Скидки"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
         }
     ]
 }
@@ -2099,7 +2286,11 @@ curl -X POST \
     "http://localhost/api/filterGroups" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"id"}'
+=======
+    -d '{"name":"perspiciatis"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -2114,7 +2305,11 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "id"
+=======
+    "name": "perspiciatis"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2132,8 +2327,13 @@ fetch(url, {
 ```json
 {
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "name": "Цвет"
+=======
+        "id": 3,
+        "name": "Скидки"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }
 ```
@@ -2185,8 +2385,13 @@ fetch(url, {
 ```json
 {
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "name": "Цвет"
+=======
+        "id": 3,
+        "name": "Скидки"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }
 ```
@@ -2213,7 +2418,11 @@ curl -X PUT \
     "http://localhost/api/filterGroups/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"filter_group_id":"ipsum","value":"molestias"}'
+=======
+    -d '{"filter_group_id":"harum","value":"sed"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -2228,8 +2437,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "filter_group_id": "ipsum",
     "value": "molestias"
+=======
+    "filter_group_id": "harum",
+    "value": "sed"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2247,8 +2461,13 @@ fetch(url, {
 ```json
 {
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "name": "Цвет"
+=======
+        "id": 3,
+        "name": "Скидки"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }
 ```
@@ -2324,7 +2543,11 @@ Parameter | Status | Description
 
 #FilterValue management
 
+<<<<<<< HEAD
 APIs for managing addresses
+=======
+APIs for managing filer values
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <!-- START_d96de9f30d1796b25dc18a6450be51f8 -->
 ## Display a listing of the FilterValue.
 
@@ -2363,6 +2586,7 @@ fetch(url, {
 {
     "data": [
         {
+<<<<<<< HEAD
             "id": 1,
             "value": "белый",
             "filter_group_id": 1
@@ -2371,6 +2595,16 @@ fetch(url, {
             "id": 1,
             "value": "белый",
             "filter_group_id": 1
+=======
+            "id": 5,
+            "value": "50%",
+            "filter_group_id": 3
+        },
+        {
+            "id": 5,
+            "value": "50%",
+            "filter_group_id": 3
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
         }
     ]
 }
@@ -2393,7 +2627,11 @@ curl -X POST \
     "http://localhost/api/filterValues" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"filter_group_id":"consequatur","value":"ab"}'
+=======
+    -d '{"filter_group_id":"commodi","value":"nesciunt"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -2408,8 +2646,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "filter_group_id": "consequatur",
     "value": "ab"
+=======
+    "filter_group_id": "commodi",
+    "value": "nesciunt"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2427,9 +2670,15 @@ fetch(url, {
 ```json
 {
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "value": "белый",
         "filter_group_id": 1
+=======
+        "id": 5,
+        "value": "50%",
+        "filter_group_id": 3
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }
 ```
@@ -2482,9 +2731,15 @@ fetch(url, {
 ```json
 {
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "value": "белый",
         "filter_group_id": 1
+=======
+        "id": 5,
+        "value": "50%",
+        "filter_group_id": 3
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }
 ```
@@ -2511,7 +2766,11 @@ curl -X PUT \
     "http://localhost/api/filterValues/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"filter_group_id":"cumque","value":"corrupti"}'
+=======
+    -d '{"filter_group_id":"fugit","value":"voluptatum"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -2526,8 +2785,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "filter_group_id": "cumque",
     "value": "corrupti"
+=======
+    "filter_group_id": "fugit",
+    "value": "voluptatum"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2545,9 +2809,15 @@ fetch(url, {
 ```json
 {
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "value": "белый",
         "filter_group_id": 1
+=======
+        "id": 5,
+        "value": "50%",
+        "filter_group_id": 3
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }
 ```
@@ -2632,7 +2902,11 @@ APIs for managing addresses
 
 ```bash
 curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/orders?page=11&per_page=9" \
+=======
+    -G "http://localhost/api/orders?page=8&per_page=3" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2643,8 +2917,13 @@ const url = new URL(
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "11",
     "per_page": "9",
+=======
+    "page": "8",
+    "per_page": "3",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2715,7 +2994,11 @@ curl -X POST \
     "http://localhost/api/orders" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"user_id":"rerum","status":"ut","currency_id":"et","address_id":"iure","products":[]}'
+=======
+    -d '{"user_id":"id","status":"nihil","currency_id":"harum","address_id":"voluptatem","products":[]}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -2730,10 +3013,17 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "user_id": "rerum",
     "status": "ut",
     "currency_id": "et",
     "address_id": "iure",
+=======
+    "user_id": "id",
+    "status": "nihil",
+    "currency_id": "harum",
+    "address_id": "voluptatem",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     "products": []
 }
 
@@ -2849,7 +3139,11 @@ curl -X PUT \
     "http://localhost/api/orders/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"user_id":"facilis","status":"et","currency_id":"voluptatem","address_id":"necessitatibus"}'
+=======
+    -d '{"user_id":"quo","status":"non","currency_id":"aperiam","address_id":"molestias"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -2864,10 +3158,17 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "user_id": "facilis",
     "status": "et",
     "currency_id": "voluptatem",
     "address_id": "necessitatibus"
+=======
+    "user_id": "quo",
+    "status": "non",
+    "currency_id": "aperiam",
+    "address_id": "molestias"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2970,7 +3271,11 @@ Parameter | Status | Description
 
 #ProductImage management
 
+<<<<<<< HEAD
 APIs for managing addresses
+=======
+APIs for managing product images
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <!-- START_10c520f201ad78363713cc43becd6b39 -->
 ## Display a listing of the ProductImage.
 
@@ -3031,7 +3336,11 @@ curl -X POST \
     "http://localhost/api/productImages" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"product_id":"dignissimos","image":"velit"}'
+=======
+    -d '{"product_id":"qui","image":"enim"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -3046,8 +3355,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "product_id": "dignissimos",
     "image": "velit"
+=======
+    "product_id": "qui",
+    "image": "enim"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -3160,7 +3474,11 @@ curl -X PUT \
     "http://localhost/api/productImages/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"product_id":"dolorum","image":"dolores"}'
+=======
+    -d '{"product_id":"nihil","image":"suscipit"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -3175,8 +3493,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "product_id": "dolorum",
     "image": "dolores"
+=======
+    "product_id": "nihil",
+    "image": "suscipit"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -3296,7 +3619,11 @@ APis for managing products
 
 ```bash
 curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/products?page=6&per_page=2" \
+=======
+    -G "http://localhost/api/products?page=1&per_page=19" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3307,8 +3634,13 @@ const url = new URL(
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "6",
     "per_page": "2",
+=======
+    "page": "1",
+    "per_page": "19",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3393,7 +3725,11 @@ curl -X POST \
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"error","alias":"velit","description":"eveniet","content":"non","brand_id":"sit","price":"rerum","keywords":"est","image":"et","pieces_left":"natus"}'
+=======
+    -d '{"name":"enim","alias":"sint","description":"dolor","content":"id","brand_id":"accusantium","price":"sed","keywords":"deleniti","image":"hic","pieces_left":"nostrum"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -3408,6 +3744,7 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "error",
     "alias": "velit",
     "description": "eveniet",
@@ -3417,6 +3754,17 @@ let body = {
     "keywords": "est",
     "image": "et",
     "pieces_left": "natus"
+=======
+    "name": "enim",
+    "alias": "sint",
+    "description": "dolor",
+    "content": "id",
+    "brand_id": "accusantium",
+    "price": "sed",
+    "keywords": "deleniti",
+    "image": "hic",
+    "pieces_left": "nostrum"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -3549,7 +3897,11 @@ curl -X PUT \
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"debitis","alias":"commodi","description":"voluptas","content":"dignissimos","brand_id":"earum","price":"similique","keywords":"eligendi","image":"commodi","pieces_left":"ut"}'
+=======
+    -d '{"name":"et","alias":"tenetur","description":"illum","content":"non","brand_id":"dolore","price":"animi","keywords":"voluptatem","image":"voluptas","pieces_left":"et"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -3564,6 +3916,7 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "debitis",
     "alias": "commodi",
     "description": "voluptas",
@@ -3573,6 +3926,17 @@ let body = {
     "keywords": "eligendi",
     "image": "commodi",
     "pieces_left": "ut"
+=======
+    "name": "et",
+    "alias": "tenetur",
+    "description": "illum",
+    "content": "non",
+    "brand_id": "dolore",
+    "price": "animi",
+    "keywords": "voluptatem",
+    "image": "voluptas",
+    "pieces_left": "et"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -3682,7 +4046,11 @@ Parameter | Status | Description
 
 #Region management
 
+<<<<<<< HEAD
 APIs for managing addresses
+=======
+APIs for managing regions
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <!-- START_d3a06985ef377a31eecb832106f4a5e6 -->
 ## Display a listing of the resource.
 
@@ -3750,7 +4118,11 @@ curl -X POST \
     "http://localhost/api/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"fugiat"}'
+=======
+    -d '{"name":"eaque"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -3765,7 +4137,11 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "fugiat"
+=======
+    "name": "eaque"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -3846,6 +4222,7 @@ fetch(url, {
 
 ### HTTP Request
 `GET api/regions/{region}`
+<<<<<<< HEAD
 
 #### URL Parameters
 
@@ -3858,6 +4235,20 @@ Parameter | Status | Description
 <!-- START_9619be130c210af5a3616a112d8ca186 -->
 ## Update the specified Region in storage.
 
+=======
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | region Id
+
+<!-- END_85a05f083d203a82298e77c4b7074d28 -->
+
+<!-- START_9619be130c210af5a3616a112d8ca186 -->
+## Update the specified Region in storage.
+
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
@@ -3866,7 +4257,11 @@ curl -X PUT \
     "http://localhost/api/regions/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"quis"}'
+=======
+    -d '{"name":"laudantium"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -3881,7 +4276,11 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "quis"
+=======
+    "name": "laudantium"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -3908,6 +4307,7 @@ fetch(url, {
 
 ### HTTP Request
 `PUT api/regions/{region}`
+<<<<<<< HEAD
 
 `PATCH api/regions/{region}`
 
@@ -3923,6 +4323,23 @@ Parameter | Type | Status | Description
     
 <!-- END_9619be130c210af5a3616a112d8ca186 -->
 
+=======
+
+`PATCH api/regions/{region}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Region's Id
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | required |  optional  | Name
+    
+<!-- END_9619be130c210af5a3616a112d8ca186 -->
+
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <!-- START_a60a16eb441242ed47324c1a7e6cee55 -->
 ## Remove the specified region from storage.
 
@@ -3965,6 +4382,7 @@ fetch(url, {
 
 ### HTTP Request
 `DELETE api/regions/{region}`
+<<<<<<< HEAD
 
 #### URL Parameters
 
@@ -3976,6 +4394,19 @@ Parameter | Status | Description
 
 #Role management
 
+=======
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Region's Id To Be Deleted
+
+<!-- END_a60a16eb441242ed47324c1a7e6cee55 -->
+
+#Role management
+
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 APIs for managing roles
 <!-- START_6470e6b987921f5c45bf7a2d8e674f57 -->
 ## Display a listing of the role.
@@ -4041,7 +4472,11 @@ curl -X POST \
     "http://localhost/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"rerum"}'
+=======
+    -d '{"name":"at"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 ```
 
@@ -4056,7 +4491,11 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "rerum"
+=======
+    "name": "at"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -4078,6 +4517,7 @@ fetch(url, {
     }
 }
 ```
+<<<<<<< HEAD
 
 ### HTTP Request
 `POST api/roles`
@@ -4858,19 +5298,43 @@ fetch(url, {
 
 <!-- START_babcfe12d87b8708f5985e9d39ba8f2c -->
 ## Get all of the clients for the authenticated user.
+=======
 
+### HTTP Request
+`POST api/roles`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  required  | Name
+    
+<!-- END_90c780acaefab9740431579512d07101 -->
+
+<!-- START_eb37fe1fa9305b4b78850dd87031670b -->
+## Display the specified role.
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/oauth/clients" \
+=======
+    -G "http://localhost/api/roles/1" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
+<<<<<<< HEAD
     "http://localhost/oauth/clients"
+=======
+    "http://localhost/api/roles/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -4891,31 +5355,65 @@ fetch(url, {
 
 ```json
 {
+<<<<<<< HEAD
     "message": "Unauthenticated."
+=======
+    "data": {
+        "name": "admin"
+    }
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 ```
 
 ### HTTP Request
+<<<<<<< HEAD
 `GET oauth/clients`
+=======
+`GET api/roles/{role}`
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
+#### URL Parameters
 
+<<<<<<< HEAD
 <!-- END_babcfe12d87b8708f5985e9d39ba8f2c -->
 
 <!-- START_9eabf8d6e4ab449c24c503fcb42fba82 -->
 ## Store a new client.
+=======
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Role Id
 
+<!-- END_eb37fe1fa9305b4b78850dd87031670b -->
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+
+<!-- START_cccebfff0074c9c5f499e215eee84e86 -->
+## Update the specified role in storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
+<<<<<<< HEAD
 curl -X POST \
     "http://localhost/oauth/clients" \
+=======
+curl -X PUT \
+    "http://localhost/api/roles/1" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"name":"aut"}'
+
 ```
 
 ```javascript
 const url = new URL(
+<<<<<<< HEAD
     "http://localhost/oauth/clients"
+=======
+    "http://localhost/api/roles/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -4923,37 +5421,83 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "aut"
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "data": {
+        "name": "admin"
+    }
+}
+```
 
 ### HTTP Request
+<<<<<<< HEAD
 `POST oauth/clients`
+=======
+`PUT api/roles/{role}`
 
+`PATCH api/roles/{role}`
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
+#### URL Parameters
+
+<<<<<<< HEAD
 <!-- END_9eabf8d6e4ab449c24c503fcb42fba82 -->
 
 <!-- START_784aec390a455073fc7464335c1defa1 -->
 ## Update the given client.
+=======
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Role Id
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  optional  | Name
+    
+<!-- END_cccebfff0074c9c5f499e215eee84e86 -->
 
+<!-- START_9aab750214722ffceebef64f24a2e175 -->
+## Remove the specified role from storage.
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
+<<<<<<< HEAD
 curl -X PUT \
     "http://localhost/oauth/clients/1" \
+=======
+curl -X DELETE \
+    "http://localhost/api/roles/1" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
+<<<<<<< HEAD
     "http://localhost/oauth/clients/1"
+=======
+    "http://localhost/api/roles/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -4970,29 +5514,72 @@ fetch(url, {
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "message": "User Deleted"
+}
+```
 
 ### HTTP Request
+<<<<<<< HEAD
 `PUT oauth/clients/{client_id}`
+=======
+`DELETE api/roles/{role}`
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
+#### URL Parameters
 
+<<<<<<< HEAD
 <!-- END_784aec390a455073fc7464335c1defa1 -->
 
 <!-- START_1f65a511dd86ba0541d7ba13ca57e364 -->
 ## Delete the given client.
+=======
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `integer` |  optional  | Role Id
 
+<!-- END_9aab750214722ffceebef64f24a2e175 -->
+
+#User management
+
+APIs for managing users
+<!-- START_fc1e4f6a697e3c48257de845299b71d5 -->
+## Display a listing of the users.
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
+<<<<<<< HEAD
 curl -X DELETE \
     "http://localhost/oauth/clients/1" \
+=======
+curl -X GET \
+    -G "http://localhost/api/users?page=13&per_page=9" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
+<<<<<<< HEAD
     "http://localhost/oauth/clients/1"
+=======
+    "http://localhost/api/users"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
+
+let params = {
+    "page": "13",
+    "per_page": "9",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -5008,28 +5595,77 @@ fetch(url, {
 ```
 
 
+<<<<<<< HEAD
 
 ### HTTP Request
 `DELETE oauth/clients/{client_id}`
+=======
+> Example response (200):
 
+```json
+{
+    "data": [
+        {
+            "name": "Donnie Gleason",
+            "email": "kconroy@example.net",
+            "email_verified_at": "2020-04-13T16:47:31.000000Z"
+        },
+        {
+            "name": "Dr. Tevin McLaughlin I",
+            "email": "genesis.parisian@example.org",
+            "email_verified_at": "2020-04-13T16:47:31.000000Z"
+        }
+    ]
+}
+```
 
+### HTTP Request
+`GET api/users`
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+
+#### Query Parameters
+
+<<<<<<< HEAD
 <!-- END_1f65a511dd86ba0541d7ba13ca57e364 -->
 
 <!-- START_9e281bd3a1eb1d9eb63190c8effb607c -->
 ## Get all of the available scopes for the application.
+=======
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `page` |  required  | The page number. default = 1
+    `per_page` |  required  | The number of items per list. default = 15
 
+<!-- END_fc1e4f6a697e3c48257de845299b71d5 -->
+
+<!-- START_12e37982cc5398c7100e59625ebb5514 -->
+## Store a newly created user in storage.
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
+<<<<<<< HEAD
 curl -X GET \
     -G "http://localhost/oauth/scopes" \
+=======
+curl -X POST \
+    "http://localhost/api/users" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"name":"ut","email":"totam","password":"vel"}'
+
 ```
 
 ```javascript
 const url = new URL(
+<<<<<<< HEAD
     "http://localhost/oauth/scopes"
+=======
+    "http://localhost/api/users"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -5037,15 +5673,23 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "ut",
+    "email": "totam",
+    "password": "vel"
+}
+
 fetch(url, {
     method: "GET",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
 ```
 
 
+<<<<<<< HEAD
 > Example response (401):
 
 ```json
@@ -5056,25 +5700,63 @@ fetch(url, {
 
 ### HTTP Request
 `GET oauth/scopes`
+=======
+> Example response (200):
 
+```json
+{
+    "data": {
+        "name": "Helmer Hirthe Sr.",
+        "email": "bernier.dell@example.org",
+        "email_verified_at": "2020-04-13T16:47:31.000000Z"
+    }
+}
+```
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
+### HTTP Request
+`POST api/users`
+
+<<<<<<< HEAD
 <!-- END_9e281bd3a1eb1d9eb63190c8effb607c -->
 
 <!-- START_9b2a7699ce6214a79e0fd8107f8b1c9e -->
 ## Get all of the personal access tokens for the authenticated user.
+=======
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  required  | User Name
+        `email` | string |  required  | User Email
+        `password` | string |  required  | User Password
+    
+<!-- END_12e37982cc5398c7100e59625ebb5514 -->
 
+<!-- START_8653614346cb0e3d444d164579a0a0a2 -->
+## Display the specified user
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/oauth/personal-access-tokens" \
+=======
+    -G "http://localhost/api/users/1" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
+<<<<<<< HEAD
     "http://localhost/oauth/personal-access-tokens"
+=======
+    "http://localhost/api/users/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -5095,31 +5777,67 @@ fetch(url, {
 
 ```json
 {
+<<<<<<< HEAD
     "message": "Unauthenticated."
+=======
+    "data": {
+        "name": "Jay Jacobi V",
+        "email": "bpaucek@example.com",
+        "email_verified_at": "2020-04-13T16:47:31.000000Z"
+    }
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 ```
 
 ### HTTP Request
+<<<<<<< HEAD
 `GET oauth/personal-access-tokens`
+=======
+`GET api/users/{user}`
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
+#### URL Parameters
 
+<<<<<<< HEAD
 <!-- END_9b2a7699ce6214a79e0fd8107f8b1c9e -->
 
 <!-- START_a8dd9c0a5583742e671711f9bb3ee406 -->
 ## Create a new personal access token for the user.
+=======
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | User Id
 
+<!-- END_8653614346cb0e3d444d164579a0a0a2 -->
+
+<!-- START_48a3115be98493a3c866eb0e23347262 -->
+## Update the specified user.
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
+<<<<<<< HEAD
 curl -X POST \
     "http://localhost/oauth/personal-access-tokens" \
+=======
+curl -X PUT \
+    "http://localhost/api/users/1" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"name":"iusto","password":"dignissimos"}'
+
 ```
 
 ```javascript
 const url = new URL(
+<<<<<<< HEAD
     "http://localhost/oauth/personal-access-tokens"
+=======
+    "http://localhost/api/users/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -5127,37 +5845,86 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "iusto",
+    "password": "dignissimos"
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "data": {
+        "name": "Kobe Keebler",
+        "email": "orohan@example.net",
+        "email_verified_at": "2020-04-13T16:47:31.000000Z"
+    }
+}
+```
 
 ### HTTP Request
+<<<<<<< HEAD
 `POST oauth/personal-access-tokens`
+=======
+`PUT api/users/{user}`
 
+`PATCH api/users/{user}`
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
+#### URL Parameters
+
+<<<<<<< HEAD
 <!-- END_a8dd9c0a5583742e671711f9bb3ee406 -->
 
 <!-- START_bae65df80fd9d72a01439241a9ea20d0 -->
 ## Delete the given token.
+=======
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | User's Id to be Updated
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  optional  | User Name
+        `password` | string |  optional  | User Password
+    
+<!-- END_48a3115be98493a3c866eb0e23347262 -->
 
+<!-- START_d2db7a9fe3abd141d5adbc367a88e969 -->
+## Remove the specified user from storage.
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X DELETE \
+<<<<<<< HEAD
     "http://localhost/oauth/personal-access-tokens/1" \
+=======
+    "http://localhost/api/users/1" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
+<<<<<<< HEAD
     "http://localhost/oauth/personal-access-tokens/1"
+=======
+    "http://localhost/api/users/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -5174,11 +5941,31 @@ fetch(url, {
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "message": "User Deleted"
+}
+```
 
 ### HTTP Request
+<<<<<<< HEAD
 `DELETE oauth/personal-access-tokens/{token_id}`
+=======
+`DELETE api/users/{user}`
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
+#### URL Parameters
 
+<<<<<<< HEAD
 <!-- END_bae65df80fd9d72a01439241a9ea20d0 -->
+=======
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  optional  | User's Id to be Deleted
+
+<!-- END_d2db7a9fe3abd141d5adbc367a88e969 -->
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 
 

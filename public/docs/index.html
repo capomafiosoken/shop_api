@@ -58,7 +58,11 @@
     "http://localhost/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"aliquid","email":"ex"}'
+=======
+    -d '{"name":"dolores","email":"commodi"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/login"
@@ -70,8 +74,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "aliquid",
     "email": "ex"
+=======
+    "name": "dolores",
+    "email": "commodi"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -165,7 +174,11 @@ fetch(url, {
     "http://localhost/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"ratione","email":"praesentium","password":"consequatur"}'
+=======
+    -d '{"name":"distinctio","email":"assumenda","password":"animi"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/register"
@@ -177,9 +190,15 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "ratione",
     "email": "praesentium",
     "password": "consequatur"
+=======
+    "name": "distinctio",
+    "email": "assumenda",
+    "password": "animi"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -238,7 +257,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/addresses?page=7&amp;per_page=19" \
+=======
+    -G "http://localhost/api/addresses?page=6&amp;per_page=4" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -246,8 +269,13 @@ fetch(url, {
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "7",
     "per_page": "19",
+=======
+    "page": "6",
+    "per_page": "4",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -345,7 +373,11 @@ fetch(url, {
     "http://localhost/api/addresses" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"city_id":"possimus","zip_code":"ratione","address":"quos","full_name":"quae","telephone_number":"voluptatem","note":"repellendus"}'
+=======
+    -d '{"city_id":"enim","zip_code":"fugit","address":"minus","full_name":"explicabo","telephone_number":"dolorem","note":"commodi"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/addresses"
@@ -357,12 +389,21 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "city_id": "possimus",
     "zip_code": "ratione",
     "address": "quos",
     "full_name": "quae",
     "telephone_number": "voluptatem",
     "note": "repellendus"
+=======
+    "city_id": "enim",
+    "zip_code": "fugit",
+    "address": "minus",
+    "full_name": "explicabo",
+    "telephone_number": "dolorem",
+    "note": "commodi"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -529,7 +570,11 @@ fetch(url, {
     "http://localhost/api/addresses/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"city_id":"sapiente","zip_code":"vero","address":"qui","full_name":"ducimus","telephone_number":"eveniet","note":"sunt"}'
+=======
+    -d '{"city_id":"dicta","zip_code":"sit","address":"et","full_name":"laborum","telephone_number":"impedit","note":"cupiditate"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/addresses/1"
@@ -541,12 +586,21 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "city_id": "sapiente",
     "zip_code": "vero",
     "address": "qui",
     "full_name": "ducimus",
     "telephone_number": "eveniet",
     "note": "sunt"
+=======
+    "city_id": "dicta",
+    "zip_code": "sit",
+    "address": "et",
+    "full_name": "laborum",
+    "telephone_number": "impedit",
+    "note": "cupiditate"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -711,7 +765,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/brands?page=16&amp;per_page=8" \
+=======
+    -G "http://localhost/api/brands?page=8&amp;per_page=16" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -719,8 +777,13 @@ fetch(url, {
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "16",
     "per_page": "8",
+=======
+    "page": "8",
+    "per_page": "16",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -745,7 +808,7 @@ fetch(url, {
             "id": 1,
             "name": "louis vuitton",
             "alias": "LV",
-            "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+            "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
             "image": "no_image.jpg",
             "created_at": null,
             "updated_at": null,
@@ -755,7 +818,7 @@ fetch(url, {
             "id": 1,
             "name": "louis vuitton",
             "alias": "LV",
-            "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+            "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
             "image": "no_image.jpg",
             "created_at": null,
             "updated_at": null,
@@ -798,7 +861,11 @@ fetch(url, {
     "http://localhost/api/brands" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"repellendus","alias":"et","description":"quia","image":"eius"}'
+=======
+    -d '{"name":"id","alias":"odit","description":"aut","image":"dicta"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/brands"
@@ -810,10 +877,17 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "repellendus",
     "alias": "et",
     "description": "quia",
     "image": "eius"
+=======
+    "name": "id",
+    "alias": "odit",
+    "description": "aut",
+    "image": "dicta"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -831,7 +905,7 @@ fetch(url, {
         "id": 1,
         "name": "louis vuitton",
         "alias": "LV",
-        "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+        "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
         "image": "no_image.jpg",
         "created_at": null,
         "updated_at": null,
@@ -911,7 +985,7 @@ fetch(url, {
         "id": 1,
         "name": "louis vuitton",
         "alias": "LV",
-        "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+        "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
         "image": "no_image.jpg",
         "created_at": null,
         "updated_at": null,
@@ -948,7 +1022,11 @@ fetch(url, {
     "http://localhost/api/brands/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"suscipit","alias":"consequatur","description":"error","image":"ducimus"}'
+=======
+    -d '{"name":"dolores","alias":"placeat","description":"suscipit","image":"est"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/brands/1"
@@ -960,10 +1038,17 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "suscipit",
     "alias": "consequatur",
     "description": "error",
     "image": "ducimus"
+=======
+    "name": "dolores",
+    "alias": "placeat",
+    "description": "suscipit",
+    "image": "est"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -981,7 +1066,7 @@ fetch(url, {
         "id": 1,
         "name": "louis vuitton",
         "alias": "LV",
-        "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+        "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
         "image": "no_image.jpg",
         "created_at": null,
         "updated_at": null,
@@ -1098,7 +1183,7 @@ fetch(url, {
 </table>
 <!-- END_6bc624c1de327f8a14d11df082f18630 -->
 <h1>Category management</h1>
-<p>APIs for managing addresses</p>
+<p>APIs for managing categories</p>
 <!-- START_109013899e0bc43247b0f00b67f889cf -->
 <h2>Display a listing of the category.</h2>
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
@@ -1198,7 +1283,11 @@ fetch(url, {
     "http://localhost/api/categories" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"qui","alias":"alias","parent_id":"repellat","keyword":"rem","description":"temporibus","image":"dicta"}'
+=======
+    -d '{"name":"minus","alias":"pariatur","parent_id":"esse","keyword":"suscipit","description":"quia","image":"minus"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/categories"
@@ -1210,12 +1299,21 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "qui",
     "alias": "alias",
     "parent_id": "repellat",
     "keyword": "rem",
     "description": "temporibus",
     "image": "dicta"
+=======
+    "name": "minus",
+    "alias": "pariatur",
+    "parent_id": "esse",
+    "keyword": "suscipit",
+    "description": "quia",
+    "image": "minus"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -1364,7 +1462,11 @@ fetch(url, {
     "http://localhost/api/categories/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"sint","alias":"ipsam","parent_id":"atque","keyword":"ea","image":"exercitationem"}'
+=======
+    -d '{"name":"laudantium","alias":"nisi","parent_id":"recusandae","keyword":"doloribus","image":"omnis"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/categories/1"
@@ -1376,11 +1478,19 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "sint",
     "alias": "ipsam",
     "parent_id": "atque",
     "keyword": "ea",
     "image": "exercitationem"
+=======
+    "name": "laudantium",
+    "alias": "nisi",
+    "parent_id": "recusandae",
+    "keyword": "doloribus",
+    "image": "omnis"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -1546,7 +1656,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/cities?page=7&amp;per_page=9" \
+=======
+    -G "http://localhost/api/cities?page=13&amp;per_page=3" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1554,8 +1668,13 @@ fetch(url, {
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "7",
     "per_page": "9",
+=======
+    "page": "13",
+    "per_page": "3",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1631,7 +1750,11 @@ fetch(url, {
     "http://localhost/api/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"similique","region_id":"ea","zip_code":"possimus"}'
+=======
+    -d '{"name":"alias","region_id":"quia","zip_code":"quo"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/cities"
@@ -1643,9 +1766,15 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "similique",
     "region_id": "ea",
     "zip_code": "possimus"
+=======
+    "name": "alias",
+    "region_id": "quia",
+    "zip_code": "quo"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -1772,7 +1901,11 @@ fetch(url, {
     "http://localhost/api/cities/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"molestiae","region_id":"nostrum","zip_code":"molestiae"}'
+=======
+    -d '{"name":"et","region_id":"maxime","zip_code":"officia"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/cities/1"
@@ -1784,9 +1917,15 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "molestiae",
     "region_id": "nostrum",
     "zip_code": "molestiae"
+=======
+    "name": "et",
+    "region_id": "maxime",
+    "zip_code": "officia"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -1922,7 +2061,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/currencies?page=3&amp;per_page=12" \
+=======
+    -G "http://localhost/api/currencies?page=4&amp;per_page=6" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1930,8 +2073,13 @@ fetch(url, {
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "3",
     "per_page": "12",
+=======
+    "page": "4",
+    "per_page": "6",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2013,7 +2161,11 @@ fetch(url, {
     "http://localhost/api/currencies" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"voluptatem","code":"cum","symbol_left":"numquam","symbol_right":"possimus","value":"quibusdam","base":"amet"}'
+=======
+    -d '{"name":"et","code":"ea","symbol_left":"accusantium","symbol_right":"voluptas","value":"corporis","base":"doloremque"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/currencies"
@@ -2025,12 +2177,21 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "voluptatem",
     "code": "cum",
     "symbol_left": "numquam",
     "symbol_right": "possimus",
     "value": "quibusdam",
     "base": "amet"
+=======
+    "name": "et",
+    "code": "ea",
+    "symbol_left": "accusantium",
+    "symbol_right": "voluptas",
+    "value": "corporis",
+    "base": "doloremque"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2181,7 +2342,11 @@ fetch(url, {
     "http://localhost/api/currencies/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"quis","code":"nihil","symbol_left":"totam","symbol_right":"cumque","value":"illum","base":"placeat"}'
+=======
+    -d '{"name":"veritatis","code":"voluptatem","symbol_left":"eum","symbol_right":"velit","value":"ipsum","base":"voluptates"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/currencies/1"
@@ -2193,12 +2358,21 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "quis",
     "code": "nihil",
     "symbol_left": "totam",
     "symbol_right": "cumque",
     "value": "illum",
     "base": "placeat"
+=======
+    "name": "veritatis",
+    "code": "voluptatem",
+    "symbol_left": "eum",
+    "symbol_right": "velit",
+    "value": "ipsum",
+    "base": "voluptates"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2347,7 +2521,11 @@ fetch(url, {
 </table>
 <!-- END_c2a506528fd96c1a820f64892ce7068f -->
 <h1>FilterGroup management</h1>
+<<<<<<< HEAD
 <p>APIs for managing addresses</p>
+=======
+<p>APIs for managing filter groups</p>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <!-- START_ea79b130426ba62aa89eb615fe141273 -->
 <h2>Display a listing of the FilterGroup.</h2>
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
@@ -2379,12 +2557,21 @@ fetch(url, {
 <pre><code class="language-json">{
     "data": [
         {
+<<<<<<< HEAD
             "id": 1,
             "name": "Цвет"
         },
         {
             "id": 1,
             "name": "Цвет"
+=======
+            "id": 3,
+            "name": "Скидки"
+        },
+        {
+            "id": 3,
+            "name": "Скидки"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
         }
     ]
 }</code></pre>
@@ -2401,7 +2588,11 @@ fetch(url, {
     "http://localhost/api/filterGroups" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"id"}'
+=======
+    -d '{"name":"perspiciatis"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/filterGroups"
@@ -2413,7 +2604,11 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "id"
+=======
+    "name": "perspiciatis"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2428,8 +2623,13 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "name": "Цвет"
+=======
+        "id": 3,
+        "name": "Скидки"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -2484,8 +2684,13 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "name": "Цвет"
+=======
+        "id": 3,
+        "name": "Скидки"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -2518,7 +2723,11 @@ fetch(url, {
     "http://localhost/api/filterGroups/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"filter_group_id":"ipsum","value":"molestias"}'
+=======
+    -d '{"filter_group_id":"harum","value":"sed"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/filterGroups/1"
@@ -2530,8 +2739,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "filter_group_id": "ipsum",
     "value": "molestias"
+=======
+    "filter_group_id": "harum",
+    "value": "sed"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2546,8 +2760,13 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "name": "Цвет"
+=======
+        "id": 3,
+        "name": "Скидки"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -2648,7 +2867,11 @@ fetch(url, {
 </table>
 <!-- END_758f44cfb324ce71488caef2f0815215 -->
 <h1>FilterValue management</h1>
+<<<<<<< HEAD
 <p>APIs for managing addresses</p>
+=======
+<p>APIs for managing filer values</p>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <!-- START_d96de9f30d1796b25dc18a6450be51f8 -->
 <h2>Display a listing of the FilterValue.</h2>
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
@@ -2680,6 +2903,7 @@ fetch(url, {
 <pre><code class="language-json">{
     "data": [
         {
+<<<<<<< HEAD
             "id": 1,
             "value": "белый",
             "filter_group_id": 1
@@ -2688,6 +2912,16 @@ fetch(url, {
             "id": 1,
             "value": "белый",
             "filter_group_id": 1
+=======
+            "id": 5,
+            "value": "50%",
+            "filter_group_id": 3
+        },
+        {
+            "id": 5,
+            "value": "50%",
+            "filter_group_id": 3
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
         }
     ]
 }</code></pre>
@@ -2704,7 +2938,11 @@ fetch(url, {
     "http://localhost/api/filterValues" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"filter_group_id":"consequatur","value":"ab"}'
+=======
+    -d '{"filter_group_id":"commodi","value":"nesciunt"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/filterValues"
@@ -2716,8 +2954,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "filter_group_id": "consequatur",
     "value": "ab"
+=======
+    "filter_group_id": "commodi",
+    "value": "nesciunt"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2732,9 +2975,15 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "value": "белый",
         "filter_group_id": 1
+=======
+        "id": 5,
+        "value": "50%",
+        "filter_group_id": 3
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -2795,9 +3044,15 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "value": "белый",
         "filter_group_id": 1
+=======
+        "id": 5,
+        "value": "50%",
+        "filter_group_id": 3
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -2830,7 +3085,11 @@ fetch(url, {
     "http://localhost/api/filterValues/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"filter_group_id":"cumque","value":"corrupti"}'
+=======
+    -d '{"filter_group_id":"fugit","value":"voluptatum"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/filterValues/1"
@@ -2842,8 +3101,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "filter_group_id": "cumque",
     "value": "corrupti"
+=======
+    "filter_group_id": "fugit",
+    "value": "voluptatum"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -2858,9 +3122,15 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
+<<<<<<< HEAD
         "id": 1,
         "value": "белый",
         "filter_group_id": 1
+=======
+        "id": 5,
+        "value": "50%",
+        "filter_group_id": 3
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -2969,7 +3239,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/orders?page=11&amp;per_page=9" \
+=======
+    -G "http://localhost/api/orders?page=8&amp;per_page=3" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2977,8 +3251,13 @@ fetch(url, {
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "11",
     "per_page": "9",
+=======
+    "page": "8",
+    "per_page": "3",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3056,7 +3335,11 @@ fetch(url, {
     "http://localhost/api/orders" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"user_id":"rerum","status":"ut","currency_id":"et","address_id":"iure","products":[]}'
+=======
+    -d '{"user_id":"id","status":"nihil","currency_id":"harum","address_id":"voluptatem","products":[]}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/orders"
@@ -3068,10 +3351,17 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "user_id": "rerum",
     "status": "ut",
     "currency_id": "et",
     "address_id": "iure",
+=======
+    "user_id": "id",
+    "status": "nihil",
+    "currency_id": "harum",
+    "address_id": "voluptatem",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     "products": []
 }
 
@@ -3213,7 +3503,11 @@ fetch(url, {
     "http://localhost/api/orders/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"user_id":"facilis","status":"et","currency_id":"voluptatem","address_id":"necessitatibus"}'
+=======
+    -d '{"user_id":"quo","status":"non","currency_id":"aperiam","address_id":"molestias"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/orders/1"
@@ -3225,10 +3519,17 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "user_id": "facilis",
     "status": "et",
     "currency_id": "voluptatem",
     "address_id": "necessitatibus"
+=======
+    "user_id": "quo",
+    "status": "non",
+    "currency_id": "aperiam",
+    "address_id": "molestias"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -3363,7 +3664,11 @@ fetch(url, {
 </table>
 <!-- END_c280b55cf267ef09fc12c6b09ac78ede -->
 <h1>ProductImage management</h1>
+<<<<<<< HEAD
 <p>APIs for managing addresses</p>
+=======
+<p>APIs for managing product images</p>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <!-- START_10c520f201ad78363713cc43becd6b39 -->
 <h2>Display a listing of the ProductImage.</h2>
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
@@ -3411,7 +3716,11 @@ fetch(url, {
     "http://localhost/api/productImages" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"product_id":"dignissimos","image":"velit"}'
+=======
+    -d '{"product_id":"qui","image":"enim"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/productImages"
@@ -3423,8 +3732,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "product_id": "dignissimos",
     "image": "velit"
+=======
+    "product_id": "qui",
+    "image": "enim"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -3548,7 +3862,11 @@ fetch(url, {
     "http://localhost/api/productImages/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"product_id":"dolorum","image":"dolores"}'
+=======
+    -d '{"product_id":"nihil","image":"suscipit"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/productImages/1"
@@ -3560,8 +3878,13 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "product_id": "dolorum",
     "image": "dolores"
+=======
+    "product_id": "nihil",
+    "image": "suscipit"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -3702,7 +4025,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/api/products?page=6&amp;per_page=2" \
+=======
+    -G "http://localhost/api/products?page=1&amp;per_page=19" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3710,8 +4037,13 @@ fetch(url, {
 );
 
 let params = {
+<<<<<<< HEAD
     "page": "6",
     "per_page": "2",
+=======
+    "page": "1",
+    "per_page": "19",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3803,7 +4135,11 @@ fetch(url, {
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"error","alias":"velit","description":"eveniet","content":"non","brand_id":"sit","price":"rerum","keywords":"est","image":"et","pieces_left":"natus"}'
+=======
+    -d '{"name":"enim","alias":"sint","description":"dolor","content":"id","brand_id":"accusantium","price":"sed","keywords":"deleniti","image":"hic","pieces_left":"nostrum"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products"
@@ -3815,6 +4151,7 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "error",
     "alias": "velit",
     "description": "eveniet",
@@ -3824,6 +4161,17 @@ let body = {
     "keywords": "est",
     "image": "et",
     "pieces_left": "natus"
+=======
+    "name": "enim",
+    "alias": "sint",
+    "description": "dolor",
+    "content": "id",
+    "brand_id": "accusantium",
+    "price": "sed",
+    "keywords": "deleniti",
+    "image": "hic",
+    "pieces_left": "nostrum"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -4002,7 +4350,11 @@ fetch(url, {
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"debitis","alias":"commodi","description":"voluptas","content":"dignissimos","brand_id":"earum","price":"similique","keywords":"eligendi","image":"commodi","pieces_left":"ut"}'
+=======
+    -d '{"name":"et","alias":"tenetur","description":"illum","content":"non","brand_id":"dolore","price":"animi","keywords":"voluptatem","image":"voluptas","pieces_left":"et"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products/1"
@@ -4014,6 +4366,7 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "debitis",
     "alias": "commodi",
     "description": "voluptas",
@@ -4023,6 +4376,17 @@ let body = {
     "keywords": "eligendi",
     "image": "commodi",
     "pieces_left": "ut"
+=======
+    "name": "et",
+    "alias": "tenetur",
+    "description": "illum",
+    "content": "non",
+    "brand_id": "dolore",
+    "price": "animi",
+    "keywords": "voluptatem",
+    "image": "voluptas",
+    "pieces_left": "et"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -4177,7 +4541,11 @@ fetch(url, {
 </table>
 <!-- END_1d809ca5e8b10fa7fdc75d04506a55ea -->
 <h1>Region management</h1>
+<<<<<<< HEAD
 <p>APIs for managing addresses</p>
+=======
+<p>APIs for managing regions</p>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <!-- START_d3a06985ef377a31eecb832106f4a5e6 -->
 <h2>Display a listing of the resource.</h2>
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
@@ -4232,7 +4600,11 @@ fetch(url, {
     "http://localhost/api/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
+<<<<<<< HEAD
     -d '{"name":"fugiat"}'
+=======
+    -d '{"name":"eaque"}'
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/regions"
@@ -4244,7 +4616,11 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "name": "fugiat"
+=======
+    "name": "eaque"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 }
 
 fetch(url, {
@@ -4311,6 +4687,7 @@ fetch(url, {
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<<<<<<< HEAD
 <blockquote>
 <p>Example response (200):</p>
 </blockquote>
@@ -4344,9 +4721,12 @@ fetch(url, {
 <!-- START_9619be130c210af5a3616a112d8ca186 -->
 <h2>Update the specified Region in storage.</h2>
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+=======
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <blockquote>
-<p>Example request:</p>
+<p>Example response (200):</p>
 </blockquote>
+<<<<<<< HEAD
 <pre><code class="language-bash">curl -X PUT \
     "http://localhost/api/regions/1" \
     -H "Content-Type: application/json" \
@@ -4376,6 +4756,8 @@ fetch(url, {
 <blockquote>
 <p>Example response (200):</p>
 </blockquote>
+=======
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <pre><code class="language-json">{
     "data": {
         "id": 1,
@@ -4384,8 +4766,12 @@ fetch(url, {
     }
 }</code></pre>
 <h3>HTTP Request</h3>
+<<<<<<< HEAD
 <p><code>PUT api/regions/{region}</code></p>
 <p><code>PATCH api/regions/{region}</code></p>
+=======
+<p><code>GET api/regions/{region}</code></p>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <h4>URL Parameters</h4>
 <table>
 <thead>
@@ -4399,6 +4785,7 @@ fetch(url, {
 <tr>
 <td><code>id</code></td>
 <td>required</td>
+<<<<<<< HEAD
 <td>Region's Id</td>
 </tr>
 </tbody>
@@ -4425,14 +4812,29 @@ fetch(url, {
 <!-- END_9619be130c210af5a3616a112d8ca186 -->
 <!-- START_a60a16eb441242ed47324c1a7e6cee55 -->
 <h2>Remove the specified region from storage.</h2>
+=======
+<td>region Id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_85a05f083d203a82298e77c4b7074d28 -->
+<!-- START_9619be130c210af5a3616a112d8ca186 -->
+<h2>Update the specified Region in storage.</h2>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
+<<<<<<< HEAD
 <pre><code class="language-bash">curl -X DELETE \
+=======
+<pre><code class="language-bash">curl -X PUT \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     "http://localhost/api/regions/1" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"name":"laudantium"}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/regions/1"
 );
@@ -4442,8 +4844,120 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "laudantium"
+}
+
 fetch(url, {
+<<<<<<< HEAD
     method: "DELETE",
+=======
+    method: "PUT",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+<<<<<<< HEAD
+    "message": "Region Deleted"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/regions/{region}</code></p>
+=======
+    "data": {
+        "id": 1,
+        "name": "Акмолинская область",
+        "deleted_at": null
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/regions/{region}</code></p>
+<p><code>PATCH api/regions/{region}</code></p>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>required</td>
+<<<<<<< HEAD
+<td>Region's Id To Be Deleted</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a60a16eb441242ed47324c1a7e6cee55 -->
+<h1>Role management</h1>
+<p>APIs for managing roles</p>
+<!-- START_6470e6b987921f5c45bf7a2d8e674f57 -->
+<h2>Display a listing of the role.</h2>
+=======
+<td>Region's Id</td>
+</tr>
+</tbody>
+</table>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>required</td>
+<td>optional</td>
+<td>Name</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9619be130c210af5a3616a112d8ca186 -->
+<!-- START_a60a16eb441242ed47324c1a7e6cee55 -->
+<h2>Remove the specified region from storage.</h2>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<<<<<<< HEAD
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/roles" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/roles"
+=======
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/api/regions/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/regions/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
     headers: headers,
 })
     .then(response =&gt; response.json())
@@ -4452,6 +4966,22 @@ fetch(url, {
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
+<<<<<<< HEAD
+    "data": [
+        {
+            "name": "admin"
+        },
+        {
+            "name": "admin"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/roles</code></p>
+<!-- END_6470e6b987921f5c45bf7a2d8e674f57 -->
+<!-- START_90c780acaefab9740431579512d07101 -->
+<h2>Store a newly created role in storage.</h2>
+=======
     "message": "Region Deleted"
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -4478,53 +5008,18 @@ fetch(url, {
 <p>APIs for managing roles</p>
 <!-- START_6470e6b987921f5c45bf7a2d8e674f57 -->
 <h2>Display a listing of the role.</h2>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/roles" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/roles"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (200):</p>
-</blockquote>
-<pre><code class="language-json">{
-    "data": [
-        {
-            "name": "admin"
-        },
-        {
-            "name": "admin"
-        }
-    ]
-}</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET api/roles</code></p>
-<!-- END_6470e6b987921f5c45bf7a2d8e674f57 -->
-<!-- START_90c780acaefab9740431579512d07101 -->
-<h2>Store a newly created role in storage.</h2>
-<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
+<<<<<<< HEAD
 <pre><code class="language-bash">curl -X POST \
     "http://localhost/api/roles" \
+=======
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/roles" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"name":"rerum"}'
@@ -4543,7 +5038,7 @@ let body = {
 }
 
 fetch(url, {
-    method: "POST",
+    method: "GET",
     headers: headers,
     body: body
 })
@@ -4553,6 +5048,7 @@ fetch(url, {
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
+<<<<<<< HEAD
     "data": {
         "name": "admin"
     }
@@ -4581,16 +5077,43 @@ fetch(url, {
 <!-- END_90c780acaefab9740431579512d07101 -->
 <!-- START_eb37fe1fa9305b4b78850dd87031670b -->
 <h2>Display the specified role.</h2>
+=======
+    "data": [
+        {
+            "name": "admin"
+        },
+        {
+            "name": "admin"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/roles</code></p>
+<!-- END_6470e6b987921f5c45bf7a2d8e674f57 -->
+<!-- START_90c780acaefab9740431579512d07101 -->
+<h2>Store a newly created role in storage.</h2>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
+<<<<<<< HEAD
 <pre><code class="language-bash">curl -X GET \
     -G "http://localhost/api/roles/1" \
+=======
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/roles" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"name":"at"}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
+<<<<<<< HEAD
     "http://localhost/api/roles/1"
+=======
+    "http://localhost/api/roles"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -4598,9 +5121,14 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "at"
+}
+
 fetch(url, {
-    method: "GET",
+    method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
@@ -4613,18 +5141,28 @@ fetch(url, {
     }
 }</code></pre>
 <h3>HTTP Request</h3>
+<<<<<<< HEAD
 <p><code>GET api/roles/{role}</code></p>
 <h4>URL Parameters</h4>
+=======
+<p><code>POST api/roles</code></p>
+<h4>Body Parameters</h4>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
+<<<<<<< HEAD
+=======
+<th>Type</th>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <th>Status</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<<<<<<< HEAD
 <td><code>id</code></td>
 <td>required</td>
 <td>Role Id</td>
@@ -4634,12 +5172,29 @@ fetch(url, {
 <!-- END_eb37fe1fa9305b4b78850dd87031670b -->
 <!-- START_cccebfff0074c9c5f499e215eee84e86 -->
 <h2>Update the specified role in storage.</h2>
+=======
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>Name</td>
+</tr>
+</tbody>
+</table>
+<!-- END_90c780acaefab9740431579512d07101 -->
+<!-- START_eb37fe1fa9305b4b78850dd87031670b -->
+<h2>Display the specified role.</h2>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
+<<<<<<< HEAD
 <pre><code class="language-bash">curl -X PUT \
     "http://localhost/api/roles/1" \
+=======
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/roles/1" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"name":"consequatur"}'
@@ -4658,7 +5213,11 @@ let body = {
 }
 
 fetch(url, {
+<<<<<<< HEAD
     method: "PUT",
+=======
+    method: "GET",
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     headers: headers,
     body: body
 })
@@ -4673,8 +5232,12 @@ fetch(url, {
     }
 }</code></pre>
 <h3>HTTP Request</h3>
+<<<<<<< HEAD
 <p><code>PUT api/roles/{role}</code></p>
 <p><code>PATCH api/roles/{role}</code></p>
+=======
+<p><code>GET api/roles/{role}</code></p>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <h4>URL Parameters</h4>
 <table>
 <thead>
@@ -4692,6 +5255,7 @@ fetch(url, {
 </tr>
 </tbody>
 </table>
+<<<<<<< HEAD
 <h4>Body Parameters</h4>
 <table>
 <thead>
@@ -4714,14 +5278,25 @@ fetch(url, {
 <!-- END_cccebfff0074c9c5f499e215eee84e86 -->
 <!-- START_9aab750214722ffceebef64f24a2e175 -->
 <h2>Remove the specified role from storage.</h2>
+=======
+<!-- END_eb37fe1fa9305b4b78850dd87031670b -->
+<!-- START_cccebfff0074c9c5f499e215eee84e86 -->
+<h2>Update the specified role in storage.</h2>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
+<<<<<<< HEAD
 <pre><code class="language-bash">curl -X DELETE \
+=======
+<pre><code class="language-bash">curl -X PUT \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     "http://localhost/api/roles/1" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"name":"aut"}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/roles/1"
 );
@@ -4731,12 +5306,18 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "aut"
+}
+
 fetch(url, {
     method: "DELETE",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<<<<<<< HEAD
 <blockquote>
 <p>Example response (200):</p>
 </blockquote>
@@ -4943,10 +5524,14 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
+=======
+<blockquote>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
+<<<<<<< HEAD
         "name": "Yessenia Koss",
         "email": "margret.collier@example.org",
         "email_verified_at": "2020-04-13T16:34:46.000000Z"
@@ -5238,6 +5823,63 @@ fetch(url, {
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/oauth/tokens"
+=======
+        "name": "admin"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/roles/{role}</code></p>
+<p><code>PATCH api/roles/{role}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>required</td>
+<td>Role Id</td>
+</tr>
+</tbody>
+</table>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Name</td>
+</tr>
+</tbody>
+</table>
+<!-- END_cccebfff0074c9c5f499e215eee84e86 -->
+<!-- START_9aab750214722ffceebef64f24a2e175 -->
+<h2>Remove the specified role from storage.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/api/roles/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/roles/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -5252,6 +5894,7 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
+<<<<<<< HEAD
 <p>Example response (401):</p>
 </blockquote>
 <pre><code class="language-json">{
@@ -5412,7 +6055,55 @@ fetch(url, {
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/oauth/clients/1"
+=======
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "User Deleted"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/roles/{role}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>integer</code></td>
+<td>optional</td>
+<td>Role Id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9aab750214722ffceebef64f24a2e175 -->
+<h1>User management</h1>
+<p>APIs for managing users</p>
+<!-- START_fc1e4f6a697e3c48257de845299b71d5 -->
+<h2>Display a listing of the users.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/users?page=13&amp;per_page=9" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
+
+let params = {
+    "page": "13",
+    "per_page": "9",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -5425,6 +6116,7 @@ fetch(url, {
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<<<<<<< HEAD
 <h3>HTTP Request</h3>
 <p><code>DELETE oauth/clients/{client_id}</code></p>
 <!-- END_1f65a511dd86ba0541d7ba13ca57e364 -->
@@ -5435,10 +6127,68 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://localhost/oauth/scopes" \
+=======
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "name": "Donnie Gleason",
+            "email": "kconroy@example.net",
+            "email_verified_at": "2020-04-13T16:47:31.000000Z"
+        },
+        {
+            "name": "Dr. Tevin McLaughlin I",
+            "email": "genesis.parisian@example.org",
+            "email_verified_at": "2020-04-13T16:47:31.000000Z"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/users</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>required</td>
+<td>The page number. default = 1</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td>required</td>
+<td>The number of items per list. default = 15</td>
+</tr>
+</tbody>
+</table>
+<!-- END_fc1e4f6a697e3c48257de845299b71d5 -->
+<!-- START_12e37982cc5398c7100e59625ebb5514 -->
+<h2>Store a newly created user in storage.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/users" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"name":"ut","email":"totam","password":"vel"}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
+<<<<<<< HEAD
     "http://localhost/oauth/scopes"
+=======
+    "http://localhost/api/users"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -5446,13 +6196,21 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "ut",
+    "email": "totam",
+    "password": "vel"
+}
+
 fetch(url, {
     method: "GET",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
+<<<<<<< HEAD
 <p>Example response (401):</p>
 </blockquote>
 <pre><code class="language-json">{
@@ -5463,15 +6221,71 @@ fetch(url, {
 <!-- END_9e281bd3a1eb1d9eb63190c8effb607c -->
 <!-- START_9b2a7699ce6214a79e0fd8107f8b1c9e -->
 <h2>Get all of the personal access tokens for the authenticated user.</h2>
+=======
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "name": "Helmer Hirthe Sr.",
+        "email": "bernier.dell@example.org",
+        "email_verified_at": "2020-04-13T16:47:31.000000Z"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/users</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>User Name</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>User Email</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>User Password</td>
+</tr>
+</tbody>
+</table>
+<!-- END_12e37982cc5398c7100e59625ebb5514 -->
+<!-- START_8653614346cb0e3d444d164579a0a0a2 -->
+<h2>Display the specified user</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
+<<<<<<< HEAD
     -G "http://localhost/oauth/personal-access-tokens" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/oauth/personal-access-tokens"
+=======
+    -G "http://localhost/api/users/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -5489,6 +6303,7 @@ fetch(url, {
 <p>Example response (401):</p>
 </blockquote>
 <pre><code class="language-json">{
+<<<<<<< HEAD
     "message": "Unauthenticated."
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -5501,10 +6316,52 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
     "http://localhost/oauth/personal-access-tokens" \
+=======
+    "data": {
+        "name": "Jay Jacobi V",
+        "email": "bpaucek@example.com",
+        "email_verified_at": "2020-04-13T16:47:31.000000Z"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/users/{user}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>required</td>
+<td>User Id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8653614346cb0e3d444d164579a0a0a2 -->
+<!-- START_48a3115be98493a3c866eb0e23347262 -->
+<h2>Update the specified user.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/users/1" \
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"name":"iusto","password":"dignissimos"}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
+<<<<<<< HEAD
     "http://localhost/oauth/personal-access-tokens"
+=======
+    "http://localhost/api/users/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -5512,26 +6369,101 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "iusto",
+    "password": "dignissimos"
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "name": "Kobe Keebler",
+        "email": "orohan@example.net",
+        "email_verified_at": "2020-04-13T16:47:31.000000Z"
+    }
+}</code></pre>
 <h3>HTTP Request</h3>
+<<<<<<< HEAD
 <p><code>POST oauth/personal-access-tokens</code></p>
 <!-- END_a8dd9c0a5583742e671711f9bb3ee406 -->
 <!-- START_bae65df80fd9d72a01439241a9ea20d0 -->
 <h2>Delete the given token.</h2>
+=======
+<p><code>PUT api/users/{user}</code></p>
+<p><code>PATCH api/users/{user}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>required</td>
+<td>User's Id to be Updated</td>
+</tr>
+</tbody>
+</table>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>optional</td>
+<td>User Name</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>optional</td>
+<td>User Password</td>
+</tr>
+</tbody>
+</table>
+<!-- END_48a3115be98493a3c866eb0e23347262 -->
+<!-- START_d2db7a9fe3abd141d5adbc367a88e969 -->
+<h2>Remove the specified user from storage.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
+<<<<<<< HEAD
     "http://localhost/oauth/personal-access-tokens/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/oauth/personal-access-tokens/1"
+=======
+    "http://localhost/api/users/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users/1"
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
 );
 
 let headers = {
@@ -5545,9 +6477,37 @@ fetch(url, {
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "User Deleted"
+}</code></pre>
 <h3>HTTP Request</h3>
+<<<<<<< HEAD
 <p><code>DELETE oauth/personal-access-tokens/{token_id}</code></p>
 <!-- END_bae65df80fd9d72a01439241a9ea20d0 -->
+=======
+<p><code>DELETE api/users/{user}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+<td>User's Id to be Deleted</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d2db7a9fe3abd141d5adbc367a88e969 -->
+>>>>>>> bda26c1d160949b32bb9c2d36a3c96073ae5ba1f
       </div>
       <div class="dark-box">
                         <div class="lang-selector">
