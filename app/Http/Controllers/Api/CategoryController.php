@@ -13,7 +13,7 @@ use Illuminate\Validation\ValidationException;
 
 /**
  * @group Category management
- * APIs for managing addresses
+ * APIs for managing categories
  */
 class CategoryController extends Controller
 {
@@ -22,8 +22,7 @@ class CategoryController extends Controller
      * @authenticated
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Category
-     * @param Request $request
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
@@ -39,7 +38,7 @@ class CategoryController extends Controller
      * @bodyParam keyword string Keyword
      * @bodyParam description string Description
      * @bodyParam image image Image
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return JsonResource
      * @throws ValidationException
      */

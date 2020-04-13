@@ -12,7 +12,7 @@ use Illuminate\Validation\ValidationException;
 
 /**
  * @group FilterValue management
- * APIs for managing addresses
+ * APIs for managing filer values
  */
 class FilterValueController extends Controller
 {
@@ -84,11 +84,11 @@ class FilterValueController extends Controller
     {
         $filterValue = FilterValue::findOrFail($id);
         $this->validate($request,[
-            'value'=>'required|max:255',
-            'filter_group_id'=>'required|numeric|digits_between:1,20',
+            'value'=>'sometimes|max:255',
+            'filter_group_id'=>'sometimes|numeric|digits_between:1,20',
 
         ]);
-        $filterValue->update($request->all());
+        $filterValue->update(array_filter($request->all()));
         return new JsonResource($filterValue);
     }
 
