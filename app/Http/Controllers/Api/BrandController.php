@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -22,18 +23,20 @@ class BrandController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+       $this->validate($request,[
             'name'=>'required|max:255',
             'alias'=>'required|max:255',
             'description'=>'nullable|max:255',
             //'image'=>'bail|required|image',
 
         ]);
+
         $name = time().'.'.explode('/',explode(':',
                 substr($request->image,0,strpos($request->image,';')))[1])[1];
         Image::make($request->image)->save(public_path('storage').'/brands/'.$name);
@@ -60,9 +63,10 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Brand  $brand
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Brand $brand
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {

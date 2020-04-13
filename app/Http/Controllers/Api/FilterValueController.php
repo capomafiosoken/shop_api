@@ -15,7 +15,7 @@ class FilterValueController extends Controller
      */
     public function index()
     {
-        return FilterValue::orderBy('id')->paginate(10);
+        return FilterValue::with('filter_group')->orderBy('id')->paginate(10);
     }
 
     /**
@@ -28,7 +28,7 @@ class FilterValueController extends Controller
     {
         $this->validate($request,[
             'value'=>'required|max:255',
-            'filter_group_id'=>'required|numeric|max:20',
+            'filter_group_id'=>'required|numeric|digits_between:1,20',
 
         ]);
         return FilterValue::create([
@@ -60,7 +60,7 @@ class FilterValueController extends Controller
         $filterValue = FilterValue::findOrFail($id);
         $this->validate($request,[
             'value'=>'required|max:255',
-            'filter_group_id'=>'required|numeric|max:20',
+            'filter_group_id'=>'required|numeric|digits_between:1,20',
 
         ]);
         $filterValue->update($request->all());
