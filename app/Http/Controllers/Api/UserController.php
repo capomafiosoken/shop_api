@@ -63,7 +63,7 @@ class UserController extends Controller
     /**
      * Display the specified User
      * @authenticated
-     * @urlParam id required User ID
+     * @urlParam id required User Id
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\User
      * @param int $id
@@ -78,7 +78,7 @@ class UserController extends Controller
     /**
      * Update the specified User
      * @authenticated
-     * @urlParam id User's Id to be Updated
+     * @urlParam id required User's Id to be Updated
      * @bodyParam name string User Name
      * @bodyParam password string User Password
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
@@ -131,7 +131,7 @@ class UserController extends Controller
     /**
      * Updates the authenticated User
      * @authenticated
-     * @bodyParam name string  User Name
+     * @bodyParam name string User Name
      * @bodyParam password string  User Password
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\User

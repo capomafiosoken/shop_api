@@ -84,7 +84,7 @@ class AddressController extends Controller
     /**
      * Update the specified address in storage.
      * @authenticated
-     * @urlParam id Address's Id to be Updated
+     * @urlParam id required Address's Id to be Updated
      * @bodyParam city_id numeric  City Id
      * @bodyParam zip_code string  Zip Code
      * @bodyParam address string  Address
