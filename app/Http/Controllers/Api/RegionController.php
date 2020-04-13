@@ -4,27 +4,39 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Region;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Region management
+ * APIs for managing addresses
+ */
 class RegionController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return Response
+     * @authenticated
+     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Region
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
-        return Region::latest()->paginate(10);
+        return JsonResource::collection(Region::latest()->paginate(10));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Store a newly created region in storage.
+     * @autenticated
+     * @bodyParam name required Name
+     * @apiResourceModel App\Models\Region
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @param Request $request
-     * @return void
+     * @return JsonResource
      * @throws ValidationException
      */
     public function store(Request $request)
@@ -32,28 +44,37 @@ class RegionController extends Controller
         $this->validate($request,[
             'name'=>'required|max:255'
         ]);
-        Region::create([
+        $region = Region::create([
             'name'=>$request['name']
         ]);
+        return new JsonResource($region);
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Display the specified region.
+     * @authenticated
+     * @urlParam id required region Id
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Region
      * @param $id
-     * @return Response
+     * @return JsonResource
      */
     public function show($id)
     {
-        return Region::findOrFail($id);
+        return new JsonResource(Region::findOrFail($id));
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Update the specified Region in storage.
+     * @authenticated
+     * @urlParam id required Region's Id
+     * @bodyParam name required Name
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Region
      * @param Request $request
-     * @param  \App\Region  $region
-     * @return Response
+     * @param $id
+     * @return JsonResource
+     * @throws ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -62,19 +83,23 @@ class RegionController extends Controller
             'name'=>'required|max:255'
         ]);
         $region->update($request->all());
-        return ['message'=> 'Region Updated'];
+        return new JsonResource($region);
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Region  $region
-     * @return Response
+     * Remove the specified region from storage.
+     * @authenticated
+     * @urlParam id required Region's Id To Be Deleted
+     * @response {
+     *  "message" : "Region Deleted"
+     * }
+     * @param  $id
+     * @return JsonResponse
      */
     public function destroy($id)
     {
         $region = Region::findOrFail($id);
         $region->delete();
-        return ['message'=> 'Region Deleted'];
+        return response()->json(['message'=> 'Region Deleted']);
     }
 }
