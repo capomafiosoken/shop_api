@@ -33,7 +33,7 @@ curl -X POST \
     "http://localhost/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"eum","email":"debitis"}'
+    -d '{"name":"dolores","email":"commodi"}'
 
 ```
 
@@ -48,8 +48,8 @@ let headers = {
 };
 
 let body = {
-    "name": "eum",
-    "email": "debitis"
+    "name": "dolores",
+    "email": "commodi"
 }
 
 fetch(url, {
@@ -145,7 +145,7 @@ curl -X POST \
     "http://localhost/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"est","email":"eum","password":"neque"}'
+    -d '{"name":"distinctio","email":"assumenda","password":"animi"}'
 
 ```
 
@@ -160,9 +160,9 @@ let headers = {
 };
 
 let body = {
-    "name": "est",
-    "email": "eum",
-    "password": "neque"
+    "name": "distinctio",
+    "email": "assumenda",
+    "password": "animi"
 }
 
 fetch(url, {
@@ -206,7 +206,7 @@ APIs for managing addresses
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/addresses?page=1&per_page=8" \
+    -G "http://localhost/api/addresses?page=6&per_page=4" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -217,8 +217,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "1",
-    "per_page": "8",
+    "page": "6",
+    "per_page": "4",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -309,7 +309,7 @@ curl -X POST \
     "http://localhost/api/addresses" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"city_id":"voluptas","zip_code":"sit","address":"saepe","full_name":"nihil","telephone_number":"voluptatibus","note":"exercitationem"}'
+    -d '{"city_id":"enim","zip_code":"fugit","address":"minus","full_name":"explicabo","telephone_number":"dolorem","note":"commodi"}'
 
 ```
 
@@ -324,12 +324,12 @@ let headers = {
 };
 
 let body = {
-    "city_id": "voluptas",
-    "zip_code": "sit",
-    "address": "saepe",
-    "full_name": "nihil",
-    "telephone_number": "voluptatibus",
-    "note": "exercitationem"
+    "city_id": "enim",
+    "zip_code": "fugit",
+    "address": "minus",
+    "full_name": "explicabo",
+    "telephone_number": "dolorem",
+    "note": "commodi"
 }
 
 fetch(url, {
@@ -465,7 +465,7 @@ curl -X PUT \
     "http://localhost/api/addresses/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"city_id":"autem","zip_code":"dicta","address":"sunt","full_name":"animi","telephone_number":"ducimus","note":"veniam"}'
+    -d '{"city_id":"dicta","zip_code":"sit","address":"et","full_name":"laborum","telephone_number":"impedit","note":"cupiditate"}'
 
 ```
 
@@ -480,12 +480,12 @@ let headers = {
 };
 
 let body = {
-    "city_id": "autem",
-    "zip_code": "dicta",
-    "address": "sunt",
-    "full_name": "animi",
-    "telephone_number": "ducimus",
-    "note": "veniam"
+    "city_id": "dicta",
+    "zip_code": "sit",
+    "address": "et",
+    "full_name": "laborum",
+    "telephone_number": "impedit",
+    "note": "cupiditate"
 }
 
 fetch(url, {
@@ -609,7 +609,7 @@ APIs for managing brands
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/brands?page=5&per_page=19" \
+    -G "http://localhost/api/brands?page=8&per_page=16" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -620,8 +620,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "5",
-    "per_page": "19",
+    "page": "8",
+    "per_page": "16",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -649,7 +649,7 @@ fetch(url, {
             "id": 1,
             "name": "louis vuitton",
             "alias": "LV",
-            "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+            "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
             "image": "no_image.jpg",
             "created_at": null,
             "updated_at": null,
@@ -659,7 +659,7 @@ fetch(url, {
             "id": 1,
             "name": "louis vuitton",
             "alias": "LV",
-            "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+            "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
             "image": "no_image.jpg",
             "created_at": null,
             "updated_at": null,
@@ -692,7 +692,7 @@ curl -X POST \
     "http://localhost/api/brands" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"iure","alias":"quia","description":"et","image":"nulla"}'
+    -d '{"name":"id","alias":"odit","description":"aut","image":"dicta"}'
 
 ```
 
@@ -707,10 +707,10 @@ let headers = {
 };
 
 let body = {
-    "name": "iure",
-    "alias": "quia",
-    "description": "et",
-    "image": "nulla"
+    "name": "id",
+    "alias": "odit",
+    "description": "aut",
+    "image": "dicta"
 }
 
 fetch(url, {
@@ -731,7 +731,7 @@ fetch(url, {
         "id": 1,
         "name": "louis vuitton",
         "alias": "LV",
-        "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+        "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
         "image": "no_image.jpg",
         "created_at": null,
         "updated_at": null,
@@ -793,7 +793,7 @@ fetch(url, {
         "id": 1,
         "name": "louis vuitton",
         "alias": "LV",
-        "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+        "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
         "image": "no_image.jpg",
         "created_at": null,
         "updated_at": null,
@@ -824,7 +824,7 @@ curl -X PUT \
     "http://localhost/api/brands/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"excepturi","alias":"aut","description":"tempora","image":"et"}'
+    -d '{"name":"dolores","alias":"placeat","description":"suscipit","image":"est"}'
 
 ```
 
@@ -839,10 +839,10 @@ let headers = {
 };
 
 let body = {
-    "name": "excepturi",
-    "alias": "aut",
-    "description": "tempora",
-    "image": "et"
+    "name": "dolores",
+    "alias": "placeat",
+    "description": "suscipit",
+    "image": "est"
 }
 
 fetch(url, {
@@ -863,7 +863,7 @@ fetch(url, {
         "id": 1,
         "name": "louis vuitton",
         "alias": "LV",
-        "description": "ОписаниеLouis Vuitton — французский дом моды,\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
+        "description": "ОписаниеLouis Vuitton — французский дом моды,\r\n                специализирующийся на производстве чемоданов и сумок, модной одежды,\r\n                парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.",
         "image": "no_image.jpg",
         "created_at": null,
         "updated_at": null,
@@ -945,7 +945,7 @@ Parameter | Status | Description
 
 #Category management
 
-APIs for managing addresses
+APIs for managing categories
 <!-- START_109013899e0bc43247b0f00b67f889cf -->
 ## Display a listing of the category.
 
@@ -1058,7 +1058,7 @@ curl -X POST \
     "http://localhost/api/categories" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"itaque","alias":"qui","parent_id":"quisquam","keyword":"vero","description":"temporibus","image":"ducimus"}'
+    -d '{"name":"minus","alias":"pariatur","parent_id":"esse","keyword":"suscipit","description":"quia","image":"minus"}'
 
 ```
 
@@ -1073,12 +1073,12 @@ let headers = {
 };
 
 let body = {
-    "name": "itaque",
-    "alias": "qui",
-    "parent_id": "quisquam",
-    "keyword": "vero",
-    "description": "temporibus",
-    "image": "ducimus"
+    "name": "minus",
+    "alias": "pariatur",
+    "parent_id": "esse",
+    "keyword": "suscipit",
+    "description": "quia",
+    "image": "minus"
 }
 
 fetch(url, {
@@ -1195,7 +1195,7 @@ curl -X PUT \
     "http://localhost/api/categories/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"saepe","alias":"deleniti","parent_id":"dicta","keyword":"dolor","image":"id"}'
+    -d '{"name":"laudantium","alias":"nisi","parent_id":"recusandae","keyword":"doloribus","image":"omnis"}'
 
 ```
 
@@ -1210,11 +1210,11 @@ let headers = {
 };
 
 let body = {
-    "name": "saepe",
-    "alias": "deleniti",
-    "parent_id": "dicta",
-    "keyword": "dolor",
-    "image": "id"
+    "name": "laudantium",
+    "alias": "nisi",
+    "parent_id": "recusandae",
+    "keyword": "doloribus",
+    "image": "omnis"
 }
 
 fetch(url, {
@@ -1344,7 +1344,7 @@ APIs for managing cities
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/cities?page=19&per_page=20" \
+    -G "http://localhost/api/cities?page=13&per_page=3" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1355,8 +1355,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "19",
-    "per_page": "20",
+    "page": "13",
+    "per_page": "3",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1425,7 +1425,7 @@ curl -X POST \
     "http://localhost/api/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"vero","region_id":"non","zip_code":"nostrum"}'
+    -d '{"name":"alias","region_id":"quia","zip_code":"quo"}'
 
 ```
 
@@ -1440,9 +1440,9 @@ let headers = {
 };
 
 let body = {
-    "name": "vero",
-    "region_id": "non",
-    "zip_code": "nostrum"
+    "name": "alias",
+    "region_id": "quia",
+    "zip_code": "quo"
 }
 
 fetch(url, {
@@ -1552,7 +1552,7 @@ curl -X PUT \
     "http://localhost/api/cities/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"ab","region_id":"tenetur","zip_code":"commodi"}'
+    -d '{"name":"et","region_id":"maxime","zip_code":"officia"}'
 
 ```
 
@@ -1567,9 +1567,9 @@ let headers = {
 };
 
 let body = {
-    "name": "ab",
-    "region_id": "tenetur",
-    "zip_code": "commodi"
+    "name": "et",
+    "region_id": "maxime",
+    "zip_code": "officia"
 }
 
 fetch(url, {
@@ -1668,6 +1668,959 @@ Parameter | Status | Description
 
 <!-- END_ca7712807e8d39d79e5efc44555cb8b5 -->
 
+#Currency management
+
+APIs for managing currency
+<!-- START_aa2087c88a0544b7da514dfdd673acc0 -->
+## Display a listing of the currency.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/currencies?page=4&per_page=6" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/currencies"
+);
+
+let params = {
+    "page": "4",
+    "per_page": "6",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "created_at": null,
+            "updated_at": null,
+            "name": "Тенге",
+            "code": "KZT",
+            "symbol_left": null,
+            "symbol_right": null,
+            "value": 1,
+            "base": "0",
+            "deleted_at": null
+        },
+        {
+            "id": 1,
+            "created_at": null,
+            "updated_at": null,
+            "name": "Тенге",
+            "code": "KZT",
+            "symbol_left": null,
+            "symbol_right": null,
+            "value": 1,
+            "base": "0",
+            "deleted_at": null
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/currencies`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `page` |  required  | The page number. default = 1
+    `per_page` |  required  | The number of items per list. default = 15
+
+<!-- END_aa2087c88a0544b7da514dfdd673acc0 -->
+
+<!-- START_3a3de8519134b961245b00843c83314c -->
+## Store a newly created currency in storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/currencies" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"et","code":"ea","symbol_left":"accusantium","symbol_right":"voluptas","value":"corporis","base":"doloremque"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/currencies"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "et",
+    "code": "ea",
+    "symbol_left": "accusantium",
+    "symbol_right": "voluptas",
+    "value": "corporis",
+    "base": "doloremque"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 1,
+        "created_at": null,
+        "updated_at": null,
+        "name": "Тенге",
+        "code": "KZT",
+        "symbol_left": null,
+        "symbol_right": null,
+        "value": 1,
+        "base": "0",
+        "deleted_at": null
+    }
+}
+```
+
+### HTTP Request
+`POST api/currencies`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  required  | Currency Name
+        `code` | string |  required  | Currency Name
+        `symbol_left` | string |  optional  | Currency Name
+        `symbol_right` | string |  optional  | Currency Name
+        `value` | numeric |  required  | Currency Name
+        `base` | enum[0:1] |  required  | Currency Name
+    
+<!-- END_3a3de8519134b961245b00843c83314c -->
+
+<!-- START_dbc92b87f08648e5fc649f6677876ac0 -->
+## Display the specified currency.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/currencies/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/currencies/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 1,
+        "created_at": null,
+        "updated_at": null,
+        "name": "Тенге",
+        "code": "KZT",
+        "symbol_left": null,
+        "symbol_right": null,
+        "value": 1,
+        "base": "0",
+        "deleted_at": null
+    }
+}
+```
+
+### HTTP Request
+`GET api/currencies/{currency}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Currency Id
+
+<!-- END_dbc92b87f08648e5fc649f6677876ac0 -->
+
+<!-- START_c6971b0296ea1ec27eff9ccf57dd7cac -->
+## api/currencies/{currency}
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/currencies/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"veritatis","code":"voluptatem","symbol_left":"eum","symbol_right":"velit","value":"ipsum","base":"voluptates"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/currencies/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "veritatis",
+    "code": "voluptatem",
+    "symbol_left": "eum",
+    "symbol_right": "velit",
+    "value": "ipsum",
+    "base": "voluptates"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 1,
+        "created_at": null,
+        "updated_at": null,
+        "name": "Тенге",
+        "code": "KZT",
+        "symbol_left": null,
+        "symbol_right": null,
+        "value": 1,
+        "base": "0",
+        "deleted_at": null
+    }
+}
+```
+
+### HTTP Request
+`PUT api/currencies/{currency}`
+
+`PATCH api/currencies/{currency}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Currency Id
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  optional  | Currency Name
+        `code` | string |  optional  | Currency Name
+        `symbol_left` | string |  optional  | Currency Name
+        `symbol_right` | string |  optional  | Currency Name
+        `value` | numeric |  optional  | Currency Name
+        `base` | enum[0:1] |  optional  | Currency Name
+    
+<!-- END_c6971b0296ea1ec27eff9ccf57dd7cac -->
+
+<!-- START_c2a506528fd96c1a820f64892ce7068f -->
+## Remove the specified currency from storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/currencies/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/currencies/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "Currency Deleted"
+}
+```
+
+### HTTP Request
+`DELETE api/currencies/{currency}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Currency Id
+
+<!-- END_c2a506528fd96c1a820f64892ce7068f -->
+
+#FilterGroup management
+
+APIs for managing filter groups
+<!-- START_ea79b130426ba62aa89eb615fe141273 -->
+## Display a listing of the FilterGroup.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/filterGroups" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/filterGroups"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "id": 3,
+            "name": "Скидки"
+        },
+        {
+            "id": 3,
+            "name": "Скидки"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/filterGroups`
+
+
+<!-- END_ea79b130426ba62aa89eb615fe141273 -->
+
+<!-- START_ea85ef12613994737199a6fbbd82268a -->
+## Store a newly created FilterGroup in storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/filterGroups" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"perspiciatis"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/filterGroups"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "perspiciatis"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 3,
+        "name": "Скидки"
+    }
+}
+```
+
+### HTTP Request
+`POST api/filterGroups`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  required  | Name
+    
+<!-- END_ea85ef12613994737199a6fbbd82268a -->
+
+<!-- START_f09c97d504496781c57acab62d1f0af9 -->
+## Display the specified FilterGroup.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/filterGroups/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/filterGroups/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 3,
+        "name": "Скидки"
+    }
+}
+```
+
+### HTTP Request
+`GET api/filterGroups/{filterGroup}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | FilterGroup Id
+
+<!-- END_f09c97d504496781c57acab62d1f0af9 -->
+
+<!-- START_4a49528297ece6a55a7fa00c5abee481 -->
+## Update the specified FilterGroup in storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/filterGroups/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"filter_group_id":"harum","value":"sed"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/filterGroups/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "filter_group_id": "harum",
+    "value": "sed"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 3,
+        "name": "Скидки"
+    }
+}
+```
+
+### HTTP Request
+`PUT api/filterGroups/{filterGroup}`
+
+`PATCH api/filterGroups/{filterGroup}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | FilterGroup's Id to be Updated
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `filter_group_id` | numeric |  required  | Filter Group Id
+        `value` | string |  required  | Value
+    
+<!-- END_4a49528297ece6a55a7fa00c5abee481 -->
+
+<!-- START_758f44cfb324ce71488caef2f0815215 -->
+## Remove the specified FilterGroup from storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/filterGroups/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/filterGroups/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "FilterGroup Deleted"
+}
+```
+
+### HTTP Request
+`DELETE api/filterGroups/{filterGroup}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  optional  | FilterGroup's Id to be Deleted
+
+<!-- END_758f44cfb324ce71488caef2f0815215 -->
+
+#FilterValue management
+
+APIs for managing filer values
+<!-- START_d96de9f30d1796b25dc18a6450be51f8 -->
+## Display a listing of the FilterValue.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/filterValues" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/filterValues"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "id": 5,
+            "value": "50%",
+            "filter_group_id": 3
+        },
+        {
+            "id": 5,
+            "value": "50%",
+            "filter_group_id": 3
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/filterValues`
+
+
+<!-- END_d96de9f30d1796b25dc18a6450be51f8 -->
+
+<!-- START_245f4b7b8e223f278e601c2311c54394 -->
+## Store a newly created FilterValue in storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/filterValues" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"filter_group_id":"commodi","value":"nesciunt"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/filterValues"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "filter_group_id": "commodi",
+    "value": "nesciunt"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 5,
+        "value": "50%",
+        "filter_group_id": 3
+    }
+}
+```
+
+### HTTP Request
+`POST api/filterValues`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `filter_group_id` | numeric |  required  | Filter Group Id
+        `value` | string |  required  | Value
+    
+<!-- END_245f4b7b8e223f278e601c2311c54394 -->
+
+<!-- START_8403b43525242d8f253e5a5bd48e7793 -->
+## Display the specified FilterValue.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/filterValues/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/filterValues/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 5,
+        "value": "50%",
+        "filter_group_id": 3
+    }
+}
+```
+
+### HTTP Request
+`GET api/filterValues/{filterValue}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | FilterValue Id
+
+<!-- END_8403b43525242d8f253e5a5bd48e7793 -->
+
+<!-- START_a17524eb4f8df8428c075aa81c255b28 -->
+## Update the specified FilterValue in storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/filterValues/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"filter_group_id":"fugit","value":"voluptatum"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/filterValues/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "filter_group_id": "fugit",
+    "value": "voluptatum"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 5,
+        "value": "50%",
+        "filter_group_id": 3
+    }
+}
+```
+
+### HTTP Request
+`PUT api/filterValues/{filterValue}`
+
+`PATCH api/filterValues/{filterValue}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | FilterValue's Id to be Updated
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `filter_group_id` | numeric |  required  | Filter Group Id
+        `value` | string |  required  | Value
+    
+<!-- END_a17524eb4f8df8428c075aa81c255b28 -->
+
+<!-- START_a66c4637179ad74b8b75a2c78a770145 -->
+## Remove the specified FilterValue from storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/filterValues/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/filterValues/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "FilterValue Deleted"
+}
+```
+
+### HTTP Request
+`DELETE api/filterValues/{filterValue}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  optional  | FilterValue's Id to be Deleted
+
+<!-- END_a66c4637179ad74b8b75a2c78a770145 -->
+
 #Order management
 
 APIs for managing addresses
@@ -1679,7 +2632,7 @@ APIs for managing addresses
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/orders?page=11&per_page=8" \
+    -G "http://localhost/api/orders?page=8&per_page=3" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1690,8 +2643,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "11",
-    "per_page": "8",
+    "page": "8",
+    "per_page": "3",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1762,7 +2715,7 @@ curl -X POST \
     "http://localhost/api/orders" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":"enim","status":"omnis","currency_id":"magnam","address_id":"blanditiis","products":[]}'
+    -d '{"user_id":"id","status":"nihil","currency_id":"harum","address_id":"voluptatem","products":[]}'
 
 ```
 
@@ -1777,10 +2730,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": "enim",
-    "status": "omnis",
-    "currency_id": "magnam",
-    "address_id": "blanditiis",
+    "user_id": "id",
+    "status": "nihil",
+    "currency_id": "harum",
+    "address_id": "voluptatem",
     "products": []
 }
 
@@ -1896,7 +2849,7 @@ curl -X PUT \
     "http://localhost/api/orders/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":"unde","status":"modi","currency_id":"vitae","address_id":"laudantium"}'
+    -d '{"user_id":"quo","status":"non","currency_id":"aperiam","address_id":"molestias"}'
 
 ```
 
@@ -1911,10 +2864,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": "unde",
-    "status": "modi",
-    "currency_id": "vitae",
-    "address_id": "laudantium"
+    "user_id": "quo",
+    "status": "non",
+    "currency_id": "aperiam",
+    "address_id": "molestias"
 }
 
 fetch(url, {
@@ -2017,7 +2970,7 @@ Parameter | Status | Description
 
 #ProductImage management
 
-APIs for managing addresses
+APIs for managing product images
 <!-- START_10c520f201ad78363713cc43becd6b39 -->
 ## Display a listing of the ProductImage.
 
@@ -2078,7 +3031,7 @@ curl -X POST \
     "http://localhost/api/productImages" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_id":"cumque","image":"vitae"}'
+    -d '{"product_id":"qui","image":"enim"}'
 
 ```
 
@@ -2093,8 +3046,8 @@ let headers = {
 };
 
 let body = {
-    "product_id": "cumque",
-    "image": "vitae"
+    "product_id": "qui",
+    "image": "enim"
 }
 
 fetch(url, {
@@ -2207,7 +3160,7 @@ curl -X PUT \
     "http://localhost/api/productImages/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_id":"et","image":"eos"}'
+    -d '{"product_id":"nihil","image":"suscipit"}'
 
 ```
 
@@ -2222,8 +3175,8 @@ let headers = {
 };
 
 let body = {
-    "product_id": "et",
-    "image": "eos"
+    "product_id": "nihil",
+    "image": "suscipit"
 }
 
 fetch(url, {
@@ -2343,7 +3296,7 @@ APis for managing products
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/products?page=14&per_page=1" \
+    -G "http://localhost/api/products?page=1&per_page=19" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2354,8 +3307,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "14",
-    "per_page": "1",
+    "page": "1",
+    "per_page": "19",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2440,7 +3393,7 @@ curl -X POST \
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"repellat","alias":"omnis","description":"dicta","content":"consequatur","brand_id":"eum","price":"nam","keywords":"incidunt","image":"debitis","pieces_left":"rerum"}'
+    -d '{"name":"enim","alias":"sint","description":"dolor","content":"id","brand_id":"accusantium","price":"sed","keywords":"deleniti","image":"hic","pieces_left":"nostrum"}'
 
 ```
 
@@ -2455,15 +3408,15 @@ let headers = {
 };
 
 let body = {
-    "name": "repellat",
-    "alias": "omnis",
-    "description": "dicta",
-    "content": "consequatur",
-    "brand_id": "eum",
-    "price": "nam",
-    "keywords": "incidunt",
-    "image": "debitis",
-    "pieces_left": "rerum"
+    "name": "enim",
+    "alias": "sint",
+    "description": "dolor",
+    "content": "id",
+    "brand_id": "accusantium",
+    "price": "sed",
+    "keywords": "deleniti",
+    "image": "hic",
+    "pieces_left": "nostrum"
 }
 
 fetch(url, {
@@ -2596,7 +3549,7 @@ curl -X PUT \
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"inventore","alias":"quae","description":"maxime","content":"qui","brand_id":"qui","price":"aut","keywords":"odio","image":"exercitationem","pieces_left":"ratione"}'
+    -d '{"name":"et","alias":"tenetur","description":"illum","content":"non","brand_id":"dolore","price":"animi","keywords":"voluptatem","image":"voluptas","pieces_left":"et"}'
 
 ```
 
@@ -2611,15 +3564,15 @@ let headers = {
 };
 
 let body = {
-    "name": "inventore",
-    "alias": "quae",
-    "description": "maxime",
-    "content": "qui",
-    "brand_id": "qui",
-    "price": "aut",
-    "keywords": "odio",
-    "image": "exercitationem",
-    "pieces_left": "ratione"
+    "name": "et",
+    "alias": "tenetur",
+    "description": "illum",
+    "content": "non",
+    "brand_id": "dolore",
+    "price": "animi",
+    "keywords": "voluptatem",
+    "image": "voluptas",
+    "pieces_left": "et"
 }
 
 fetch(url, {
@@ -2729,7 +3682,7 @@ Parameter | Status | Description
 
 #Region management
 
-APIs for managing addresses
+APIs for managing regions
 <!-- START_d3a06985ef377a31eecb832106f4a5e6 -->
 ## Display a listing of the resource.
 
@@ -2797,7 +3750,7 @@ curl -X POST \
     "http://localhost/api/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"id"}'
+    -d '{"name":"eaque"}'
 
 ```
 
@@ -2812,7 +3765,7 @@ let headers = {
 };
 
 let body = {
-    "name": "id"
+    "name": "eaque"
 }
 
 fetch(url, {
@@ -2913,7 +3866,7 @@ curl -X PUT \
     "http://localhost/api/regions/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"aliquam"}'
+    -d '{"name":"laudantium"}'
 
 ```
 
@@ -2928,7 +3881,7 @@ let headers = {
 };
 
 let body = {
-    "name": "aliquam"
+    "name": "laudantium"
 }
 
 fetch(url, {
@@ -3088,7 +4041,7 @@ curl -X POST \
     "http://localhost/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"repudiandae"}'
+    -d '{"name":"at"}'
 
 ```
 
@@ -3103,7 +4056,7 @@ let headers = {
 };
 
 let body = {
-    "name": "repudiandae"
+    "name": "at"
 }
 
 fetch(url, {
@@ -3200,7 +4153,7 @@ curl -X PUT \
     "http://localhost/api/roles/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"sit"}'
+    -d '{"name":"aut"}'
 
 ```
 
@@ -3215,7 +4168,7 @@ let headers = {
 };
 
 let body = {
-    "name": "sit"
+    "name": "aut"
 }
 
 fetch(url, {
@@ -3317,7 +4270,7 @@ APIs for managing users
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/users?page=7&per_page=8" \
+    -G "http://localhost/api/users?page=13&per_page=9" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3328,8 +4281,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "7",
-    "per_page": "8",
+    "page": "13",
+    "per_page": "9",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3354,14 +4307,14 @@ fetch(url, {
 {
     "data": [
         {
-            "name": "Aaron Senger DVM",
-            "email": "natasha68@example.net",
-            "email_verified_at": "2020-04-13T16:20:03.000000Z"
+            "name": "Donnie Gleason",
+            "email": "kconroy@example.net",
+            "email_verified_at": "2020-04-13T16:47:31.000000Z"
         },
         {
-            "name": "Brisa Little II",
-            "email": "clare.okeefe@example.com",
-            "email_verified_at": "2020-04-13T16:20:03.000000Z"
+            "name": "Dr. Tevin McLaughlin I",
+            "email": "genesis.parisian@example.org",
+            "email_verified_at": "2020-04-13T16:47:31.000000Z"
         }
     ]
 }
@@ -3390,7 +4343,7 @@ curl -X POST \
     "http://localhost/api/users" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"explicabo","email":"sit","password":"porro"}'
+    -d '{"name":"ut","email":"totam","password":"vel"}'
 
 ```
 
@@ -3405,9 +4358,9 @@ let headers = {
 };
 
 let body = {
-    "name": "explicabo",
-    "email": "sit",
-    "password": "porro"
+    "name": "ut",
+    "email": "totam",
+    "password": "vel"
 }
 
 fetch(url, {
@@ -3425,9 +4378,9 @@ fetch(url, {
 ```json
 {
     "data": {
-        "name": "Ana Lang",
-        "email": "gertrude20@example.com",
-        "email_verified_at": "2020-04-13T16:20:03.000000Z"
+        "name": "Helmer Hirthe Sr.",
+        "email": "bernier.dell@example.org",
+        "email_verified_at": "2020-04-13T16:47:31.000000Z"
     }
 }
 ```
@@ -3481,9 +4434,9 @@ fetch(url, {
 ```json
 {
     "data": {
-        "name": "Mr. Jovany Dooley",
-        "email": "effertz.mike@example.net",
-        "email_verified_at": "2020-04-13T16:20:03.000000Z"
+        "name": "Jay Jacobi V",
+        "email": "bpaucek@example.com",
+        "email_verified_at": "2020-04-13T16:47:31.000000Z"
     }
 }
 ```
@@ -3510,7 +4463,7 @@ curl -X PUT \
     "http://localhost/api/users/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"consequatur","password":"molestiae"}'
+    -d '{"name":"iusto","password":"dignissimos"}'
 
 ```
 
@@ -3525,8 +4478,8 @@ let headers = {
 };
 
 let body = {
-    "name": "consequatur",
-    "password": "molestiae"
+    "name": "iusto",
+    "password": "dignissimos"
 }
 
 fetch(url, {
@@ -3544,9 +4497,9 @@ fetch(url, {
 ```json
 {
     "data": {
-        "name": "Caterina Moore",
-        "email": "pascale.harvey@example.com",
-        "email_verified_at": "2020-04-13T16:20:03.000000Z"
+        "name": "Kobe Keebler",
+        "email": "orohan@example.net",
+        "email_verified_at": "2020-04-13T16:47:31.000000Z"
     }
 }
 ```
@@ -3619,1379 +4572,5 @@ Parameter | Status | Description
     `id` |  optional  | User's Id to be Deleted
 
 <!-- END_d2db7a9fe3abd141d5adbc367a88e969 -->
-
-#general
-
-
-<!-- START_0c068b4037fb2e47e71bd44bd36e3e2a -->
-## Authorize a client to access the user&#039;s account.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/oauth/authorize" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/authorize"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (401):
-
-```json
-{
-    "message": "Unauthenticated."
-}
-```
-
-### HTTP Request
-`GET oauth/authorize`
-
-
-<!-- END_0c068b4037fb2e47e71bd44bd36e3e2a -->
-
-<!-- START_e48cc6a0b45dd21b7076ab2c03908687 -->
-## Approve the authorization request.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/oauth/authorize" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/authorize"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST oauth/authorize`
-
-
-<!-- END_e48cc6a0b45dd21b7076ab2c03908687 -->
-
-<!-- START_de5d7581ef1275fce2a229b6b6eaad9c -->
-## Deny the authorization request.
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://localhost/oauth/authorize" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/authorize"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE oauth/authorize`
-
-
-<!-- END_de5d7581ef1275fce2a229b6b6eaad9c -->
-
-<!-- START_a09d20357336aa979ecd8e3972ac9168 -->
-## Authorize a client to access the user&#039;s account.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/oauth/token" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/token"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST oauth/token`
-
-
-<!-- END_a09d20357336aa979ecd8e3972ac9168 -->
-
-<!-- START_d6a56149547e03307199e39e03e12d1c -->
-## Get all of the authorized tokens for the authenticated user.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/oauth/tokens" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/tokens"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (401):
-
-```json
-{
-    "message": "Unauthenticated."
-}
-```
-
-### HTTP Request
-`GET oauth/tokens`
-
-
-<!-- END_d6a56149547e03307199e39e03e12d1c -->
-
-<!-- START_a9a802c25737cca5324125e5f60b72a5 -->
-## Delete the given token.
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://localhost/oauth/tokens/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/tokens/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE oauth/tokens/{token_id}`
-
-
-<!-- END_a9a802c25737cca5324125e5f60b72a5 -->
-
-<!-- START_abe905e69f5d002aa7d26f433676d623 -->
-## Get a fresh transient token cookie for the authenticated user.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/oauth/token/refresh" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/token/refresh"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST oauth/token/refresh`
-
-
-<!-- END_abe905e69f5d002aa7d26f433676d623 -->
-
-<!-- START_babcfe12d87b8708f5985e9d39ba8f2c -->
-## Get all of the clients for the authenticated user.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/oauth/clients" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/clients"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (401):
-
-```json
-{
-    "message": "Unauthenticated."
-}
-```
-
-### HTTP Request
-`GET oauth/clients`
-
-
-<!-- END_babcfe12d87b8708f5985e9d39ba8f2c -->
-
-<!-- START_9eabf8d6e4ab449c24c503fcb42fba82 -->
-## Store a new client.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/oauth/clients" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/clients"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST oauth/clients`
-
-
-<!-- END_9eabf8d6e4ab449c24c503fcb42fba82 -->
-
-<!-- START_784aec390a455073fc7464335c1defa1 -->
-## Update the given client.
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "http://localhost/oauth/clients/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/clients/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`PUT oauth/clients/{client_id}`
-
-
-<!-- END_784aec390a455073fc7464335c1defa1 -->
-
-<!-- START_1f65a511dd86ba0541d7ba13ca57e364 -->
-## Delete the given client.
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://localhost/oauth/clients/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/clients/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE oauth/clients/{client_id}`
-
-
-<!-- END_1f65a511dd86ba0541d7ba13ca57e364 -->
-
-<!-- START_9e281bd3a1eb1d9eb63190c8effb607c -->
-## Get all of the available scopes for the application.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/oauth/scopes" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/scopes"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (401):
-
-```json
-{
-    "message": "Unauthenticated."
-}
-```
-
-### HTTP Request
-`GET oauth/scopes`
-
-
-<!-- END_9e281bd3a1eb1d9eb63190c8effb607c -->
-
-<!-- START_9b2a7699ce6214a79e0fd8107f8b1c9e -->
-## Get all of the personal access tokens for the authenticated user.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/oauth/personal-access-tokens" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/personal-access-tokens"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (401):
-
-```json
-{
-    "message": "Unauthenticated."
-}
-```
-
-### HTTP Request
-`GET oauth/personal-access-tokens`
-
-
-<!-- END_9b2a7699ce6214a79e0fd8107f8b1c9e -->
-
-<!-- START_a8dd9c0a5583742e671711f9bb3ee406 -->
-## Create a new personal access token for the user.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/oauth/personal-access-tokens" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/personal-access-tokens"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST oauth/personal-access-tokens`
-
-
-<!-- END_a8dd9c0a5583742e671711f9bb3ee406 -->
-
-<!-- START_bae65df80fd9d72a01439241a9ea20d0 -->
-## Delete the given token.
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://localhost/oauth/personal-access-tokens/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/oauth/personal-access-tokens/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE oauth/personal-access-tokens/{token_id}`
-
-
-<!-- END_bae65df80fd9d72a01439241a9ea20d0 -->
-
-<!-- START_aa2087c88a0544b7da514dfdd673acc0 -->
-## Display a listing of the resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/currencies" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/currencies"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "created_at": null,
-            "updated_at": null,
-            "name": "Тенге",
-            "code": "KZT",
-            "symbol_left": null,
-            "symbol_right": null,
-            "value": 1,
-            "base": "0",
-            "deleted_at": null
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/currencies?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/currencies?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/currencies",
-    "per_page": 10,
-    "prev_page_url": null,
-    "to": 1,
-    "total": 1
-}
-```
-
-### HTTP Request
-`GET api/currencies`
-
-
-<!-- END_aa2087c88a0544b7da514dfdd673acc0 -->
-
-<!-- START_3a3de8519134b961245b00843c83314c -->
-## Store a newly created resource in storage.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/api/currencies" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/currencies"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST api/currencies`
-
-
-<!-- END_3a3de8519134b961245b00843c83314c -->
-
-<!-- START_dbc92b87f08648e5fc649f6677876ac0 -->
-## Display the specified resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/currencies/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/currencies/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "id": 1,
-    "created_at": null,
-    "updated_at": null,
-    "name": "Тенге",
-    "code": "KZT",
-    "symbol_left": null,
-    "symbol_right": null,
-    "value": 1,
-    "base": "0",
-    "deleted_at": null
-}
-```
-
-### HTTP Request
-`GET api/currencies/{currency}`
-
-
-<!-- END_dbc92b87f08648e5fc649f6677876ac0 -->
-
-<!-- START_c6971b0296ea1ec27eff9ccf57dd7cac -->
-## Update the specified resource in storage.
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "http://localhost/api/currencies/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/currencies/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`PUT api/currencies/{currency}`
-
-`PATCH api/currencies/{currency}`
-
-
-<!-- END_c6971b0296ea1ec27eff9ccf57dd7cac -->
-
-<!-- START_c2a506528fd96c1a820f64892ce7068f -->
-## Remove the specified resource from storage.
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://localhost/api/currencies/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/currencies/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE api/currencies/{currency}`
-
-
-<!-- END_c2a506528fd96c1a820f64892ce7068f -->
-
-<!-- START_ea79b130426ba62aa89eb615fe141273 -->
-## Display a listing of the resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/filterGroups" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/filterGroups"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 4,
-            "name": "Доставка"
-        },
-        {
-            "id": 3,
-            "name": "Скидки"
-        },
-        {
-            "id": 2,
-            "name": "Страна производитель"
-        },
-        {
-            "id": 1,
-            "name": "Цвет"
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/filterGroups?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/filterGroups?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/filterGroups",
-    "per_page": 10,
-    "prev_page_url": null,
-    "to": 4,
-    "total": 4
-}
-```
-
-### HTTP Request
-`GET api/filterGroups`
-
-
-<!-- END_ea79b130426ba62aa89eb615fe141273 -->
-
-<!-- START_ea85ef12613994737199a6fbbd82268a -->
-## Store a newly created resource in storage.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/api/filterGroups" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/filterGroups"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST api/filterGroups`
-
-
-<!-- END_ea85ef12613994737199a6fbbd82268a -->
-
-<!-- START_f09c97d504496781c57acab62d1f0af9 -->
-## Display the specified resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/filterGroups/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/filterGroups/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "id": 1,
-    "name": "Цвет"
-}
-```
-
-### HTTP Request
-`GET api/filterGroups/{filterGroup}`
-
-
-<!-- END_f09c97d504496781c57acab62d1f0af9 -->
-
-<!-- START_4a49528297ece6a55a7fa00c5abee481 -->
-## Update the specified resource in storage.
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "http://localhost/api/filterGroups/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/filterGroups/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`PUT api/filterGroups/{filterGroup}`
-
-`PATCH api/filterGroups/{filterGroup}`
-
-
-<!-- END_4a49528297ece6a55a7fa00c5abee481 -->
-
-<!-- START_758f44cfb324ce71488caef2f0815215 -->
-## Remove the specified resource from storage.
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://localhost/api/filterGroups/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/filterGroups/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE api/filterGroups/{filterGroup}`
-
-
-<!-- END_758f44cfb324ce71488caef2f0815215 -->
-
-<!-- START_d96de9f30d1796b25dc18a6450be51f8 -->
-## Display a listing of the resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/filterValues" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/filterValues"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "current_page": 1,
-    "data": [
-        {
-            "id": 1,
-            "value": "белый",
-            "filter_group_id": 1,
-            "filter_group": {
-                "id": 1,
-                "name": "Цвет"
-            }
-        },
-        {
-            "id": 2,
-            "value": "черный",
-            "filter_group_id": 1,
-            "filter_group": {
-                "id": 1,
-                "name": "Цвет"
-            }
-        },
-        {
-            "id": 3,
-            "value": "Америка",
-            "filter_group_id": 2,
-            "filter_group": {
-                "id": 2,
-                "name": "Страна производитель"
-            }
-        },
-        {
-            "id": 4,
-            "value": "Китай",
-            "filter_group_id": 2,
-            "filter_group": {
-                "id": 2,
-                "name": "Страна производитель"
-            }
-        },
-        {
-            "id": 5,
-            "value": "50%",
-            "filter_group_id": 3,
-            "filter_group": {
-                "id": 3,
-                "name": "Скидки"
-            }
-        },
-        {
-            "id": 6,
-            "value": "10%",
-            "filter_group_id": 3,
-            "filter_group": {
-                "id": 3,
-                "name": "Скидки"
-            }
-        },
-        {
-            "id": 7,
-            "value": "Нет",
-            "filter_group_id": 4,
-            "filter_group": {
-                "id": 4,
-                "name": "Доставка"
-            }
-        },
-        {
-            "id": 8,
-            "value": "Есть",
-            "filter_group_id": 4,
-            "filter_group": {
-                "id": 4,
-                "name": "Доставка"
-            }
-        }
-    ],
-    "first_page_url": "http:\/\/localhost\/api\/filterValues?page=1",
-    "from": 1,
-    "last_page": 1,
-    "last_page_url": "http:\/\/localhost\/api\/filterValues?page=1",
-    "next_page_url": null,
-    "path": "http:\/\/localhost\/api\/filterValues",
-    "per_page": 10,
-    "prev_page_url": null,
-    "to": 8,
-    "total": 8
-}
-```
-
-### HTTP Request
-`GET api/filterValues`
-
-
-<!-- END_d96de9f30d1796b25dc18a6450be51f8 -->
-
-<!-- START_245f4b7b8e223f278e601c2311c54394 -->
-## Store a newly created resource in storage.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/api/filterValues" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/filterValues"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST api/filterValues`
-
-
-<!-- END_245f4b7b8e223f278e601c2311c54394 -->
-
-<!-- START_8403b43525242d8f253e5a5bd48e7793 -->
-## Display the specified resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/filterValues/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/filterValues/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "id": 1,
-    "value": "белый",
-    "filter_group_id": 1
-}
-```
-
-### HTTP Request
-`GET api/filterValues/{filterValue}`
-
-
-<!-- END_8403b43525242d8f253e5a5bd48e7793 -->
-
-<!-- START_a17524eb4f8df8428c075aa81c255b28 -->
-## Update the specified resource in storage.
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "http://localhost/api/filterValues/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/filterValues/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`PUT api/filterValues/{filterValue}`
-
-`PATCH api/filterValues/{filterValue}`
-
-
-<!-- END_a17524eb4f8df8428c075aa81c255b28 -->
-
-<!-- START_a66c4637179ad74b8b75a2c78a770145 -->
-## Remove the specified resource from storage.
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://localhost/api/filterValues/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/filterValues/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE api/filterValues/{filterValue}`
-
-
-<!-- END_a66c4637179ad74b8b75a2c78a770145 -->
 
 

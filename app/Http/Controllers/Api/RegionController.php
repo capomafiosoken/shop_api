@@ -20,13 +20,15 @@ class RegionController extends Controller
     /**
      * Display a listing of the resource.
      * @authenticated
+     * @queryParam per_page required The number of items per list. default = 15
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Region
+     * @param Request $request
      * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(Request $request)
     {
-        return JsonResource::collection(Region::latest()->paginate(10));
+        return JsonResource::collection(Region::all()->paginate($request['per_page']));
     }
 
     /**
