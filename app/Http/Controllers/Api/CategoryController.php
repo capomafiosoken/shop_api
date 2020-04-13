@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 
 /**
@@ -72,11 +73,11 @@ class CategoryController extends Controller
      * @apiResourceModel App\Models\Category
      * @param $id
      * @return JsonResource
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
-        return new JsonResource(Category::findOrFail($id)->with('products')->paginate(10));
+        return new JsonResource(Category::with('products')->findOrFail($id));
     }
 
     /**
