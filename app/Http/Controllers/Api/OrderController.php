@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 
 
 class OrderController extends Controller
@@ -12,18 +15,20 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return LengthAwarePaginator
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Order::with('user')->latest()->paginate(10);
+        return Order::with('user')->latest()->paginate($request['per_page']);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
@@ -31,9 +36,7 @@ class OrderController extends Controller
             'user_id'=>'required|numeric|digits_between:1,20',
             'status'=>'required|in:0,1,2',
             'currency_id'=>'required|numeric|digits_between:1,10',
-            'address_id'=>'required|numeric|digits_between:1,20',
-            //'sum'=>'',
-
+            'address_id'=>'required|numeric|digits_between:1,20'
         ]);
         $order = Order::create([
             'user_id'=>$request['user_id'],
@@ -53,8 +56,8 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * @param Order $order
+     * @return Response
      */
     public function show($id)
     {
@@ -64,9 +67,9 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  Order  $order
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -87,7 +90,7 @@ class OrderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

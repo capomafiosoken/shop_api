@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Address;
 use Illuminate\Http\Request;
 
+/**
+ * @group Role management
+ * APIs for managing addresses
+ */
 class AddressController extends Controller
 {
     /**
@@ -13,7 +17,7 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         return Address::Latest()->paginate(10);
     }

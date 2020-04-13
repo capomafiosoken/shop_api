@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
+use Psy\Util\Json;
 
 /**
  * @group Role management
@@ -19,6 +20,8 @@ class RoleController extends Controller
     /**
      * Display a listing of the role.
      * @authenticated
+     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Role
      * @return JsonResource
      */
     public function index()
@@ -31,6 +34,8 @@ class RoleController extends Controller
      *
      * @authenticated
      * @bodyParam name string required Name
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Role
      * @param Request $request
      * @return JsonResource
      * @throws ValidationException
@@ -50,12 +55,14 @@ class RoleController extends Controller
      * Display the specified role.
      * @authenticated
      * @urlParam id required Role Id
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Role
      * @param $id
-     * @return Response
+     * @return JsonResource
      */
     public function show($id)
     {
-        return Role::findOrFail($id);
+        return new JsonResource(Role::findOrFail($id));
     }
 
     /**
@@ -63,6 +70,8 @@ class RoleController extends Controller
      * @authenticated
      * @urlParam id required Role Id
      * @bodyParam name string Name
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Role
      * @param Request $request
      * @param $id
      * @return JsonResource
@@ -82,6 +91,9 @@ class RoleController extends Controller
      * Remove the specified role from storage.
      * @authenticated
      * @urlParam integer Role Id
+     * @response {
+     *  "message" : "User Deleted"
+     * }
      * @param $id
      * @return JsonResponse
      */

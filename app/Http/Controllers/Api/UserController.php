@@ -71,43 +71,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::with('role')->with('orders')->findOrFail($id);
+        $user = User::with(['role','orders'])->findOrFail($id);
         return new JsonResource($user);
     }
-    /**
-     * Display the authenticated User
-     * @authenticated
-     * @apiResource Illuminate\Http\Resources\Json\JsonResource
-     * @apiResourceModel App\Models\User
-     */
-    public function profile()
-    {
-        return new JsonResource(auth()->user());
-    }
-
-    /**
-     * Updates the authenticated User
-     * @authenticated
-     * @bodyParam name string  User Name
-     * @bodyParam password string  User Password
-     * @apiResource Illuminate\Http\Resources\Json\JsonResource
-     * @apiResourceModel App\Models\User
-     * @param Request $request
-     * @return JsonResource
-     * @throws ValidationException
-     */
-    public function updateProfile(Request $request)
-    {
-        $user = auth()->user();
-        $this->validate($request,[
-            'name' => 'sometimes|string|max:191',
-            'password' => 'sometimes|required|string|min:6'
-        ]);
-
-        $user ->update(array_filter($request ->all()));
-        return new JsonResource($user);
-    }
-
 
     /**
      * Update the specified User
@@ -149,5 +115,39 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
         return response()->json(['message'=> 'User Deleted']);
+    }
+
+    /**
+     * Display the authenticated User
+     * @authenticated
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\User
+     */
+    public function profile()
+    {
+        return new JsonResource(auth()->user());
+    }
+
+    /**
+     * Updates the authenticated User
+     * @authenticated
+     * @bodyParam name string  User Name
+     * @bodyParam password string  User Password
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\User
+     * @param Request $request
+     * @return JsonResource
+     * @throws ValidationException
+     */
+    public function updateProfile(Request $request)
+    {
+        $user = auth()->user();
+        $this->validate($request,[
+            'name' => 'sometimes|string|max:191',
+            'password' => 'sometimes|required|string|min:6'
+        ]);
+
+        $user ->update(array_filter($request ->all()));
+        return new JsonResource($user);
     }
 }

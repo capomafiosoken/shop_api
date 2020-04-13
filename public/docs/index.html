@@ -58,7 +58,7 @@
     "http://localhost/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"ipsam","email":"dolorum"}'
+    -d '{"name":"unde","email":"quis"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/login"
@@ -70,8 +70,8 @@ let headers = {
 };
 
 let body = {
-    "name": "ipsam",
-    "email": "dolorum"
+    "name": "unde",
+    "email": "quis"
 }
 
 fetch(url, {
@@ -165,7 +165,7 @@ fetch(url, {
     "http://localhost/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"est","email":"perferendis","password":"saepe"}'
+    -d '{"name":"consequatur","email":"sunt","password":"atque"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/register"
@@ -177,9 +177,9 @@ let headers = {
 };
 
 let body = {
-    "name": "est",
-    "email": "perferendis",
-    "password": "saepe"
+    "name": "consequatur",
+    "email": "sunt",
+    "password": "atque"
 }
 
 fetch(url, {
@@ -238,7 +238,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/products?page=9&amp;per_page=17" \
+    -G "http://localhost/api/products?page=7&amp;per_page=9" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -246,8 +246,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "9",
-    "per_page": "17",
+    "page": "7",
+    "per_page": "9",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -339,7 +339,7 @@ fetch(url, {
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"consectetur","alias":"praesentium","description":"id","content":"consectetur","brand_id":"saepe","price":"quos","keywords":"sunt","image":"quisquam","pieces_left":"fugit"}'
+    -d '{"name":"porro","alias":"et","description":"nulla","content":"placeat","brand_id":"porro","price":"aut","keywords":"voluptatem","image":"laborum","pieces_left":"aut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products"
@@ -351,15 +351,15 @@ let headers = {
 };
 
 let body = {
-    "name": "consectetur",
-    "alias": "praesentium",
-    "description": "id",
-    "content": "consectetur",
-    "brand_id": "saepe",
-    "price": "quos",
-    "keywords": "sunt",
-    "image": "quisquam",
-    "pieces_left": "fugit"
+    "name": "porro",
+    "alias": "et",
+    "description": "nulla",
+    "content": "placeat",
+    "brand_id": "porro",
+    "price": "aut",
+    "keywords": "voluptatem",
+    "image": "laborum",
+    "pieces_left": "aut"
 }
 
 fetch(url, {
@@ -538,7 +538,7 @@ fetch(url, {
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"voluptates","alias":"nihil","description":"sint","content":"rem","brand_id":"est","price":"consequatur","keywords":"veritatis","image":"quae","pieces_left":"iure"}'
+    -d '{"name":"facilis","alias":"quaerat","description":"ex","content":"consequuntur","brand_id":"voluptatem","price":"aut","keywords":"ullam","image":"eum","pieces_left":"omnis"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products/1"
@@ -550,15 +550,15 @@ let headers = {
 };
 
 let body = {
-    "name": "voluptates",
-    "alias": "nihil",
-    "description": "sint",
-    "content": "rem",
-    "brand_id": "est",
-    "price": "consequatur",
-    "keywords": "veritatis",
-    "image": "quae",
-    "pieces_left": "iure"
+    "name": "facilis",
+    "alias": "quaerat",
+    "description": "ex",
+    "content": "consequuntur",
+    "brand_id": "voluptatem",
+    "price": "aut",
+    "keywords": "ullam",
+    "image": "eum",
+    "pieces_left": "omnis"
 }
 
 fetch(url, {
@@ -716,6 +716,7 @@ fetch(url, {
 <p>APIs for managing roles</p>
 <!-- START_6470e6b987921f5c45bf7a2d8e674f57 -->
 <h2>Display a listing of the role.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -767,7 +768,7 @@ fetch(url, {
     "http://localhost/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"itaque"}'
+    -d '{"name":"qui"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/roles"
@@ -779,7 +780,7 @@ let headers = {
 };
 
 let body = {
-    "name": "itaque"
+    "name": "qui"
 }
 
 fetch(url, {
@@ -872,7 +873,7 @@ fetch(url, {
     "http://localhost/api/roles/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"dicta"}'
+    -d '{"name":"aut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/roles/1"
@@ -884,7 +885,7 @@ let headers = {
 };
 
 let body = {
-    "name": "dicta"
+    "name": "aut"
 }
 
 fetch(url, {
@@ -988,7 +989,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/users?page=2&amp;per_page=2" \
+    -G "http://localhost/api/users?page=16&amp;per_page=10" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -996,8 +997,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "2",
-    "per_page": "2",
+    "page": "16",
+    "per_page": "10",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1019,14 +1020,14 @@ fetch(url, {
 <pre><code class="language-json">{
     "data": [
         {
-            "name": "Maymie Simonis",
-            "email": "gorczany.gay@example.org",
-            "email_verified_at": "2020-04-12T18:31:05.000000Z"
+            "name": "Mrs. Alyson Rowe",
+            "email": "mkohler@example.net",
+            "email_verified_at": "2020-04-13T14:04:49.000000Z"
         },
         {
-            "name": "Coby Monahan",
-            "email": "efren.wehner@example.net",
-            "email_verified_at": "2020-04-12T18:31:05.000000Z"
+            "name": "Mrs. Genevieve McKenzie MD",
+            "email": "sdare@example.net",
+            "email_verified_at": "2020-04-13T14:04:49.000000Z"
         }
     ]
 }</code></pre>
@@ -1065,7 +1066,7 @@ fetch(url, {
     "http://localhost/api/users" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"consequatur","email":"eos","password":"est"}'
+    -d '{"name":"accusamus","email":"laborum","password":"iste"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/users"
@@ -1077,9 +1078,9 @@ let headers = {
 };
 
 let body = {
-    "name": "consequatur",
-    "email": "eos",
-    "password": "est"
+    "name": "accusamus",
+    "email": "laborum",
+    "password": "iste"
 }
 
 fetch(url, {
@@ -1094,9 +1095,9 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "name": "Prof. Eulalia Zemlak I",
-        "email": "zschamberger@example.org",
-        "email_verified_at": "2020-04-12T18:31:05.000000Z"
+        "name": "Hector Lindgren",
+        "email": "slowe@example.net",
+        "email_verified_at": "2020-04-13T14:04:49.000000Z"
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -1163,9 +1164,9 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "name": "Randi Rath",
-        "email": "bria80@example.com",
-        "email_verified_at": "2020-04-12T18:31:05.000000Z"
+        "name": "Abigail Stanton I",
+        "email": "turcotte.willie@example.com",
+        "email_verified_at": "2020-04-13T14:04:49.000000Z"
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -1198,7 +1199,7 @@ fetch(url, {
     "http://localhost/api/users/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"ut","password":"ipsam"}'
+    -d '{"name":"nesciunt","password":"magnam"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/users/1"
@@ -1210,8 +1211,8 @@ let headers = {
 };
 
 let body = {
-    "name": "ut",
-    "password": "ipsam"
+    "name": "nesciunt",
+    "password": "magnam"
 }
 
 fetch(url, {
@@ -1226,9 +1227,9 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "name": "Kaitlyn Mueller",
-        "email": "mia28@example.org",
-        "email_verified_at": "2020-04-12T18:31:05.000000Z"
+        "name": "Dr. Flossie Gusikowski DDS",
+        "email": "zconsidine@example.org",
+        "email_verified_at": "2020-04-13T14:04:49.000000Z"
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -2554,22 +2555,38 @@ fetch(url, {
         {
             "id": 5,
             "value": "50%",
-            "filter_group_id": 3
+            "filter_group_id": 3,
+            "filter_group": {
+                "id": 3,
+                "name": "Скидки"
+            }
         },
         {
             "id": 6,
             "value": "10%",
-            "filter_group_id": 3
+            "filter_group_id": 3,
+            "filter_group": {
+                "id": 3,
+                "name": "Скидки"
+            }
         },
         {
             "id": 7,
             "value": "Нет",
-            "filter_group_id": 4
+            "filter_group_id": 4,
+            "filter_group": {
+                "id": 4,
+                "name": "Доставка"
+            }
         },
         {
             "id": 8,
             "value": "Есть",
-            "filter_group_id": 4
+            "filter_group_id": 4,
+            "filter_group": {
+                "id": 4,
+                "name": "Доставка"
+            }
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/filterValues?page=1",
@@ -2801,7 +2818,7 @@ fetch(url, {
     "last_page_url": "http:\/\/localhost\/api\/orders?page=1",
     "next_page_url": null,
     "path": "http:\/\/localhost\/api\/orders",
-    "per_page": 10,
+    "per_page": 15,
     "prev_page_url": null,
     "to": 3,
     "total": 3
@@ -2895,7 +2912,27 @@ fetch(url, {
                 "id": 1,
                 "pieces": 1,
                 "price": 441590
-            }
+            },
+            "categories": [
+                {
+                    "id": 2,
+                    "name": "Ноутбуки и нетбуки",
+                    "alias": "ноуты",
+                    "parent_id": 1,
+                    "keyword": "ноуты",
+                    "description": null,
+                    "image": "no_image.jpg",
+                    "created_at": null,
+                    "updated_at": null,
+                    "deleted_at": null,
+                    "pivot": {
+                        "product_id": 1,
+                        "category_id": 2,
+                        "id": 1
+                    },
+                    "categories": []
+                }
+            ]
         }
     ],
     "currency": {

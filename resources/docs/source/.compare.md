@@ -33,7 +33,7 @@ curl -X POST \
     "http://localhost/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"ipsam","email":"dolorum"}'
+    -d '{"name":"unde","email":"quis"}'
 
 ```
 
@@ -48,8 +48,8 @@ let headers = {
 };
 
 let body = {
-    "name": "ipsam",
-    "email": "dolorum"
+    "name": "unde",
+    "email": "quis"
 }
 
 fetch(url, {
@@ -145,7 +145,7 @@ curl -X POST \
     "http://localhost/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"est","email":"perferendis","password":"saepe"}'
+    -d '{"name":"consequatur","email":"sunt","password":"atque"}'
 
 ```
 
@@ -160,9 +160,9 @@ let headers = {
 };
 
 let body = {
-    "name": "est",
-    "email": "perferendis",
-    "password": "saepe"
+    "name": "consequatur",
+    "email": "sunt",
+    "password": "atque"
 }
 
 fetch(url, {
@@ -206,7 +206,7 @@ APis for managing products
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/products?page=9&per_page=17" \
+    -G "http://localhost/api/products?page=7&per_page=9" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -217,8 +217,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "9",
-    "per_page": "17",
+    "page": "7",
+    "per_page": "9",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -303,7 +303,7 @@ curl -X POST \
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"consectetur","alias":"praesentium","description":"id","content":"consectetur","brand_id":"saepe","price":"quos","keywords":"sunt","image":"quisquam","pieces_left":"fugit"}'
+    -d '{"name":"porro","alias":"et","description":"nulla","content":"placeat","brand_id":"porro","price":"aut","keywords":"voluptatem","image":"laborum","pieces_left":"aut"}'
 
 ```
 
@@ -318,15 +318,15 @@ let headers = {
 };
 
 let body = {
-    "name": "consectetur",
-    "alias": "praesentium",
-    "description": "id",
-    "content": "consectetur",
-    "brand_id": "saepe",
-    "price": "quos",
-    "keywords": "sunt",
-    "image": "quisquam",
-    "pieces_left": "fugit"
+    "name": "porro",
+    "alias": "et",
+    "description": "nulla",
+    "content": "placeat",
+    "brand_id": "porro",
+    "price": "aut",
+    "keywords": "voluptatem",
+    "image": "laborum",
+    "pieces_left": "aut"
 }
 
 fetch(url, {
@@ -459,7 +459,7 @@ curl -X PUT \
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"voluptates","alias":"nihil","description":"sint","content":"rem","brand_id":"est","price":"consequatur","keywords":"veritatis","image":"quae","pieces_left":"iure"}'
+    -d '{"name":"facilis","alias":"quaerat","description":"ex","content":"consequuntur","brand_id":"voluptatem","price":"aut","keywords":"ullam","image":"eum","pieces_left":"omnis"}'
 
 ```
 
@@ -474,15 +474,15 @@ let headers = {
 };
 
 let body = {
-    "name": "voluptates",
-    "alias": "nihil",
-    "description": "sint",
-    "content": "rem",
-    "brand_id": "est",
-    "price": "consequatur",
-    "keywords": "veritatis",
-    "image": "quae",
-    "pieces_left": "iure"
+    "name": "facilis",
+    "alias": "quaerat",
+    "description": "ex",
+    "content": "consequuntur",
+    "brand_id": "voluptatem",
+    "price": "aut",
+    "keywords": "ullam",
+    "image": "eum",
+    "pieces_left": "omnis"
 }
 
 fetch(url, {
@@ -596,6 +596,7 @@ APIs for managing roles
 <!-- START_6470e6b987921f5c45bf7a2d8e674f57 -->
 ## Display a listing of the role.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -659,7 +660,7 @@ curl -X POST \
     "http://localhost/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"itaque"}'
+    -d '{"name":"qui"}'
 
 ```
 
@@ -674,7 +675,7 @@ let headers = {
 };
 
 let body = {
-    "name": "itaque"
+    "name": "qui"
 }
 
 fetch(url, {
@@ -760,7 +761,7 @@ curl -X PUT \
     "http://localhost/api/roles/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"dicta"}'
+    -d '{"name":"aut"}'
 
 ```
 
@@ -775,7 +776,7 @@ let headers = {
 };
 
 let body = {
-    "name": "dicta"
+    "name": "aut"
 }
 
 fetch(url, {
@@ -861,7 +862,7 @@ APIs for managing users
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/users?page=2&per_page=2" \
+    -G "http://localhost/api/users?page=16&per_page=10" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -872,8 +873,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "2",
-    "per_page": "2",
+    "page": "16",
+    "per_page": "10",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -898,14 +899,14 @@ fetch(url, {
 {
     "data": [
         {
-            "name": "Maymie Simonis",
-            "email": "gorczany.gay@example.org",
-            "email_verified_at": "2020-04-12T18:31:05.000000Z"
+            "name": "Mrs. Alyson Rowe",
+            "email": "mkohler@example.net",
+            "email_verified_at": "2020-04-13T14:04:49.000000Z"
         },
         {
-            "name": "Coby Monahan",
-            "email": "efren.wehner@example.net",
-            "email_verified_at": "2020-04-12T18:31:05.000000Z"
+            "name": "Mrs. Genevieve McKenzie MD",
+            "email": "sdare@example.net",
+            "email_verified_at": "2020-04-13T14:04:49.000000Z"
         }
     ]
 }
@@ -934,7 +935,7 @@ curl -X POST \
     "http://localhost/api/users" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"consequatur","email":"eos","password":"est"}'
+    -d '{"name":"accusamus","email":"laborum","password":"iste"}'
 
 ```
 
@@ -949,9 +950,9 @@ let headers = {
 };
 
 let body = {
-    "name": "consequatur",
-    "email": "eos",
-    "password": "est"
+    "name": "accusamus",
+    "email": "laborum",
+    "password": "iste"
 }
 
 fetch(url, {
@@ -969,9 +970,9 @@ fetch(url, {
 ```json
 {
     "data": {
-        "name": "Prof. Eulalia Zemlak I",
-        "email": "zschamberger@example.org",
-        "email_verified_at": "2020-04-12T18:31:05.000000Z"
+        "name": "Hector Lindgren",
+        "email": "slowe@example.net",
+        "email_verified_at": "2020-04-13T14:04:49.000000Z"
     }
 }
 ```
@@ -1025,9 +1026,9 @@ fetch(url, {
 ```json
 {
     "data": {
-        "name": "Randi Rath",
-        "email": "bria80@example.com",
-        "email_verified_at": "2020-04-12T18:31:05.000000Z"
+        "name": "Abigail Stanton I",
+        "email": "turcotte.willie@example.com",
+        "email_verified_at": "2020-04-13T14:04:49.000000Z"
     }
 }
 ```
@@ -1054,7 +1055,7 @@ curl -X PUT \
     "http://localhost/api/users/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"ut","password":"ipsam"}'
+    -d '{"name":"nesciunt","password":"magnam"}'
 
 ```
 
@@ -1069,8 +1070,8 @@ let headers = {
 };
 
 let body = {
-    "name": "ut",
-    "password": "ipsam"
+    "name": "nesciunt",
+    "password": "magnam"
 }
 
 fetch(url, {
@@ -1088,9 +1089,9 @@ fetch(url, {
 ```json
 {
     "data": {
-        "name": "Kaitlyn Mueller",
-        "email": "mia28@example.org",
-        "email_verified_at": "2020-04-12T18:31:05.000000Z"
+        "name": "Dr. Flossie Gusikowski DDS",
+        "email": "zconsidine@example.org",
+        "email_verified_at": "2020-04-13T14:04:49.000000Z"
     }
 }
 ```
@@ -2747,22 +2748,38 @@ fetch(url, {
         {
             "id": 5,
             "value": "50%",
-            "filter_group_id": 3
+            "filter_group_id": 3,
+            "filter_group": {
+                "id": 3,
+                "name": "Скидки"
+            }
         },
         {
             "id": 6,
             "value": "10%",
-            "filter_group_id": 3
+            "filter_group_id": 3,
+            "filter_group": {
+                "id": 3,
+                "name": "Скидки"
+            }
         },
         {
             "id": 7,
             "value": "Нет",
-            "filter_group_id": 4
+            "filter_group_id": 4,
+            "filter_group": {
+                "id": 4,
+                "name": "Доставка"
+            }
         },
         {
             "id": 8,
             "value": "Есть",
-            "filter_group_id": 4
+            "filter_group_id": 4,
+            "filter_group": {
+                "id": 4,
+                "name": "Доставка"
+            }
         }
     ],
     "first_page_url": "http:\/\/localhost\/api\/filterValues?page=1",
@@ -3052,7 +3069,7 @@ fetch(url, {
     "last_page_url": "http:\/\/localhost\/api\/orders?page=1",
     "next_page_url": null,
     "path": "http:\/\/localhost\/api\/orders",
-    "per_page": 10,
+    "per_page": 15,
     "prev_page_url": null,
     "to": 3,
     "total": 3
@@ -3169,7 +3186,27 @@ fetch(url, {
                 "id": 1,
                 "pieces": 1,
                 "price": 441590
-            }
+            },
+            "categories": [
+                {
+                    "id": 2,
+                    "name": "Ноутбуки и нетбуки",
+                    "alias": "ноуты",
+                    "parent_id": 1,
+                    "keyword": "ноуты",
+                    "description": null,
+                    "image": "no_image.jpg",
+                    "created_at": null,
+                    "updated_at": null,
+                    "deleted_at": null,
+                    "pivot": {
+                        "product_id": 1,
+                        "category_id": 2,
+                        "id": 1
+                    },
+                    "categories": []
+                }
+            ]
         }
     ],
     "currency": {
