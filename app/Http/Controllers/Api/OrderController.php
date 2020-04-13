@@ -5,29 +5,47 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 
 
+/**
+ * @group Order management
+ * APIs for managing addresses
+ */
 class OrderController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Display a listing of the order.
+     * @authenticated
+     * @queryParam page required The page number. default = 1
+     * @queryParam per_page required The number of items per list. default = 15
+     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Order
      * @param Request $request
-     * @return LengthAwarePaginator
+     * @return AnonymousResourceCollection
      */
     public function index(Request $request)
     {
-        return Order::with('user')->latest()->paginate($request['per_page']);
+        return JsonResource::collection(Order::with('user')->latest()->paginate($request['per_page']));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Store a newly created order in storage.
+     * @authenticated
+     * @bodyParam user_id numeric required User Id
+     * @bodyParam status string required Status ,one of the 0,1,2
+     * @bodyParam currency_id numeric required Currency Id
+     * @bodyParam address_id numeric required Address Id
+     * @bodyParam products array required Array of Products json objects with id,prices,pieces parameters
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Order
      * @param Request $request
-     * @return Response
+     * @return JsonResource
      * @throws ValidationException
      */
     public function store(Request $request)
@@ -50,26 +68,37 @@ class OrderController extends Controller
                 $product['id']=>['price'=>$product['price'], 'pieces'=>$product['pieces']]
             ]);
         }
-        return $order;
+        return new JsonResource($order);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param Order $order
-     * @return Response
+     * Display the specified order.
+     * @authenticated
+     * @urlParam id required Order Id
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Order
+     * @param $id
+     * @return JsonResource
      */
     public function show($id)
     {
-        return Order::with(['products', 'currency', 'user', 'address'])->findOrFail($id);
+        return new JsonResource(Order::with(['products', 'currency', 'user', 'address'])->findOrFail($id));
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Update the specified order in storage.
+     * @authenticated
+     * @urlParam id required Address's Id to be Updated
+     * @bodyParam user_id numeric required User Id
+     * @bodyParam status string required Status ,one of the 0,1,2
+     * @bodyParam currency_id numeric required Currency Id
+     * @bodyParam address_id numeric required Address Id
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Order
      * @param Request $request
-     * @param  Order  $order
-     * @return Response
+     * @param $id
+     * @return JsonResource
+     * @throws ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -83,20 +112,24 @@ class OrderController extends Controller
 
         ]);
         $order->update($request->all());
-        return ['message'=>'Order Updated'];
+        return new JsonResource($order);
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Order  $order
-     * @return Response
+     * Remove the specified Order from storage.
+     * @authenticated
+     * @urlParam id Order's Id to be Deleted
+     * @response {
+     *  "message" : "Order Deleted"
+     * }
+     * @param $id
+     * @return JsonResponse
      */
     public function destroy($id)
     {
         $order = Order::findOrFail($id);
         $order->delete();
-        return ['message'=>'Order Deleted'];
+        return response()->json(['message'=>'Order Deleted']);
     }
 
 }
