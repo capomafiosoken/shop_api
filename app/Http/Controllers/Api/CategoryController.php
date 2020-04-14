@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $this->validate($request,[
             'name'=>'required|max:255',
             'alias'=>'required|max:255',
-            'parent_id'=>'required|numeric|digits_between:1,20',
+            'parent_id'=>'nullable|numeric|digits_between:1,20',
             'keyword'=>'nullable|max:255',
             'description'=>'nullable|max:255',
             //'image'=>'bail|required|image',
