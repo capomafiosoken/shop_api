@@ -8,16 +8,17 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class ProductImage
- * 
+ *
  * @property int $id
  * @property int $product_id
  * @property string $image
  * @property Carbon $created_at
  * @property Carbon $updated_at
- * 
+ *
  * @property Product $product
  *
  * @package App\Models
@@ -39,4 +40,9 @@ class ProductImage extends Model
 	{
 		return $this->belongsTo(Product::class);
 	}
+
+    public function getImageAttribute($value)
+    {
+        return asset(Storage::url("images/product/".$value));
+    }
 }

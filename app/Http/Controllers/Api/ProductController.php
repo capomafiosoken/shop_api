@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -42,6 +43,7 @@ class ProductController extends Controller
      * @bodyParam price numeric required Product Price
      * @bodyParam keywords string Product keywords
      * @bodyParam image image required Product Image
+     * @bodyParam product_images image.* Product Images
      * @bodyParam pieces_left numeric required Left pieces of Product
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Product
@@ -52,16 +54,18 @@ class ProductController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:255',
-            'alias' => 'required|max:255',
+            'alias' => 'required|max:255|unique:products',
             'description' => 'nullable|max:255',
             'content' => 'nullable|max:1000',
             'brand_id' => 'required|numeric|digits_between:1,20',
             'price' => 'required|numeric|digits_between:1,18',
             'keywords' => 'nullable|max:255',
             'pieces_left' => 'required|numeric',
-            'image'=>'required|image'
+            'image'=>'required|image',
+//            'product_image.*'=>'required|image',
         ]);
-
+        $name = $request->file('image')->hashName();
+        $request->file('image')->storeAs('images/category', $name);
         $product = Product::create([
             'name' => $request['name'],
             'alias' => $request['alias'],
@@ -71,7 +75,16 @@ class ProductController extends Controller
             'price' => $request['price'],
             'keywords' => $request['keywords'],
             'pieces_left' => $request['pieces_left'],
+            'images' => $name
         ]);
+//        foreach ($request->file('product_image') as $product_image){
+//            $name = $request->file('image')->hashName();
+//            $product_image->storeAs('images/category', $name);
+//            ProductImage::create([
+//                'product_id' => $product->id,
+//                'image' => $name
+//            ]);
+//        }
         return new JsonResource($product);
     }
 
@@ -99,7 +112,6 @@ class ProductController extends Controller
      * @bodyParam brand_id numeric Brand Id
      * @bodyParam price numeric Product Price
      * @bodyParam keywords string Product keywords
-     * @bodyParam image image Product Image
      * @bodyParam pieces_left numeric Left pieces of Product
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Product
@@ -112,14 +124,14 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $this->validate($request,[
-            'name' => 'required|max:255',
-            'alias' => 'required|max:255',
-            'description' => 'nullable|max:255',
-            'content' => 'nullable|max:1000',
-            'brand_id' => 'required|numeric|digits_between:1,20',
-            'price' => 'required|numeric|digits_between:1,18',
-            'keywords' => 'nullable|max:255',
-            'pieces_left' => 'required|numeric'
+            'name' => 'sometimes|max:255',
+            'alias' => 'sometimes|max:255|unique:products',
+            'description' => 'sometimes|max:255',
+            'content' => 'sometimes|max:1000',
+            'brand_id' => 'sometimes|numeric|digits_between:1,20',
+            'price' => 'sometimes|numeric|digits_between:1,18',
+            'keywords' => 'sometimes|max:255',
+            'pieces_left' => 'sometimes|numeric',
         ]);
         $product->update(array_filter($request->all()));
         return new JsonResource($product);

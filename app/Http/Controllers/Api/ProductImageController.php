@@ -49,9 +49,12 @@ class ProductImageController extends Controller
             'product_id'=>'required|numeric|max:20',
             'image'=>'required|image',
         ]);
+        $name = $request->file('image')->hashName();
+        $request->file('image')->storeAs('images/category', $name);
+
         $pImage=ProductImage::create([
             'product_id'=>$request['product_id'],
-            'image'=>$request['image'],
+            'image'=>$name,
         ]);
         return new JsonResource($pImage);
     }

@@ -10,10 +10,11 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class Product
- * 
+ *
  * @property int $id
  * @property string $status
  * @property string $name
@@ -29,7 +30,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property string $deleted_at
- * 
+ *
  * @property Brand $brand
  * @property Collection|Category[] $categories
  * @property Collection|FilterValue[] $filter_values
@@ -91,4 +92,9 @@ class Product extends Model
 	{
 		return $this->hasMany(ProductImage::class);
 	}
+
+    public function getImageAttribute($value)
+    {
+        return asset(Storage::url("images/product/".$value));
+    }
 }
