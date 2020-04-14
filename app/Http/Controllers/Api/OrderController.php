@@ -89,10 +89,10 @@ class OrderController extends Controller
      * Update the specified order in storage.
      * @authenticated
      * @urlParam id required Address's Id to be Updated
-     * @bodyParam user_id numeric required User Id
-     * @bodyParam status string required Status ,one of the 0,1,2
-     * @bodyParam currency_id numeric required Currency Id
-     * @bodyParam address_id numeric required Address Id
+     * @bodyParam user_id numeric User Id
+     * @bodyParam status enum[0,1,2] Status ,one of the 0,1,2
+     * @bodyParam currency_id numeric  Currency Id
+     * @bodyParam address_id numeric  Address Id
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Order
      * @param Request $request
@@ -108,7 +108,6 @@ class OrderController extends Controller
             'status'=>'sometimes|in:0,1,2',
             'currency_id'=>'sometimes|numeric|digits_between:1,10',
             'address_id'=>'sometimes|numeric|digits_between:1,20',
-            //'sum'=>'',
 
         ]);
         $order->update(array_filter($request->all()));

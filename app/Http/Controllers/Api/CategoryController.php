@@ -38,7 +38,7 @@ class CategoryController extends Controller
      * @bodyParam parent_id string Category parent Id if it's child category
      * @bodyParam keyword string Keyword
      * @bodyParam description string Description
-     * @bodyParam image image Image
+     * @bodyParam image image required Image
      * @param Request $request
      * @return JsonResource
      * @throws ValidationException
@@ -47,7 +47,7 @@ class CategoryController extends Controller
     {
         $this->validate($request,[
             'name'=>'required|max:255',
-            'alias'=>'required|max:255',
+            'alias'=>'required|max:255|unique:categories',
             'parent_id'=>'nullable|numeric|digits_between:1,20',
             'keyword'=>'nullable|max:255',
             'description'=>'nullable|max:255',
@@ -85,10 +85,11 @@ class CategoryController extends Controller
      * Update the specified category in storage.
      * @authenticated
      * @urlParam id Category's Id to be Updated
-     * @bodyParam name string required Category name
-     * @bodyParam alias string required Category alias for future use as routes
-     * @bodyParam parent_id string required Category parent Id if it's child category
+     * @bodyParam name string Category name
+     * @bodyParam alias string  Category alias for future use as routes
+     * @bodyParam parent_id numeric  Category parent Id if it's child category
      * @bodyParam keyword string Keyword
+     * @bodyParam description string Keyword
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Category
      * @param Request $request
@@ -101,7 +102,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $this->validate($request,[
             'name'=>'sometimes|max:255',
-            'alias'=>'sometimes|max:255',
+            'alias'=>'sometimes|max:255|unique:categories',
             'parent_id'=>'sometimes|numeric|digits_between:1,20',
             'keyword'=>'sometimes|max:255',
             'description'=>'sometimes|max:255',

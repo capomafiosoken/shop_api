@@ -21,6 +21,7 @@ class RegionController extends Controller
      * Display a listing of the resource.
      * @authenticated
      * @queryParam per_page required The number of items per list. default = 15
+     * @queryParam page required The number of items per list. default = 1
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Region
      * @param Request $request
@@ -70,7 +71,7 @@ class RegionController extends Controller
      * Update the specified Region in storage.
      * @authenticated
      * @urlParam id required Region's Id
-     * @bodyParam name required Name
+     * @bodyParam name Name
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Region
      * @param Request $request
@@ -82,7 +83,7 @@ class RegionController extends Controller
     {
         $region = Region::findOrFail($id);
         $this->validate($request,[
-            'name'=>'required|max:255'
+            'name'=>'sometimes|max:255'
         ]);
         $region->update($request->all());
         return new JsonResource($region);

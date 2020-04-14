@@ -90,7 +90,7 @@ class CurrencyController extends Controller
      * @bodyParam symbol_left string  Currency Name
      * @bodyParam symbol_right string  Currency Name
      * @bodyParam value numeric  Currency Name
-     * @bodyParam base enum[0:1]  Currency Name
+     * @bodyParam base enum[0,1]  Currency Name
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Currency
      * @param Request $request

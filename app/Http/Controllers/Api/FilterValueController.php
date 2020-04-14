@@ -19,13 +19,16 @@ class FilterValueController extends Controller
     /**
      * Display a listing of the FilterValue.
      * @authenticated
+     * @queryParam page required The page number. default = 1
+     * @queryParam per_page required The number of items per list. default = 15
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\FilterValue
+     * @param Request $request
      * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(Request $request)
     {
-        return  JsonResource::collection(FilterValue::with('filter_group')->orderBy('id')->paginate(10));
+        return  JsonResource::collection(FilterValue::with('filter_group')->orderBy('id')->paginate($request['per_page']));
     }
 
     /**
@@ -71,8 +74,8 @@ class FilterValueController extends Controller
      * Update the specified FilterValue in storage.
      * @authenticated
      * @urlParam id required FilterValue's Id to be Updated
-     * @bodyParam filter_group_id numeric required Filter Group Id
-     * @bodyParam value string required Value
+     * @bodyParam filter_group_id numeric  Filter Group Id
+     * @bodyParam value string  Value
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\FilterValue
      * @param Request $request

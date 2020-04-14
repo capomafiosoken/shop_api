@@ -20,13 +20,16 @@ class FilterGroupController extends Controller
     /**
      * Display a listing of the FilterGroup.
      * @authenticated
+     * @queryParam page required The page number. default = 1
+     * @queryParam per_page required The number of items per list. default = 15
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\FilterGroup
+     * @param Request $request
      * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(Request $request)
     {
-        return JsonResource::collection(FilterGroup::orderBy('id', 'desc')->paginate(10));
+        return JsonResource::collection(FilterGroup::orderBy('id', 'desc')->paginate($request['per_page']));
     }
 
     /**

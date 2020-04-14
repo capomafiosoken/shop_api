@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\ProductImage;
-use http\Env\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -21,20 +20,23 @@ class ProductImageController extends Controller
     /**
      * Display a listing of the ProductImage.
      * @authenticated
+     * @queryParam page required The page number. default = 1
+     * @queryParam per_page required The number of items per list. default = 15
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\ProductImage
+     * @param Request $request
      * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(Request $request)
     {
-        return JsonResource::collection(ProductImage::latest()->paginate(10));
+        return JsonResource::collection(ProductImage::latest()->paginate($request['per_page']));
     }
 
     /**
      * Store a newly created ProductImage in storage.
      * @authenticated
      * @bodyParam product_id numeric required Product Id That This Image Belongs To
-     * @bodyParam image image Image
+     * @bodyParam image image required Image
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Address
      * @param Request $request
@@ -45,8 +47,7 @@ class ProductImageController extends Controller
     {
         $this->validate($request,[
             'product_id'=>'required|numeric|max:20',
-            'image'=>'nullable|image',
-
+            'image'=>'required|image',
         ]);
         $pImage=ProductImage::create([
             'product_id'=>$request['product_id'],
@@ -74,7 +75,6 @@ class ProductImageController extends Controller
      * @authenticated
      * @urlParam id required Address's Id to be Updated
      * @bodyParam product_id numeric required Product Id That This Image Belongs To
-     * @bodyParam image image Image
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Address
      * @param Request $request
@@ -86,11 +86,9 @@ class ProductImageController extends Controller
     {
         $productImage = ProductImage::findOrFail($id);
         $this->validate($request,[
-            'product_id'=>'required|numeric|max:20',
-            'image'=>'nullable|image',
-
+            'product_id'=>'sometimes|numeric|max:20',
         ]);
-        $productImage->update($request->all());
+        $productImage->update(array_filter($request->all()));
         return new JsonResource($productImage);
     }
 
