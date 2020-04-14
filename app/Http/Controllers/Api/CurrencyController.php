@@ -110,7 +110,9 @@ class CurrencyController extends Controller
             'base'=>'sometimes|in:0,1',
 
         ]);
-        $currency->update(array_filter($request->all()));
+        $currency->update(array_filter($request->all(), function($value) {
+            return !is_null($value);
+        }));
         return new JsonResource($currency);
     }
 

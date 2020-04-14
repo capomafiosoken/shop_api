@@ -58,7 +58,7 @@
     "http://localhost:8000/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"password":"officia","email":"harum"}'
+    -d '{"password":"exercitationem","email":"eius"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/login"
@@ -70,8 +70,8 @@ let headers = {
 };
 
 let body = {
-    "password": "officia",
-    "email": "harum"
+    "password": "exercitationem",
+    "email": "eius"
 }
 
 fetch(url, {
@@ -165,7 +165,7 @@ fetch(url, {
     "http://localhost:8000/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"eum","email":"voluptas","password":"sunt"}'
+    -d '{"name":"occaecati","email":"ipsa","password":"rem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/register"
@@ -177,9 +177,9 @@ let headers = {
 };
 
 let body = {
-    "name": "eum",
-    "email": "voluptas",
-    "password": "sunt"
+    "name": "occaecati",
+    "email": "ipsa",
+    "password": "rem"
 }
 
 fetch(url, {
@@ -265,7 +265,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/addresses?page=10&amp;per_page=15" \
+    -G "http://localhost:8000/api/addresses?page=5&amp;per_page=8" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -273,8 +273,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "10",
-    "per_page": "15",
+    "page": "5",
+    "per_page": "8",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -372,7 +372,7 @@ fetch(url, {
     "http://localhost:8000/api/addresses" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"city_id":"hic","zip_code":"voluptates","address":"excepturi","full_name":"consequatur","telephone_number":"dolorem","note":"voluptatem"}'
+    -d '{"city_id":"consequatur","zip_code":"minus","address":"et","full_name":"et","telephone_number":"voluptatem","note":"porro"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/addresses"
@@ -384,12 +384,12 @@ let headers = {
 };
 
 let body = {
-    "city_id": "hic",
-    "zip_code": "voluptates",
-    "address": "excepturi",
-    "full_name": "consequatur",
-    "telephone_number": "dolorem",
-    "note": "voluptatem"
+    "city_id": "consequatur",
+    "zip_code": "minus",
+    "address": "et",
+    "full_name": "et",
+    "telephone_number": "voluptatem",
+    "note": "porro"
 }
 
 fetch(url, {
@@ -556,7 +556,7 @@ fetch(url, {
     "http://localhost:8000/api/addresses/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"city_id":"perferendis","zip_code":"cumque","address":"molestiae","full_name":"quia","telephone_number":"quis","note":"dignissimos"}'
+    -d '{"city_id":"animi","zip_code":"nulla","address":"et","full_name":"perspiciatis","telephone_number":"officiis","note":"tenetur"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/addresses/1"
@@ -568,12 +568,12 @@ let headers = {
 };
 
 let body = {
-    "city_id": "perferendis",
-    "zip_code": "cumque",
-    "address": "molestiae",
-    "full_name": "quia",
-    "telephone_number": "quis",
-    "note": "dignissimos"
+    "city_id": "animi",
+    "zip_code": "nulla",
+    "address": "et",
+    "full_name": "perspiciatis",
+    "telephone_number": "officiis",
+    "note": "tenetur"
 }
 
 fetch(url, {
@@ -738,7 +738,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/brands?page=2&amp;per_page=6" \
+    -G "http://localhost:8000/api/brands?page=3&amp;per_page=10" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -746,8 +746,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "2",
-    "per_page": "6",
+    "page": "3",
+    "per_page": "10",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -825,7 +825,7 @@ fetch(url, {
     "http://localhost:8000/api/brands" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"magnam","alias":"eius","description":"voluptatem","image":"non"}'
+    -d '{"name":"provident","alias":"quia","description":"quibusdam","image":"autem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/brands"
@@ -837,10 +837,10 @@ let headers = {
 };
 
 let body = {
-    "name": "magnam",
-    "alias": "eius",
-    "description": "voluptatem",
-    "image": "non"
+    "name": "provident",
+    "alias": "quia",
+    "description": "quibusdam",
+    "image": "autem"
 }
 
 fetch(url, {
@@ -975,7 +975,7 @@ fetch(url, {
     "http://localhost:8000/api/brands/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"facilis","alias":"qui","description":"voluptatibus"}'
+    -d '{"name":"dolorum","alias":"aliquam","description":"sit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/brands/1"
@@ -987,9 +987,9 @@ let headers = {
 };
 
 let body = {
-    "name": "facilis",
-    "alias": "qui",
-    "description": "voluptatibus"
+    "name": "dolorum",
+    "alias": "aliquam",
+    "description": "sit"
 }
 
 fetch(url, {
@@ -1218,7 +1218,7 @@ fetch(url, {
     "http://localhost:8000/api/categories" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"fuga","alias":"aut","parent_id":"dolor","keyword":"numquam","description":"facilis","image":"eos"}'
+    -d '{"name":"dolorum","alias":"qui","parent_id":"reprehenderit","keyword":"recusandae","description":"quisquam","image":"quas"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/categories"
@@ -1230,12 +1230,12 @@ let headers = {
 };
 
 let body = {
-    "name": "fuga",
-    "alias": "aut",
-    "parent_id": "dolor",
-    "keyword": "numquam",
-    "description": "facilis",
-    "image": "eos"
+    "name": "dolorum",
+    "alias": "qui",
+    "parent_id": "reprehenderit",
+    "keyword": "recusandae",
+    "description": "quisquam",
+    "image": "quas"
 }
 
 fetch(url, {
@@ -1384,7 +1384,7 @@ fetch(url, {
     "http://localhost:8000/api/categories/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"ea","alias":"beatae","parent_id":"iste","keyword":"sed","description":"eos"}'
+    -d '{"name":"voluptatum","alias":"voluptatem","parent_id":"voluptates","keyword":"quia","description":"culpa"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/categories/1"
@@ -1396,11 +1396,11 @@ let headers = {
 };
 
 let body = {
-    "name": "ea",
-    "alias": "beatae",
-    "parent_id": "iste",
-    "keyword": "sed",
-    "description": "eos"
+    "name": "voluptatum",
+    "alias": "voluptatem",
+    "parent_id": "voluptates",
+    "keyword": "quia",
+    "description": "culpa"
 }
 
 fetch(url, {
@@ -1566,7 +1566,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/cities?page=17&amp;per_page=20" \
+    -G "http://localhost:8000/api/cities?page=9&amp;per_page=12" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1574,8 +1574,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "17",
-    "per_page": "20",
+    "page": "9",
+    "per_page": "12",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1651,7 +1651,7 @@ fetch(url, {
     "http://localhost:8000/api/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"vel","region_id":"minima","zip_code":"qui"}'
+    -d '{"name":"quam","region_id":"perferendis","zip_code":"quam"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/cities"
@@ -1663,9 +1663,9 @@ let headers = {
 };
 
 let body = {
-    "name": "vel",
-    "region_id": "minima",
-    "zip_code": "qui"
+    "name": "quam",
+    "region_id": "perferendis",
+    "zip_code": "quam"
 }
 
 fetch(url, {
@@ -1792,7 +1792,7 @@ fetch(url, {
     "http://localhost:8000/api/cities/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"dolores","region_id":"eos","zip_code":"veritatis"}'
+    -d '{"name":"qui","region_id":"id","zip_code":"omnis"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/cities/1"
@@ -1804,9 +1804,9 @@ let headers = {
 };
 
 let body = {
-    "name": "dolores",
-    "region_id": "eos",
-    "zip_code": "veritatis"
+    "name": "qui",
+    "region_id": "id",
+    "zip_code": "omnis"
 }
 
 fetch(url, {
@@ -1942,7 +1942,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/currencies?page=1&amp;per_page=6" \
+    -G "http://localhost:8000/api/currencies?page=8&amp;per_page=12" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1950,8 +1950,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "1",
-    "per_page": "6",
+    "page": "8",
+    "per_page": "12",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2033,7 +2033,7 @@ fetch(url, {
     "http://localhost:8000/api/currencies" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"voluptatem","code":"officia","symbol_left":"quas","symbol_right":"repellendus","value":"eligendi","base":"illo"}'
+    -d '{"name":"consequatur","code":"et","symbol_left":"magni","symbol_right":"id","value":"voluptas","base":"nisi"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/currencies"
@@ -2045,12 +2045,12 @@ let headers = {
 };
 
 let body = {
-    "name": "voluptatem",
-    "code": "officia",
-    "symbol_left": "quas",
-    "symbol_right": "repellendus",
-    "value": "eligendi",
-    "base": "illo"
+    "name": "consequatur",
+    "code": "et",
+    "symbol_left": "magni",
+    "symbol_right": "id",
+    "value": "voluptas",
+    "base": "nisi"
 }
 
 fetch(url, {
@@ -2201,7 +2201,7 @@ fetch(url, {
     "http://localhost:8000/api/currencies/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"rem","code":"dignissimos","symbol_left":"adipisci","symbol_right":"est","value":"consequatur","base":"magni"}'
+    -d '{"name":"rerum","code":"ratione","symbol_left":"ullam","symbol_right":"aspernatur","value":"reiciendis","base":"dolor"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/currencies/1"
@@ -2213,12 +2213,12 @@ let headers = {
 };
 
 let body = {
-    "name": "rem",
-    "code": "dignissimos",
-    "symbol_left": "adipisci",
-    "symbol_right": "est",
-    "value": "consequatur",
-    "base": "magni"
+    "name": "rerum",
+    "code": "ratione",
+    "symbol_left": "ullam",
+    "symbol_right": "aspernatur",
+    "value": "reiciendis",
+    "base": "dolor"
 }
 
 fetch(url, {
@@ -2308,7 +2308,7 @@ fetch(url, {
 </tr>
 <tr>
 <td><code>base</code></td>
-<td>enum[0:1]</td>
+<td>enum[0,1]</td>
 <td>optional</td>
 <td>Currency Name</td>
 </tr>
@@ -2375,12 +2375,19 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/filterGroups" \
+    -G "http://localhost:8000/api/filterGroups?page=19&amp;per_page=17" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/filterGroups"
 );
+
+let params = {
+    "page": "19",
+    "per_page": "17",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -2410,6 +2417,28 @@ fetch(url, {
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/filterGroups</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>required</td>
+<td>The page number. default = 1</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td>required</td>
+<td>The number of items per list. default = 15</td>
+</tr>
+</tbody>
+</table>
 <!-- END_ea79b130426ba62aa89eb615fe141273 -->
 <!-- START_ea85ef12613994737199a6fbbd82268a -->
 <h2>Store a newly created FilterGroup in storage.</h2>
@@ -2421,7 +2450,7 @@ fetch(url, {
     "http://localhost:8000/api/filterGroups" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"ut"}'
+    -d '{"name":"optio"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/filterGroups"
@@ -2433,7 +2462,7 @@ let headers = {
 };
 
 let body = {
-    "name": "ut"
+    "name": "optio"
 }
 
 fetch(url, {
@@ -2538,7 +2567,7 @@ fetch(url, {
     "http://localhost:8000/api/filterGroups/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"filter_group_id":"ipsum","value":"et"}'
+    -d '{"filter_group_id":"non","value":"sit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/filterGroups/1"
@@ -2550,8 +2579,8 @@ let headers = {
 };
 
 let body = {
-    "filter_group_id": "ipsum",
-    "value": "et"
+    "filter_group_id": "non",
+    "value": "sit"
 }
 
 fetch(url, {
@@ -2676,12 +2705,19 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/filterValues" \
+    -G "http://localhost:8000/api/filterValues?page=15&amp;per_page=1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/filterValues"
 );
+
+let params = {
+    "page": "15",
+    "per_page": "1",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -2713,6 +2749,28 @@ fetch(url, {
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/filterValues</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>required</td>
+<td>The page number. default = 1</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td>required</td>
+<td>The number of items per list. default = 15</td>
+</tr>
+</tbody>
+</table>
 <!-- END_d96de9f30d1796b25dc18a6450be51f8 -->
 <!-- START_245f4b7b8e223f278e601c2311c54394 -->
 <h2>Store a newly created FilterValue in storage.</h2>
@@ -2724,7 +2782,7 @@ fetch(url, {
     "http://localhost:8000/api/filterValues" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"filter_group_id":"cumque","value":"quam"}'
+    -d '{"filter_group_id":"ut","value":"aut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/filterValues"
@@ -2736,8 +2794,8 @@ let headers = {
 };
 
 let body = {
-    "filter_group_id": "cumque",
-    "value": "quam"
+    "filter_group_id": "ut",
+    "value": "aut"
 }
 
 fetch(url, {
@@ -2850,7 +2908,7 @@ fetch(url, {
     "http://localhost:8000/api/filterValues/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"filter_group_id":"hic","value":"et"}'
+    -d '{"filter_group_id":"nobis","value":"vitae"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/filterValues/1"
@@ -2862,8 +2920,8 @@ let headers = {
 };
 
 let body = {
-    "filter_group_id": "hic",
-    "value": "et"
+    "filter_group_id": "nobis",
+    "value": "vitae"
 }
 
 fetch(url, {
@@ -2917,13 +2975,13 @@ fetch(url, {
 <tr>
 <td><code>filter_group_id</code></td>
 <td>numeric</td>
-<td>required</td>
+<td>optional</td>
 <td>Filter Group Id</td>
 </tr>
 <tr>
 <td><code>value</code></td>
 <td>string</td>
-<td>required</td>
+<td>optional</td>
 <td>Value</td>
 </tr>
 </tbody>
@@ -2989,7 +3047,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/orders?page=8&amp;per_page=13" \
+    -G "http://localhost:8000/api/orders?page=19&amp;per_page=6" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2997,8 +3055,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "8",
-    "per_page": "13",
+    "page": "19",
+    "per_page": "6",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3076,7 +3134,7 @@ fetch(url, {
     "http://localhost:8000/api/orders" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":"molestiae","status":"quo","currency_id":"in","address_id":"aut","products":[]}'
+    -d '{"user_id":"illum","status":"labore","currency_id":"modi","address_id":"et","products":[]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/orders"
@@ -3088,10 +3146,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": "molestiae",
-    "status": "quo",
-    "currency_id": "in",
-    "address_id": "aut",
+    "user_id": "illum",
+    "status": "labore",
+    "currency_id": "modi",
+    "address_id": "et",
     "products": []
 }
 
@@ -3233,7 +3291,7 @@ fetch(url, {
     "http://localhost:8000/api/orders/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"user_id":"doloribus","status":"necessitatibus","currency_id":"cumque","address_id":"sed"}'
+    -d '{"user_id":"ut","status":"nihil","currency_id":"iure","address_id":"aut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/orders/1"
@@ -3245,10 +3303,10 @@ let headers = {
 };
 
 let body = {
-    "user_id": "doloribus",
-    "status": "necessitatibus",
-    "currency_id": "cumque",
-    "address_id": "sed"
+    "user_id": "ut",
+    "status": "nihil",
+    "currency_id": "iure",
+    "address_id": "aut"
 }
 
 fetch(url, {
@@ -3391,12 +3449,19 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/productImages" \
+    -G "http://localhost:8000/api/productImages?page=4&amp;per_page=8" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/productImages"
 );
+
+let params = {
+    "page": "4",
+    "per_page": "8",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -3420,6 +3485,28 @@ fetch(url, {
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/productImages</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>required</td>
+<td>The page number. default = 1</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td>required</td>
+<td>The number of items per list. default = 15</td>
+</tr>
+</tbody>
+</table>
 <!-- END_10c520f201ad78363713cc43becd6b39 -->
 <!-- START_48a86e1b2790445a69ef2c0617b057cf -->
 <h2>Store a newly created ProductImage in storage.</h2>
@@ -3431,7 +3518,7 @@ fetch(url, {
     "http://localhost:8000/api/productImages" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_id":"quibusdam","image":"possimus"}'
+    -d '{"product_id":"voluptatem","image":"mollitia"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/productImages"
@@ -3443,8 +3530,8 @@ let headers = {
 };
 
 let body = {
-    "product_id": "quibusdam",
-    "image": "possimus"
+    "product_id": "voluptatem",
+    "image": "mollitia"
 }
 
 fetch(url, {
@@ -3501,7 +3588,7 @@ fetch(url, {
 <tr>
 <td><code>image</code></td>
 <td>image</td>
-<td>optional</td>
+<td>required</td>
 <td>Image</td>
 </tr>
 </tbody>
@@ -3568,7 +3655,7 @@ fetch(url, {
     "http://localhost:8000/api/productImages/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_id":"nulla","image":"maiores"}'
+    -d '{"product_id":"est"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/productImages/1"
@@ -3580,8 +3667,7 @@ let headers = {
 };
 
 let body = {
-    "product_id": "nulla",
-    "image": "maiores"
+    "product_id": "est"
 }
 
 fetch(url, {
@@ -3653,12 +3739,6 @@ fetch(url, {
 <td>required</td>
 <td>Product Id That This Image Belongs To</td>
 </tr>
-<tr>
-<td><code>image</code></td>
-<td>image</td>
-<td>optional</td>
-<td>Image</td>
-</tr>
 </tbody>
 </table>
 <!-- END_1f57cae4f9c9962fe17b10bc0d8dc145 -->
@@ -3722,7 +3802,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/products?page=4&amp;per_page=6" \
+    -G "http://localhost:8000/api/products?page=3&amp;per_page=11" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3730,8 +3810,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "4",
-    "per_page": "6",
+    "page": "3",
+    "per_page": "11",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3763,7 +3843,7 @@ fetch(url, {
             "price": 441590,
             "keywords": null,
             "is_hit": false,
-            "image": "no_image.jpg",
+            "image": "http:\/\/localhost:8000\/storage\/images\/product\/no_image.jpg",
             "pieces_left": 0,
             "created_at": null,
             "updated_at": null,
@@ -3780,7 +3860,7 @@ fetch(url, {
             "price": 441590,
             "keywords": null,
             "is_hit": false,
-            "image": "no_image.jpg",
+            "image": "http:\/\/localhost:8000\/storage\/images\/product\/no_image.jpg",
             "pieces_left": 0,
             "created_at": null,
             "updated_at": null,
@@ -3823,7 +3903,7 @@ fetch(url, {
     "http://localhost:8000/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"aut","alias":"laborum","description":"sunt","content":"ad","brand_id":"excepturi","price":"quasi","keywords":"doloremque","image":"doloribus","pieces_left":"beatae"}'
+    -d '{"name":"sint","alias":"exercitationem","description":"unde","content":"et","brand_id":"ducimus","price":"ut","keywords":"id","image":"sapiente","product_images":"rerum","pieces_left":"deserunt"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/products"
@@ -3835,15 +3915,16 @@ let headers = {
 };
 
 let body = {
-    "name": "aut",
-    "alias": "laborum",
-    "description": "sunt",
-    "content": "ad",
-    "brand_id": "excepturi",
-    "price": "quasi",
-    "keywords": "doloremque",
-    "image": "doloribus",
-    "pieces_left": "beatae"
+    "name": "sint",
+    "alias": "exercitationem",
+    "description": "unde",
+    "content": "et",
+    "brand_id": "ducimus",
+    "price": "ut",
+    "keywords": "id",
+    "image": "sapiente",
+    "product_images": "rerum",
+    "pieces_left": "deserunt"
 }
 
 fetch(url, {
@@ -3868,7 +3949,7 @@ fetch(url, {
         "price": 441590,
         "keywords": null,
         "is_hit": false,
-        "image": "no_image.jpg",
+        "image": "http:\/\/localhost:8000\/storage\/images\/product\/no_image.jpg",
         "pieces_left": 0,
         "created_at": null,
         "updated_at": null,
@@ -3937,6 +4018,12 @@ fetch(url, {
 <td>Product Image</td>
 </tr>
 <tr>
+<td><code>product_images</code></td>
+<td>image.*</td>
+<td>optional</td>
+<td>Product Images</td>
+</tr>
+<tr>
 <td><code>pieces_left</code></td>
 <td>numeric</td>
 <td>required</td>
@@ -3985,7 +4072,7 @@ fetch(url, {
         "price": 441590,
         "keywords": null,
         "is_hit": false,
-        "image": "no_image.jpg",
+        "image": "http:\/\/localhost:8000\/storage\/images\/product\/no_image.jpg",
         "pieces_left": 0,
         "created_at": null,
         "updated_at": null,
@@ -4022,7 +4109,7 @@ fetch(url, {
     "http://localhost:8000/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"cumque","alias":"in","description":"consequatur","content":"qui","brand_id":"et","price":"repellendus","keywords":"cupiditate","image":"ducimus","pieces_left":"temporibus"}'
+    -d '{"name":"aspernatur","alias":"est","description":"mollitia","content":"quaerat","brand_id":"quas","price":"eum","keywords":"alias","pieces_left":"modi"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/products/1"
@@ -4034,15 +4121,14 @@ let headers = {
 };
 
 let body = {
-    "name": "cumque",
-    "alias": "in",
-    "description": "consequatur",
-    "content": "qui",
-    "brand_id": "et",
-    "price": "repellendus",
-    "keywords": "cupiditate",
-    "image": "ducimus",
-    "pieces_left": "temporibus"
+    "name": "aspernatur",
+    "alias": "est",
+    "description": "mollitia",
+    "content": "quaerat",
+    "brand_id": "quas",
+    "price": "eum",
+    "keywords": "alias",
+    "pieces_left": "modi"
 }
 
 fetch(url, {
@@ -4067,7 +4153,7 @@ fetch(url, {
         "price": 441590,
         "keywords": null,
         "is_hit": false,
-        "image": "no_image.jpg",
+        "image": "http:\/\/localhost:8000\/storage\/images\/product\/no_image.jpg",
         "pieces_left": 0,
         "created_at": null,
         "updated_at": null,
@@ -4129,12 +4215,6 @@ fetch(url, {
 <td>string</td>
 <td>optional</td>
 <td>Product keywords</td>
-</tr>
-<tr>
-<td><code>image</code></td>
-<td>image</td>
-<td>optional</td>
-<td>Product Image</td>
 </tr>
 <tr>
 <td><code>pieces_left</code></td>
@@ -4205,7 +4285,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/regions?per_page=2" \
+    -G "http://localhost:8000/api/regions?per_page=14&amp;page=5" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -4213,7 +4293,8 @@ fetch(url, {
 );
 
 let params = {
-    "per_page": "2",
+    "per_page": "14",
+    "page": "5",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -4263,6 +4344,11 @@ fetch(url, {
 <td>required</td>
 <td>The number of items per list. default = 15</td>
 </tr>
+<tr>
+<td><code>page</code></td>
+<td>required</td>
+<td>The number of items per list. default = 1</td>
+</tr>
 </tbody>
 </table>
 <!-- END_d3a06985ef377a31eecb832106f4a5e6 -->
@@ -4275,7 +4361,7 @@ fetch(url, {
     "http://localhost:8000/api/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"saepe"}'
+    -d '{"name":"consequuntur"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/regions"
@@ -4287,7 +4373,7 @@ let headers = {
 };
 
 let body = {
-    "name": "saepe"
+    "name": "consequuntur"
 }
 
 fetch(url, {
@@ -4394,7 +4480,7 @@ fetch(url, {
     "http://localhost:8000/api/regions/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"exercitationem"}'
+    -d '{"name":"adipisci"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/regions/1"
@@ -4406,7 +4492,7 @@ let headers = {
 };
 
 let body = {
-    "name": "exercitationem"
+    "name": "adipisci"
 }
 
 fetch(url, {
@@ -4459,9 +4545,8 @@ fetch(url, {
 <tbody>
 <tr>
 <td><code>name</code></td>
-<td>required</td>
-<td>optional</td>
 <td>Name</td>
+<td>optional</td>
 </tr>
 </tbody>
 </table>
@@ -4570,7 +4655,7 @@ fetch(url, {
     "http://localhost:8000/api/roles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"recusandae"}'
+    -d '{"name":"ducimus"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/roles"
@@ -4582,7 +4667,7 @@ let headers = {
 };
 
 let body = {
-    "name": "recusandae"
+    "name": "ducimus"
 }
 
 fetch(url, {
@@ -4685,7 +4770,7 @@ fetch(url, {
     "http://localhost:8000/api/roles/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"rerum"}'
+    -d '{"name":"a"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/roles/1"
@@ -4697,7 +4782,7 @@ let headers = {
 };
 
 let body = {
-    "name": "rerum"
+    "name": "a"
 }
 
 fetch(url, {
@@ -4815,7 +4900,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/users?page=12&amp;per_page=12" \
+    -G "http://localhost:8000/api/users?page=2&amp;per_page=2" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -4823,8 +4908,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "12",
-    "per_page": "12",
+    "page": "2",
+    "per_page": "2",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -4846,14 +4931,14 @@ fetch(url, {
 <pre><code class="language-json">{
     "data": [
         {
-            "name": "Gia Bogisich MD",
-            "email": "anissa98@example.org",
-            "email_verified_at": "2020-04-14T15:25:22.000000Z"
+            "name": "Deon Corkery PhD",
+            "email": "larry.sanford@example.net",
+            "email_verified_at": "2020-04-14T15:59:20.000000Z"
         },
         {
-            "name": "Dr. Giovanni Hansen IV",
-            "email": "amelie.pouros@example.net",
-            "email_verified_at": "2020-04-14T15:25:22.000000Z"
+            "name": "Fiona Huels",
+            "email": "nwilderman@example.com",
+            "email_verified_at": "2020-04-14T15:59:20.000000Z"
         }
     ]
 }</code></pre>
@@ -4892,7 +4977,7 @@ fetch(url, {
     "http://localhost:8000/api/users" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"possimus","email":"possimus","password":"accusantium"}'
+    -d '{"name":"ut","email":"aliquid","password":"ea"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/users"
@@ -4904,9 +4989,9 @@ let headers = {
 };
 
 let body = {
-    "name": "possimus",
-    "email": "possimus",
-    "password": "accusantium"
+    "name": "ut",
+    "email": "aliquid",
+    "password": "ea"
 }
 
 fetch(url, {
@@ -4921,9 +5006,9 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "name": "Percy Moore I",
-        "email": "cordia.willms@example.org",
-        "email_verified_at": "2020-04-14T15:25:22.000000Z"
+        "name": "Prof. Brett Kovacek II",
+        "email": "jboyer@example.net",
+        "email_verified_at": "2020-04-14T15:59:20.000000Z"
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -4990,9 +5075,9 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "name": "Mr. Geo Vandervort",
-        "email": "nwisozk@example.com",
-        "email_verified_at": "2020-04-14T15:25:22.000000Z"
+        "name": "Modesto Rippin",
+        "email": "yesenia.thiel@example.com",
+        "email_verified_at": "2020-04-14T15:59:20.000000Z"
     }
 }</code></pre>
 <h3>HTTP Request</h3>
@@ -5025,7 +5110,7 @@ fetch(url, {
     "http://localhost:8000/api/users/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"impedit","password":"temporibus"}'
+    -d '{"name":"et","password":"reprehenderit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8000/api/users/1"
@@ -5037,8 +5122,8 @@ let headers = {
 };
 
 let body = {
-    "name": "impedit",
-    "password": "temporibus"
+    "name": "et",
+    "password": "reprehenderit"
 }
 
 fetch(url, {
@@ -5053,9 +5138,9 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "name": "Vincenzo Bartoletti",
-        "email": "qhaley@example.com",
-        "email_verified_at": "2020-04-14T15:25:22.000000Z"
+        "name": "Raphaelle Kihn",
+        "email": "dickinson.ronaldo@example.net",
+        "email_verified_at": "2020-04-14T15:59:20.000000Z"
     }
 }</code></pre>
 <h3>HTTP Request</h3>

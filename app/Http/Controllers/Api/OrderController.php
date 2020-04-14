@@ -110,7 +110,9 @@ class OrderController extends Controller
             'address_id'=>'sometimes|numeric|digits_between:1,20',
 
         ]);
-        $order->update(array_filter($request->all()));
+        $order->update(array_filter($request->all(), function($value) {
+            return !is_null($value);
+        }));
         return new JsonResource($order);
     }
 
