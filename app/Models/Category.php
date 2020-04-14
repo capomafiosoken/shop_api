@@ -70,6 +70,6 @@ class Category extends Model
 	}
     public function getImageAttribute($value)
     {
-        return asset(Storage::url("images/category".$value));
+        return asset(Storage::url("images/category/".$value));
     }
 }

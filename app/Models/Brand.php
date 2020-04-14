@@ -46,6 +46,6 @@ class Brand extends Model
 	}
     public function getImageAttribute($value)
     {
-        return asset(Storage::url("images/brand".$value));
+        return asset(Storage::url("images/brand/".$value));
     }
 }
