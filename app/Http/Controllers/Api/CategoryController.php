@@ -34,7 +34,7 @@ class CategoryController extends Controller
      * @authenticated
      * @bodyParam name string required Category name
      * @bodyParam alias string required Category alias for future use as routes
-     * @bodyParam parent_id string required Category parent Id if it's child category
+     * @bodyParam parent_id numeric Category parent Id if it's child category
      * @bodyParam keyword string Keyword
      * @bodyParam description string Description
      * @bodyParam image image Image
@@ -85,7 +85,7 @@ class CategoryController extends Controller
      * @urlParam id Category's Id to be Updated
      * @bodyParam name string required Category name
      * @bodyParam alias string required Category alias for future use as routes
-     * @bodyParam parent_id string required Category parent Id if it's child category
+     * @bodyParam parent_id numeric Category parent Id if it's child category
      * @bodyParam keyword string Keyword
      * @bodyParam image image Image
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
@@ -101,7 +101,7 @@ class CategoryController extends Controller
         $this->validate($request,[
             'name'=>'required|max:255',
             'alias'=>'required|max:255',
-            'parent_id'=>'required|numeric|digits_between:1,20',
+            'parent_id'=>'nullable|numeric|digits_between:1,20',
             'keyword'=>'nullable|max:255',
             'description'=>'nullable|max:255',
             //'image'=>'bail|required|image',
