@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
 /**
@@ -34,7 +35,7 @@ class CategoryController extends Controller
      * @authenticated
      * @bodyParam name string required Category name
      * @bodyParam alias string required Category alias for future use as routes
-     * @bodyParam parent_id string required Category parent Id if it's child category
+     * @bodyParam parent_id string Category parent Id if it's child category
      * @bodyParam keyword string Keyword
      * @bodyParam description string Description
      * @bodyParam image image Image
@@ -47,21 +48,22 @@ class CategoryController extends Controller
         $this->validate($request,[
             'name'=>'required|max:255',
             'alias'=>'required|max:255',
-            'parent_id'=>'required|numeric|digits_between:1,20',
+            'parent_id'=>'nullable|numeric|digits_between:1,20',
             'keyword'=>'nullable|max:255',
             'description'=>'nullable|max:255',
-            //'image'=>'bail|required|image',
-
+            'image'=>'required|image',
         ]);
-         $category = Category::create([
+        $name = $request->file('image')->hashName();
+        $request->file('image')->storeAs('images/category', $name);
+        $category = Category::create([
             'name'=>$request['name'],
             'alias'=>$request['alias'],
             'parent_id'=>$request['parent_id'],
             'keyword'=>$request['keyword'],
             'description'=>$request['description'],
-            'image'=>$request['image']
+            'image'=>$name
         ]);
-         return new JsonResource($category);
+        return new JsonResource($category);
     }
 
     /**
@@ -87,7 +89,6 @@ class CategoryController extends Controller
      * @bodyParam alias string required Category alias for future use as routes
      * @bodyParam parent_id string required Category parent Id if it's child category
      * @bodyParam keyword string Keyword
-     * @bodyParam image image Image
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Category
      * @param Request $request
@@ -99,15 +100,13 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $this->validate($request,[
-            'name'=>'required|max:255',
-            'alias'=>'required|max:255',
-            'parent_id'=>'required|numeric|digits_between:1,20',
-            'keyword'=>'nullable|max:255',
-            'description'=>'nullable|max:255',
-            //'image'=>'bail|required|image',
-
+            'name'=>'sometimes|max:255',
+            'alias'=>'sometimes|max:255',
+            'parent_id'=>'sometimes|numeric|digits_between:1,20',
+            'keyword'=>'sometimes|max:255',
+            'description'=>'sometimes|max:255',
         ]);
-        $category->update($request->all());
+        $category->update(array_filter($request->all()));
         return new JsonResource($category);
     }
 

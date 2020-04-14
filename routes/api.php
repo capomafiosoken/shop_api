@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'Api\PassportController@login');
 Route::post('logout', 'Api\PassportController@logout');
 Route::post('register', 'Api\PassportController@register');
+Route::post('test', 'Api\PassportController@test');
 
 //Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
 //    Route::apiResources([

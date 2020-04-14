@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class Category
@@ -67,4 +68,8 @@ class Category extends Model
 		return $this->belongsToMany(Product::class)
 					->withPivot('id');
 	}
+    public function getImageAttribute($value)
+    {
+        return asset(Storage::url("images/category".$value));
+    }
 }

@@ -37,7 +37,7 @@ class BrandController extends Controller
      * @bodyParam name string required Brand Name
      * @bodyParam alias string required Unique Alias
      * @bodyParam description string required Description
-     * @bodyParam image image Image
+     * @bodyParam image image required Image
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Brand
      * @param Request $request
@@ -50,15 +50,17 @@ class BrandController extends Controller
             'name'=>'required|max:255',
             'alias'=>'required|max:255',
             'description'=>'nullable|max:255',
-            //'image'=>'bail|required|image',
+            'image'=>'required|image',
 
         ]);
+        $name = $request->file('image')->hashName();
+        $request->file('image')->storeAs('images/brand', $name);
 
         $brand =  Brand::create([
             'name'=>$request['name'],
             'alias'=>$request['alias'],
             'description'=>$request['description'],
-//            'image'=>$request['image'],
+            'image'=>$name,
         ]);
         return new JsonResource($brand);
     }
@@ -84,7 +86,6 @@ class BrandController extends Controller
      * @bodyParam name string Brand Name
      * @bodyParam alias string Unique Alias
      * @bodyParam description string  Description
-     * @bodyParam image image Image
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Brand
      * @param Request $request
@@ -99,8 +100,6 @@ class BrandController extends Controller
             'name'=>'sometimes|max:255',
             'alias'=>'sometimes|max:255',
             'description'=>'nullable|max:255',
-            //'image'=>'bail|required|image',
-
         ]);
 
         $brand->update(array_filter($request->all()));

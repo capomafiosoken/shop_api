@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -48,7 +49,7 @@ class PassportController extends Controller
 
     /**
      * Log In User
-     * @bodyParam name string required User Name
+     * @bodyParam password string required User Password
      * @bodyParam email string required User Email
      * @response {
      *  "token": "Bearer token",
@@ -85,6 +86,12 @@ class PassportController extends Controller
     public function logout(){
         auth()->logout();
         return response()->json(['message'=>'Logged Out']);
+    }
+
+    public function test(Request $request){
+        $name = $request->file('image')->hashName();
+        $path =  $request->file('image')->storeAs('images/test', $name);
+        return ['path'=>asset(Storage::url($path)),'name'=>$name];
     }
 
 }

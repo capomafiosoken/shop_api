@@ -10,10 +10,11 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class Brand
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $alias
@@ -22,7 +23,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property string $deleted_at
- * 
+ *
  * @property Collection|Product[] $products
  *
  * @package App\Models
@@ -43,4 +44,8 @@ class Brand extends Model
 	{
 		return $this->hasMany(Product::class);
 	}
+    public function getImageAttribute($value)
+    {
+        return asset(Storage::url("images/brand".$value));
+    }
 }

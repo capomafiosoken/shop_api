@@ -58,7 +58,8 @@ class ProductController extends Controller
             'brand_id' => 'required|numeric|digits_between:1,20',
             'price' => 'required|numeric|digits_between:1,18',
             'keywords' => 'nullable|max:255',
-            'pieces_left' => 'required|numeric'
+            'pieces_left' => 'required|numeric',
+            'image'=>'required|image'
         ]);
 
         $product = Product::create([
