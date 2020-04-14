@@ -75,7 +75,7 @@ class ProductController extends Controller
             'price' => $request['price'],
             'keywords' => $request['keywords'],
             'pieces_left' => $request['pieces_left'],
-            'images' => $name
+            'image' => $name
         ]);
 //        foreach ($request->file('product_image') as $product_image){
 //            $name = $request->file('image')->hashName();
