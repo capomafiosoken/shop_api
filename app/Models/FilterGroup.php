@@ -11,10 +11,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class FilterGroup
- * 
+ *
  * @property int $id
  * @property string $name
- * 
+ *
  * @property Collection|FilterValue[] $filter_values
  *
  * @package App\Models
@@ -27,7 +27,9 @@ class FilterGroup extends Model
 	protected $fillable = [
 		'name'
 	];
-
+	protected $with = [
+	    'filter_values'
+    ];
 	public function filter_values()
 	{
 		return $this->hasMany(FilterValue::class);
