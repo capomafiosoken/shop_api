@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
@@ -25,11 +27,11 @@ class ProductController extends Controller
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Product
      * @param Request $request
-     * @return Response
+     * @return AnonymousResourceCollection
      */
     public function index(Request $request)
     {
-        return Product::Latest()->paginate($request['per_page']);
+        return JsonResource::collection(Product::Latest()->paginate($request['per_page']));
     }
 
     /**
@@ -45,6 +47,7 @@ class ProductController extends Controller
      * @bodyParam image image required Product Image
      * @bodyParam product_images image.* Product Images
      * @bodyParam pieces_left numeric required Left pieces of Product
+     * @bodyParam status enum[0,1] required Status of Product 0 - off, 1 - on
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Product
      * @param Request $request
@@ -57,6 +60,7 @@ class ProductController extends Controller
             'alias' => 'required|max:255|unique:products',
             'description' => 'nullable|max:255',
             'content' => 'nullable|max:1000',
+            'status'=>'nullable|in:0,1',
             'brand_id' => 'required|numeric|digits_between:1,20',
             'price' => 'required|numeric|digits_between:1,18',
             'keywords' => 'nullable|max:255',
@@ -75,6 +79,7 @@ class ProductController extends Controller
             'price' => $request['price'],
             'keywords' => $request['keywords'],
             'pieces_left' => $request['pieces_left'],
+            'status' => $request['status'],
             'image' => $name
         ]);
 //        foreach ($request->file('product_image') as $product_image){
@@ -113,6 +118,7 @@ class ProductController extends Controller
      * @bodyParam price numeric Product Price
      * @bodyParam keywords string Product keywords
      * @bodyParam pieces_left numeric Left pieces of Product
+     * @bodyParam status enum[0,1] Status of Product 0 - off, 1 - on
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Product
      * @param Request $request
@@ -132,8 +138,11 @@ class ProductController extends Controller
             'price' => 'sometimes|numeric|digits_between:1,18',
             'keywords' => 'sometimes|max:255',
             'pieces_left' => 'sometimes|numeric',
+            'status' => 'sometimes|in:0,1',
         ]);
-        $product->update(array_filter($request->all()));
+        $product->update(array_filter($request->all(), function($value) {
+            return !is_null($value);
+        }));
         return new JsonResource($product);
     }
 
