@@ -66,7 +66,7 @@ class ProductController extends Controller
             'keywords' => 'nullable|max:255',
             'pieces_left' => 'required|numeric',
             'image'=>'required|image',
-//            'product_image.*'=>'required|image',
+            'product_image.*'=>'required|image',
         ]);
         $name = $request->file('image')->hashName();
         $request->file('image')->storeAs('images/product', $name);
@@ -161,5 +161,68 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
         return response()->json(['message'=>'Product Deleted'],  Response::HTTP_ACCEPTED);
+    }
+
+
+    /**
+     * Store a newly created product in storage.
+     * @authenticated
+     * @bodyParam name string required Product Name
+     * @bodyParam alias string required Product Alias
+     * @bodyParam description string Description
+     * @bodyParam content string Content of Product page
+     * @bodyParam brand_id numeric required Brand Id
+     * @bodyParam price numeric required Product Price
+     * @bodyParam keywords string Product keywords
+     * @bodyParam image image required Product Image
+     * @bodyParam product_images image.* Product Images
+     * @bodyParam pieces_left numeric required Left pieces of Product
+     * @bodyParam status enum[0,1] required Status of Product 0 - off, 1 - on
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Product
+     * @param Request $request
+     * @param $id
+     * @return JsonResource
+     * @throws ValidationException
+     */
+    public function updatePhotos(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $this->validate($request, [
+            'name' => 'sometimes|max:255',
+            'alias' => 'sometimes|max:255|unique:products',
+            'description' => 'sometimes|nullable|max:255',
+            'content' => 'sometimes|nullable|max:1000',
+            'status'=>'sometimes|nullable|in:0,1',
+            'brand_id' => 'sometimes|numeric|digits_between:1,20',
+            'price' => 'sometimes|numeric|digits_between:1,18',
+            'keywords' => 'sometimes|nullable|max:255',
+            'pieces_left' => 'sometimes|numeric',
+            'image'=>'sometimes|image',
+            'product_image.*'=>'sometimes|image',
+        ]);
+        $name = $request->file('image')->hashName();
+        $request->file('image')->storeAs('images/product', $name);
+        $product->update([
+            'name' => $request['name'],
+            'alias' => $request['alias'],
+            'description' => $request['description'],
+            'content' => $request['content'],
+            'brand_id' => $request['brand_id'],
+            'price' => $request['price'],
+            'keywords' => $request['keywords'],
+            'pieces_left' => $request['pieces_left'],
+            'status' => $request['status'],
+            'image' => $name
+        ]);
+        foreach ($request->file('product_image') as $product_image){
+            $name = $request->file('image')->hashName();
+            $product_image->storeAs('images/product', $name);
+            ProductImage::create([
+                'product_id' => $product->id,
+                'image' => $name
+            ]);
+        }
+        return new JsonResource($product);
     }
 }
