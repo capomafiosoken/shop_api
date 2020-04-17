@@ -83,7 +83,7 @@ class ProductController extends Controller
             'status' => $request['status'],
             'image' => $name
         ]);
-        foreach ($request->file('product_image') as $product_image){
+        foreach ($request->file('product_images') as $product_image){
             $name = $request->file('image')->hashName();
             $product_image->storeAs('images/product', $name);
             $product->product_images()->save(new ProductImage([
