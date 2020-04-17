@@ -67,7 +67,7 @@ class ProductController extends Controller
             'keywords' => 'nullable|max:255',
             'pieces_left' => 'required|numeric',
             'image'=>'required|image',
-            'product_image.*'=>'required|image',
+            'product_images.*'=>'image',
         ]);
         $name = $request->file('image')->hashName();
         $request->file('image')->storeAs('images/product', $name);
