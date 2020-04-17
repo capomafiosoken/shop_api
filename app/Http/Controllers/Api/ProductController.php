@@ -85,7 +85,7 @@ class ProductController extends Controller
         ]);
         if($request->hasfile('product_images')) {
             foreach ($request->file('product_images') as $product_image) {
-                $name = $request->file('image')->hashName();
+                $name = $product_image->hashName();
                 $product_image->storeAs('images/product', $name);
                 $product->product_images()->save(new ProductImage([
                     'image' => $name
@@ -185,7 +185,7 @@ class ProductController extends Controller
         ]);
         Storage::delete('images/product/'.$product->image);
         $name = 'no_image.jpg';
-        if($request->exists('image') && !is_null($request->file('image'))) {
+        if($request->hasfile('image')) {
             $name = $request->file('image')->hashName();
             $request->file('image')->storeAs('images/product', $name);
         }
