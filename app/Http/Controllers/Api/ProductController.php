@@ -108,7 +108,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return new JsonResource(Product::findOrFail($id));
+        return new JsonResource(Product::with(['filter_values', 'categories', 'product_images'])->findOrFail($id));
     }
 
     /**
