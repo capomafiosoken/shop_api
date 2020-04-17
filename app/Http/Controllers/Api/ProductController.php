@@ -69,7 +69,7 @@ class ProductController extends Controller
 //            'product_image.*'=>'required|image',
         ]);
         $name = $request->file('image')->hashName();
-        $request->file('image')->storeAs('images/category', $name);
+        $request->file('image')->storeAs('images/product', $name);
         $product = Product::create([
             'name' => $request['name'],
             'alias' => $request['alias'],
@@ -82,14 +82,14 @@ class ProductController extends Controller
             'status' => $request['status'],
             'image' => $name
         ]);
-//        foreach ($request->file('product_image') as $product_image){
-//            $name = $request->file('image')->hashName();
-//            $product_image->storeAs('images/category', $name);
-//            ProductImage::create([
-//                'product_id' => $product->id,
-//                'image' => $name
-//            ]);
-//        }
+        foreach ($request->file('product_image') as $product_image){
+            $name = $request->file('image')->hashName();
+            $product_image->storeAs('images/product', $name);
+            ProductImage::create([
+                'product_id' => $product->id,
+                'image' => $name
+            ]);
+        }
         return new JsonResource($product);
     }
 
