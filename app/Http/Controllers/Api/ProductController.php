@@ -83,12 +83,14 @@ class ProductController extends Controller
             'status' => $request['status'],
             'image' => $name
         ]);
-        foreach ($request->file('product_images') as $product_image){
-            $name = $request->file('image')->hashName();
-            $product_image->storeAs('images/product', $name);
-            $product->product_images()->save(new ProductImage([
-                'image' => $name
-            ]));
+        if($request->hasfile('product_images')) {
+            foreach ($request->file('product_images') as $product_image) {
+                $name = $request->file('image')->hashName();
+                $product_image->storeAs('images/product', $name);
+                $product->product_images()->save(new ProductImage([
+                    'image' => $name
+                ]));
+            }
         }
         return new JsonResource($product);
     }
