@@ -83,6 +83,8 @@ class ProductController extends Controller
             'status' => $request['status'],
             'image' => $name
         ]);
+        $product->filter_values()->sync($request['filters']);
+        $product->categories()->sync($request['categories']);
         if($request->hasfile('product_images')) {
             foreach ($request->file('product_images') as $product_image) {
                 $name = $product_image->hashName();
