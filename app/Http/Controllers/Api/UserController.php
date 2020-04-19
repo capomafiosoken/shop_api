@@ -37,6 +37,7 @@ class UserController extends Controller
      * @bodyParam name string required User Name
      * @bodyParam email string required User Email
      * @bodyParam password string required User Password
+     * @bodyParam role_id numeric Role Id
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\User
      * @param Request $request
@@ -48,13 +49,15 @@ class UserController extends Controller
         $this->validate($request,[
             'name' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users',
-            'password' => 'required|string|min:6'
+            'password' => 'required|string|min:6',
+            'role_id'=> 'sometimes|exists:roles,id'
         ]);
 
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => bcrypt($request['password'])
+            'password' => bcrypt($request['password']),
+            'role_id' => $request['role_id']
         ]);
 
         return new JsonResource($user);

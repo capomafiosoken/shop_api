@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+
 use App\Mail\ResetPassword;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+
+use App\Models\Currency;
+use Illuminate\Support\Facades\Http;
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Mail\VerificationEmail;
@@ -119,10 +124,7 @@ class PassportController extends Controller
         return response()->json(['message'=>'Logged Out']);
     }
 
-    public function test(Request $request){
-        $name = $request->file('image')->hashName();
-        $path =  $request->file('image')->storeAs('images/test', $name);
-        return ['path'=>asset(Storage::url($path)),'name'=>$name];
-    }
+    public function test(){
 
+    }
 }

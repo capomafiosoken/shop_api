@@ -21,8 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'Api\PassportController@login');
 Route::post('logout', 'Api\PassportController@logout');
 Route::post('register', 'Api\PassportController@register');
+<<<<<<< HEAD
 Route::post('resetPassword', 'Api\PassportController@resetPassword');
 Route::post('test', 'Api\PassportController@test');
+=======
+Route::get('test', 'Api\PassportController@test');
+>>>>>>> bcdbbdd20d13e63e0518cabf937bbd4c17ed0632
 Route::post('products/setImage/{product}', 'Api\ProductController@setImage')->name('products.setImage');
 Route::get('verify/{token}', 'Api\VerifyController@VerifyEmail')->name('verify');
 Route::get('reset/{token}', 'Api\VerifyController@ResetPassword')->name('reset');

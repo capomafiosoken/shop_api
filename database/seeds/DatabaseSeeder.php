@@ -160,6 +160,34 @@ class DatabaseSeeder extends Seeder
                 'name'=>'Тенге',
                 'code'=>'KZT',
                 'value'=>1,
+                'base'=>'1',
+
+            ],
+            [
+                'name'=>'Доллар США',
+                'code'=>'USD',
+                'value'=>420,
+                'base'=>'0',
+
+            ],
+            [
+                'name'=>'Евро',
+                'code'=>'EUR',
+                'value'=>440,
+                'base'=>'0',
+
+            ],
+            [
+                'name'=>'Российский рубль',
+                'code'=>'RUB',
+                'value'=>5,
+                'base'=>'0',
+
+            ],
+            [
+                'name'=>'Китайский юань',
+                'code'=>'CNY',
+                'value'=>10,
                 'base'=>'0',
 
             ]
@@ -189,7 +217,6 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             [
-                'status'=>'0',
                 'name'=>'Ноутбук HP 2RR85EA ProBook',
                 'alias'=>'HP-2RR85EA',
                 'brand_id'=>3,
@@ -197,7 +224,6 @@ class DatabaseSeeder extends Seeder
 
             ],
             [
-                'status'=>'0',
                 'name'=>'КОФТА ONTHEGO GM',
                 'alias'=>'ONTHEGO-GM',
                 'brand_id'=>1,
@@ -205,7 +231,6 @@ class DatabaseSeeder extends Seeder
 
             ],
             [
-                'status'=>'0',
                 'name'=>'Футболка Supreme',
                 'alias'=>'shirt-supreme',
                 'brand_id'=>2,
