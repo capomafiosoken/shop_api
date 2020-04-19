@@ -101,15 +101,20 @@ class PassportController extends Controller
     {
         $credentials = $request->only(['email', 'password']);
 
-        if (auth()->attempt($credentials)) {
-            $user = auth()->user();
-            $token = $user->createToken('shop_api')->accessToken;
-            return response()->json([
-                'token' => $token,
-                'role' => $user->role]);
-        } else {
-            return response()->json(['error' => 'Unauthorized'], 401);
+        $user = User::where('email',$request->email)->first();
+
+        if($user->email_verified == 1) {
+            if (auth()->attempt($credentials)) {
+                $user = auth()->user();
+                $token = $user->createToken('shop_api')->accessToken;
+                return response()->json([
+                    'token' => $token,
+                    'role' => $user->role]);
+            }
+                return response()->json(['error' => 'Unauthorized'], 401);
+
         }
+        return response()->json(['error' => 'Verify email']);
     }
 
     /**
