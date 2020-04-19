@@ -17,7 +17,7 @@ class CreateCurrenciesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('symbol_left')->nullable();
             $table->string('symbol_right')->nullable();
             $table->float('value',15,2);
