@@ -179,7 +179,7 @@ class UserController extends Controller
             ]);
             return new JsonResource($user);
         }else{
-            return response()->json(["message"=>"You haven't verified your email"]);
+            return new JsonResource(["message"=>"You haven't verified your email"]);
         }
 
     }
