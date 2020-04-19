@@ -29,7 +29,11 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123456'),
             'email_verified_at' => now(),
             'role_id'=> '1',
-            'remember_token'=> Str::random(25)
+            'remember_token'=> Str::random(25),
+            'email_verification_token'=>'',
+            'email_verified'=>1,
+            'reset_password_token'=>'',
+            'ready_to_reset'=>0
         ]);
 
         DB::table('regions')->insert([

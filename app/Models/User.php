@@ -7,6 +7,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -30,7 +31,7 @@ use Laravel\Passport\HasApiTokens;
  *
  * @package App\Models
  */
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable;
 
@@ -50,6 +51,10 @@ class User extends Authenticatable
 		'name',
 		'email',
 		'email_verified_at',
+        'email_verified',
+        'email_verification_token',
+        'ready_to_reset',
+        'reset_password_token',
 		'password',
 		'remember_token'
 	];

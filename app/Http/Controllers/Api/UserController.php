@@ -150,4 +150,34 @@ class UserController extends Controller
         $user ->update(array_filter($request ->all()));
         return new JsonResource($user);
     }
+
+    /**
+     * Resets the User Password
+     * @authenticated
+     * @bodyParam email string User Email
+     * @bodyParam password string  User Password
+     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\User
+     * @param Request $request
+     * @return JsonResource
+     * @throws ValidationException
+     */
+    public function resetPassword(Request $request)
+    {
+        /*$this->validate($request,[
+            'email' => 'required|string|email|max:191',
+            'password' => 'sometimes|required|string|min:6'
+        ]);*/
+        $user = User::where('email',$request['email'])->first();
+        if ($user->ready_to_reset==1){
+            $user->update([
+                'password'=>bcrypt($request['password']),
+                'ready_to_reset'=>0
+            ]);
+            return new JsonResource($user);
+        }else{
+            return response()->json(["message"=>"You haven't verified your email"]);
+        }
+
+    }
 }

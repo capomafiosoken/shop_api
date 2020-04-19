@@ -21,8 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'Api\PassportController@login');
 Route::post('logout', 'Api\PassportController@logout');
 Route::post('register', 'Api\PassportController@register');
+Route::post('resetPassword', 'Api\PassportController@resetPassword');
 Route::post('test', 'Api\PassportController@test');
 Route::post('products/setImage/{product}', 'Api\ProductController@setImage')->name('products.setImage');
+Route::get('verify/{token}', 'Api\VerifyController@VerifyEmail')->name('verify');
+Route::get('reset/{token}', 'Api\VerifyController@ResetPassword')->name('reset');
+Route::post('users/resetPassword', 'Api\UserController@resetPassword')->name('user.resetPassword');
 
 //Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
 //    Route::apiResources([
@@ -55,6 +59,7 @@ Route::apiResources([
     'orders' => 'Api\OrderController',
     'productImages' => 'Api\ProductImageController',
     'regions' => 'Api\RegionController',
-    'roles' => 'Api\RoleController'
+    'roles' => 'Api\RoleController',
+    'verify'=>'Api\VerifyController'
 ]);
 

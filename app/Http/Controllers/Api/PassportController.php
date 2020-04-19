@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ResetPassword;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\VerificationEmail;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Str;
+use PharIo\Manifest\Email;
 
 /**
  * @group Access management
@@ -38,13 +43,39 @@ class PassportController extends Controller
             'password' => 'required|string|min:6'
         ]);
 
-        User::create([
+        $user= User::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => bcrypt($request['password'])
+            'password' => bcrypt($request['password']),
+            'email_verification_token' => Str::random(32),
+            'reset_password_token'=>''
         ]);
+        Mail::to($user->email)->send(new VerificationEmail($user));
 
-        return response()->json(['message' => 'Registered']);
+        return response()->json(['user'=> $user]);
+    }
+
+    /**
+     * ResetPassword User
+     * @param Request $request
+     * @return JsonResponse
+     * @bodyParam email string required User Email
+     * @response {
+     *  "message":"Ready to reset"
+     * }
+     * @throws ValidationException
+     */
+
+    public function resetPassword(Request $request){
+        $this->validate($request, [
+            'email' => 'required|string|email|max:191',
+        ]);
+        $user = User::where('email',$request['email'])->first();
+        $user->update([
+            'reset_password_token'=> Str::random(32)
+        ]);
+        Mail::to($user->email)->send(new ResetPassword($user));
+        return response()->json(['user'=> $user]);
     }
 
     /**
