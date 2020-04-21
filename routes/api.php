@@ -61,6 +61,5 @@ Route::apiResources([
     'productImages' => 'Api\ProductImageController',
     'regions' => 'Api\RegionController',
     'roles' => 'Api\RoleController',
-    'verify'=>'Api\VerifyController'
 ]);
 

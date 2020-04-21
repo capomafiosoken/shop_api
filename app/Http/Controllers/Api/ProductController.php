@@ -25,7 +25,6 @@ class ProductController extends Controller
      * Display a listing of the product.
      * @authenticated
      * @queryParam page required The page number. default = 1
-     * @queryParam sort_by required The page number. default = 1
      * @queryParam per_page required The number of items per list. default = 15
      * @queryParam categories Category Ids
      * @queryParam filter_values Filter Value Ids
