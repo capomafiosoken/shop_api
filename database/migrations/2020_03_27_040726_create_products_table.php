@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('alias')->unique();
             $table->string('description')->nullable();
             $table->text('content')->nullable();
-            $table->bigInteger('brand_id')->unsigned();
+            $table->bigInteger('brand_id')->unsigned()->nullable();
             $table->foreign('brand_id')->references('id')->on('brands')->onUpdate('cascade')->onDelete('cascade');
             $table->float('price', 18, 2)->default(0);
             $table->string('keywords')->nullable();

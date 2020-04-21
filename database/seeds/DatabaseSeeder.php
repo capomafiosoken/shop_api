@@ -105,55 +105,129 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('brands')->insert([
             [
+                'name'=>'hewlett packard',
+                'alias'=>'hewlett packard',
+                /*'description'=>'Hewlett-Packard — одна из крупнейших американских компаний в сфере информационных
+                технологий, существовавшая в период 1939—2015 годов',
+                //'image'=>'',*/
+
+            ],
+            [
+                'name'=>'Lenovo',
+                'alias'=>'Lenovo',
+            ],
+            [
+                'name'=>'Acer',
+                'alias'=>'Acer',
+            ],
+            [
                 'name'=>'louis vuitton',
                 'alias'=>'LV',
-                'description'=>'ОписаниеLouis Vuitton — французский дом моды,
+                /*'description'=>'ОписаниеLouis Vuitton — французский дом моды,
                 специализирующийся на производстве чемоданов и сумок, модной одежды,
                 парфюмерии и аксессуаров класса «люкс» под одноимённой торговой маркой.',
-                //'image'=>'',
+                //'image'=>'',*/
 
             ],
             [
                 'name'=>'Supreme',
                 'alias'=>'Supreme',
-                'description'=>'Supreme — американский стритвер-бренд одежды, основанный в Нью-Йорке в апреле 1994 года',
-                //'image'=>'',
+                /*'description'=>'Supreme — американский стритвер-бренд одежды, основанный в Нью-Йорке в апреле 1994 года',
+                //'image'=>'',*/
 
             ],
-            [
-                'name'=>'hewlett packard',
-                'alias'=>'HP',
-                'description'=>'Hewlett-Packard — одна из крупнейших американских компаний в сфере информационных
-                технологий, существовавшая в период 1939—2015 годов',
-                //'image'=>'',
 
-            ]
         ]);
         DB::table('categories')->insert([
             [
                 'name'=>'Техника и электроника',
                 'alias'=>'электротехника',
                 'parent_id'=>null,
-                'keyword'=>'электротехника',
+               // 'keyword'=>'электротехника',
                 //'description'=>'',
-                //'image'=>'image',
+                'image'=>'no_image.jpg',
+            ],
+            [
+                'name'=>'Компьютерная техника и ПО',
+                'alias'=>'комп',
+                'parent_id'=>1,
+                'image'=>'12746992_w230_h230_kompyuternaya-tehnika-i.jpg'
             ],
             [
                 'name'=>'Ноутбуки и нетбуки',
                 'alias'=>'ноуты',
-                'parent_id'=>'1',
-                'keyword'=>'ноуты',
+                'parent_id'=>2,
+                //'keyword'=>'ноуты',
                 //'description'=>'',
-                //'image'=>'image',
+                'image'=>'72624213_w230_h230_noutbuki-i-netbuki.jpg',
+            ],
+            [
+                'name'=>'Мониторы',
+                'alias'=>'моник',
+                'parent_id'=>2,
+                'image'=>'11632477_w230_h230_monitory.jpg'
+
             ],
             [
                 'name'=>'Одежда и обувь',
                 'alias'=>'одежда',
                 'parent_id'=>null,
-                'keyword'=>'шмот',
+                //'keyword'=>'шмот',
                 //'description'=>'',
-                //'image'=>'image',
+                'image'=>'no_image.jpg',
             ],
+            [
+                'name'=>'Одежда и обувь детские',
+                'alias'=>'детское',
+                'parent_id'=>5,
+                'image'=>'82119649_w230_h230_odezhda-i-obuv.jpg'
+
+            ],
+            [
+                'name'=>'Школьная форма',
+                'alias'=>'форма',
+                'parent_id'=>6,
+                'image'=>'11780224_w230_h230_shkolnaya-forma.jpg'
+            ],
+            [
+                'name'=>'Одежда и обувь мужское',
+                'alias'=>'мужское',
+                'parent_id'=>5,
+                'image'=>'82119662_w230_h230_odezhda-muzhskaya.jpg'
+            ],
+            [
+                'name'=>'Рубашки мужские',
+                'alias'=>'рубкашка',
+                'parent_id'=>8,
+                'image'=>'82130822_w230_h230_rubashki-muzhskie.jpg'
+
+            ],
+            [
+                'name'=>'Дом и сад',
+                'alias'=>'дом',
+                'parent_id'=>null,
+                'image'=>'no_image.jpg',
+
+            ],
+            [
+                'name'=>'Мебель',
+                'alias'=>'мебель',
+                'parent_id'=>10,
+                'image'=>'10916561_w230_h230_mebel.jpg'
+            ],
+            [
+                'name'=>'Надувная мебель',
+                'alias'=>'надув',
+                'parent_id'=>11,
+                'image'=>'10916580_w230_h230_naduvnaya-mebel.jpg'
+            ],
+            [
+                'name'=>'Антикварная мебель',
+                'alias'=>'анттиквар',
+                'parent_id'=>11,
+                'image'=>'10916608_w230_h230_antikvarnaya-mebel.jpg'
+            ],
+
         ]);
         DB::table('currencies')->insert([
             [
@@ -219,28 +293,128 @@ class DatabaseSeeder extends Seeder
             [
                 'name'=>'Ноутбук HP 2RR85EA ProBook',
                 'alias'=>'HP-2RR85EA',
-                'brand_id'=>3,
-                'price'=>441590,
-
-            ],
-            [
-                'name'=>'КОФТА ONTHEGO GM',
-                'alias'=>'ONTHEGO-GM',
                 'brand_id'=>1,
-                'price'=>800000,
+                'price'=>441590,
+                'image'=>'77286631_w200_h200_noutbuk-hp-probook.jpg'
 
             ],
             [
-                'name'=>'Футболка Supreme',
-                'alias'=>'shirt-supreme',
+                'name'=>'Ноутбук Lenovo ThinkPad X1 Carbon 14.0\'\' FHD(1920x1080)',
+                'alias'=>'q',
                 'brand_id'=>2,
-                'price'=>14490,
+                'price'=>160000,
+                'image'=>'117115501_w200_h200_noutbuk-lenovo-thinkpad.jpg'
 
             ],
+            [
+                'name'=>'Ноутбук Acer (NX.EFAER.122) EX2519/15.6\' HD/Celeron 3060 1.6Ghz/4GB/500GB/Intel HD/DVD-RW/Черный/ DOS',
+                'alias'=>'w',
+                'brand_id'=>3,
+                'price'=>110000,
+                'image'=>'115229591_w640_h640_noutbuk-acer-nxefaer122.jpg'
+
+            ],
+            [
+                'name'=>'Ноутбук Acer EX2519 / 15.6" / NX.EFAER.025',
+                'alias'=>'e',
+                'brand_id'=>3,
+                'price'=>145000,
+                'image'=>'125363494_w640_h640_noutbuk-acer-ex2519.jpg'
+
+            ],
+            [
+                'name'=>'Монитор Asus MX259H 90LM0190-B01670 (Art:904360528)',
+                'alias'=>'r',
+                'brand_id'=>null,
+                'price'=>139000,
+                'image'=>'45894023_w640_h640_monitor-asus-mx259h.jpg'
+
+            ],
+            [
+                'name'=>'Монитор Acer K202HQLAb UM.IX3EE.A01',
+                'alias'=>'t',
+                'brand_id'=>null,
+                'price'=>56000,
+                'image'=>'87002914_w640_h640_monitor-acer-k202hqlab.jpg'
+
+            ],
+            [
+                'name'=>'Монитор Dell SE2416H 210-AFZC',
+                'alias'=>'y',
+                'brand_id'=>null,
+                'price'=>45134,
+                'image'=>'86584231_w640_h640_monitor-dell-se2416h.jpg'
+
+            ],
+            [
+                'name'=>'Пиджак школьный "Колледж"',
+                'alias'=>'u',
+                'brand_id'=>null,
+                'price'=>4800,
+                'image'=>'101290132_w640_h640_pidzhak-shkolnyj-kolledzh.jpg'
+
+            ],
+            [
+                'name'=>'Платье школьное со шлицей, воротник стойка, манжеты, р. 44, рост 170 см, цвет чёрный',
+                'alias'=>'i',
+                'brand_id'=>null,
+                'price'=>14567,
+                'image'=>'122552292_w640_h640_plate-shkolnoe-so.jpg'
+
+            ],
+            [
+                'name'=>'Рубашка ONTHEGO GM',
+                'alias'=>'o',
+                //'alias'=>'ONTHEGO-GM',
+                'brand_id'=>4,
+                'price'=>800000,
+                'image'=>'117961268_w640_h640_rubashka-muzhskaya-gongl.jpg'
+            ],
+            [
+                'name'=>'Рубашка Supreme',
+                'alias'=>'shirt-supreme',
+                'brand_id'=>5,
+                'price'=>14490,
+                'image'=>'113491507_w640_h640_rubashka-red-polo.jpg'
+
+            ],
+            [
+                'name'=>'Матрас надувной Intex DELUX SINGLE-HIGH 64708/64709 [полуторный | двухспальный] (Двуспальный)',
+                'alias'=>'p',
+                'brand_id'=>null,
+                'price'=>14800,
+                'image'=>'76660831_w640_h640_matras-naduvnoj-intex.jpg'
+
+            ],
+            [
+                'name'=>'Кровать надувная Intex 66768 Pillow Rest Classic',
+                'alias'=>'a',
+                'brand_id'=>null,
+                'price'=>14678,
+                'image'=>'9945242_w640_h640_krovat-naduvnaya-intex.jpg'
+
+            ],
+            [
+                'name'=>'Стол в классическом китайском стиле',
+                'alias'=>'s',
+                'brand_id'=>null,
+                'price'=>500000,
+                'image'=>'96581051_w640_h640_stol-v-klassicheskom.jpg'
+
+            ],
+            [
+                'name'=>'Витрина в стиле Рококо',
+                'alias'=>'f',
+                'brand_id'=>null,
+                'price'=>640000,
+                'image'=>'96054813_w640_h640_vitrina-v-stile.jpg'
+
+            ],
+
         ]);
         DB::table('category_product')->insert([
             [
-                'category_id'=>2,
+                'category_id'=>3,
                 'product_id'=>1,
             ],
             [
@@ -250,6 +424,54 @@ class DatabaseSeeder extends Seeder
             [
                 'category_id'=>3,
                 'product_id'=>3,
+            ],
+            [
+                'category_id'=>3,
+                'product_id'=>4,
+            ],
+            [
+                'category_id'=>4,
+                'product_id'=>5,
+            ],
+            [
+                'category_id'=>4,
+                'product_id'=>6,
+            ],
+            [
+                'category_id'=>4,
+                'product_id'=>7,
+            ],
+            [
+                'category_id'=>7,
+                'product_id'=>8,
+            ],
+            [
+                'category_id'=>7,
+                'product_id'=>9,
+            ],
+            [
+                'category_id'=>9,
+                'product_id'=>10,
+            ],
+            [
+                'category_id'=>9,
+                'product_id'=>11,
+            ],
+            [
+                'category_id'=>12,
+                'product_id'=>12,
+            ],
+            [
+                'category_id'=>12,
+                'product_id'=>13,
+            ],
+            [
+                'category_id'=>13,
+                'product_id'=>14,
+            ],
+            [
+                'category_id'=>13,
+                'product_id'=>15,
             ],
         ]);
         DB::table('order_product')->insert([
@@ -321,6 +543,88 @@ class DatabaseSeeder extends Seeder
             [
                 'value'=>'Есть',
                 'filter_group_id'=>4,
+            ],
+            [
+                'value'=>'серый',
+                'filter_group_id'=>1,
+            ],
+            [
+                'value'=>'красный',
+                'filter_group_id'=>1,
+            ],
+        ]);
+        DB::table('filter_value_product')->insert([
+            [
+                'product_id'=>1,
+                'filter_value_id'=>3,
+            ],
+            [
+                'product_id'=>2,
+                'filter_value_id'=>4,
+            ],
+            [
+                'product_id'=>3,
+                'filter_value_id'=>3,
+            ],
+            [
+                'product_id'=>4,
+                'filter_value_id'=>3,
+            ],
+            [
+                'product_id'=>5,
+                'filter_value_id'=>3,
+            ],
+            [
+                'product_id'=>5,
+                'filter_value_id'=>7,
+            ],
+            [
+                'product_id'=>6,
+                'filter_value_id'=>4,
+            ],
+            [
+                'product_id'=>6,
+                'filter_value_id'=>8,
+            ],
+            [
+                'product_id'=>7,
+                'filter_value_id'=>3,
+            ],
+            [
+                'product_id'=>7,
+                'filter_value_id'=>7,
+            ],
+            [
+                'product_id'=>8,
+                'filter_value_id'=>2,
+            ],
+            [
+                'product_id'=>9,
+                'filter_value_id'=>1,
+            ],
+            [
+                'product_id'=>10,
+                'filter_value_id'=>10,
+            ],
+            [
+                'product_id'=>11,
+                'filter_value_id'=>9,
+            ],
+            [
+                'product_id'=>12,
+                'filter_value_id'=>7,
+            ],
+            [
+                'product_id'=>13,
+                'filter_value_id'=>8,
+            ],
+            [
+                'product_id'=>14,
+                'filter_value_id'=>5,
+            ],
+            [
+                'product_id'=>15,
+                'filter_value_id'=>6,
             ],
         ]);
         // $this->call(UserSeeder::class);
