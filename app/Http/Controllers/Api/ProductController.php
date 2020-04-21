@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Models\ProductImage;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -24,7 +25,13 @@ class ProductController extends Controller
      * Display a listing of the product.
      * @authenticated
      * @queryParam page required The page number. default = 1
+     * @queryParam sort_by required The page number. default = 1
      * @queryParam per_page required The number of items per list. default = 15
+     * @queryParam categories Category Ids
+     * @queryParam filter_values Filter Value Ids
+     * @queryParam brand Brand Id
+     * @queryParam price_from Min Price
+     * @queryParam price_to Max Price
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Product
      * @param Request $request
@@ -32,7 +39,22 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        return JsonResource::collection(Product::Latest()->paginate($request['per_page']));
+        $query = Product::query();
+        if($request->has('categories'))
+            $query->whereHas('categories',  function (Builder $query) use ($request) {
+                $query->whereIn('categories.id', $request['categories']);
+            });
+        if($request->has('filter_values'))
+            $query->whereHas('filter_values',  function (Builder $query) use ($request) {
+                $query->whereIn('filter_values.id', $request['filter_values']);
+            });
+        if($request->has('brand'))
+            $query->where('brand_id', $request['brand']);
+        if($request->has('price_from'))
+            $query->where('price', '>=', $request['price_from']);
+        if($request->has('price_to'))
+            $query->where('price', '<=', $request['price_to']);
+        return JsonResource::collection($query->paginate($request['per_page']));
     }
 
     /**
