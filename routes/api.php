@@ -29,37 +29,20 @@ Route::get('verify/{token}', 'Api\VerifyController@VerifyEmail')->name('verify')
 Route::get('reset/{token}', 'Api\VerifyController@ResetPassword')->name('reset');
 Route::post('users/resetPassword', 'Api\UserController@resetPassword')->name('user.resetPassword');
 
-//Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
-//    Route::apiResources([
-//        'products'=>'Api\ProductController',
-//        'users' => 'Api\UserController',
-//        'addresses' => 'Api\AddressController',
-//        'brands' =>'Api\BrandController',
-//        'categories' =>'Api\CategoryController',
-//        'cities' => 'Api\CityController',
-//        'currencies' => 'Api\CurrencyController',
-//        'filterGroups' => 'Api\FilterGroupController',
-//        'filterValues' => 'Api\FilterValueController',
-//        'orders' => 'Api\OrderController',
-//        'productImages' => 'Api\ProductImageController',
-//        'regions' => 'Api\RegionController',
-//        'roles' => 'Api\RoleController'
-//    ]);
-//});
-
-Route::apiResources([
-    'products'=>'Api\ProductController',
-    'users' => 'Api\UserController',
-    'addresses' => 'Api\AddressController',
-    'brands' =>'Api\BrandController',
-    'categories' =>'Api\CategoryController',
-    'cities' => 'Api\CityController',
-    'currencies' => 'Api\CurrencyController',
-    'filterGroups' => 'Api\FilterGroupController',
-    'filterValues' => 'Api\FilterValueController',
-    'orders' => 'Api\OrderController',
-    'productImages' => 'Api\ProductImageController',
-    'regions' => 'Api\RegionController',
-    'roles' => 'Api\RoleController',
-]);
-
+Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
+    Route::apiResources([
+        'products'=>'Api\ProductController',
+        'users' => 'Api\UserController',
+        'addresses' => 'Api\AddressController',
+        'brands' =>'Api\BrandController',
+        'categories' =>'Api\CategoryController',
+        'cities' => 'Api\CityController',
+        'currencies' => 'Api\CurrencyController',
+        'filterGroups' => 'Api\FilterGroupController',
+        'filterValues' => 'Api\FilterValueController',
+        'orders' => 'Api\OrderController',
+        'productImages' => 'Api\ProductImageController',
+        'regions' => 'Api\RegionController',
+        'roles' => 'Api\RoleController',
+    ]);
+});
