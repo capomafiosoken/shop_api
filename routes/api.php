@@ -1,34 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
-
-@aibekzh
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-capomafiosoken
-/
-shop_api
-1
-00
-Code
-Issues 0
-Pull requests 0 Actions
-Projects 0
-Wiki
-Security 0
-Insights
-shop_api/routes/api.php /
-@capomafiosoken capomafiosoken product
-c3e10e8 2 hours ago
-@capomafiosoken@aibekzh
-52 lines (46 sloc)  2.25 KB
-
 <?php
 
 use Illuminate\Http\Request;
