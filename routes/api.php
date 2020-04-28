@@ -22,13 +22,13 @@ Route::post('login', 'Api\PassportController@login');
 Route::post('logout', 'Api\PassportController@logout');
 Route::post('register', 'Api\PassportController@register');
 Route::post('resetPassword', 'Api\PassportController@resetPassword');
-Route::post('test', 'Api\PassportController@test');
+Route::middleware('auth:api')->get('test', 'Api\PassportController@test');
 
 Route::post('products/setImage/{product}', 'Api\ProductController@setImage')->name('products.setImage');
 Route::get('verify/{token}', 'Api\VerifyController@VerifyEmail')->name('verify');
 Route::get('reset/{token}', 'Api\VerifyController@ResetPassword')->name('reset');
 Route::post('users/resetPassword', 'Api\UserController@resetPassword')->name('user.resetPassword');
-Route::get('productlist', 'Api\ProductController@index')->name('products.index');
+Route::get('productlist',   'Api\ProductController@index')->name('products.index');
 Route::get('categorylist', 'Api\CategoryController@index')->name('categories.index');
 
 Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){

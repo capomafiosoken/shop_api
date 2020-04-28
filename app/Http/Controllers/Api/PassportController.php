@@ -130,6 +130,7 @@ class PassportController extends Controller
     }
 
     public function test(){
-
+        $user =  auth()->user();
+        return $user->addresses;
     }
 }
