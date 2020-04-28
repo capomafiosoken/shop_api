@@ -111,7 +111,7 @@ class PassportController extends Controller
                     'token' => $token,
                     'role' => $user->role]);
             }
-                return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Unauthorized'], 401);
 
         }
         return response()->json(['error' => 'Verify email']);
