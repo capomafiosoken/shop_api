@@ -28,8 +28,10 @@ Route::post('products/setImage/{product}', 'Api\ProductController@setImage')->na
 Route::get('verify/{token}', 'Api\VerifyController@VerifyEmail')->name('verify');
 Route::get('reset/{token}', 'Api\VerifyController@ResetPassword')->name('reset');
 Route::post('users/resetPassword', 'Api\UserController@resetPassword')->name('user.resetPassword');
-Route::get('productlist',   'Api\ProductController@index')->name('products.index');
-Route::get('categorylist', 'Api\CategoryController@index')->name('categories.index');
+Route::get('productList',   'Api\ProductController@index')->name('productList');
+Route::get('filterList',   'Api\FilterGroupController@index')->name('filterList');
+Route::get('categoryList', 'Api\CategoryController@index')->name('categoryList');
+Route::get('getProduct/{product}', 'Api\ProductController@show')->name('product');
 
 Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
     Route::apiResources([
