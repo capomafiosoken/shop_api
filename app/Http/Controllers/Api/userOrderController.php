@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -17,7 +19,7 @@ use Illuminate\Validation\ValidationException;
  * @group Order management
  * APIs for managing addresses
  */
-class OrderController extends Controller
+class userOrderController extends Controller
 {
     /**
      * Display a listing of the order.
@@ -27,11 +29,12 @@ class OrderController extends Controller
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Order
      * @param Request $request
-     * @return AnonymousResourceCollection
+     * @return JsonResource
      */
     public function index(Request $request)
     {
-        return JsonResource::collection(Order::with('user')->latest()->paginate($request['per_page']));
+        $user= auth()->user();
+        return new JsonResource($user->orders);
     }
 
     /**
@@ -50,18 +53,35 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+
+        $user= auth()->user();
         $this->validate($request,[
-            'user_id'=>'required|numeric|digits_between:1,20',
+            'city_id'=>'required|numeric|digits_between:1,20',
+            'zip_code'=>'required|max:6',
+            'address'=>'required|max:255',
+            'full_name'=>'required|max:255',
+            'telephone_number'=>'required|max:255',
+            'note'=>'nullable|max:255',
+            //'user_id'=>'required|numeric|digits_between:1,20',
             'status'=>'required|in:0,1,2',
-            'currency_id'=>'required|numeric|digits_between:1,10',
-            'address_id'=>'required|numeric|digits_between:1,20'
+            // 'currency_id'=>'required|numeric|digits_between:1,10',
+            //'address_id'=>'required|numeric|digits_between:1,20'
         ]);
+        $address =  Address::create([
+            'city_id'=>$request['city_id'],
+            'zip_code'=>$request['zip_code'],
+            'address'=>$request['address'],
+            'full_name'=>$request['full_name'],
+            'telephone_number'=>$request['telephone_number'],
+            'note'=>$request['note'],
+        ]);
+
         $order = Order::create([
-            'user_id'=>$request['user_id'],
+            'user_id'=>$user['id'],
             'status'=>$request['status'],
-            'currency_id'=>$request['currency_id'],
-            'sum'=>$request['sum'],
-            'address_id'=>$request['address_id'],
+            'currency_id'=>1,
+            //'sum'=>$request['sum'],
+            'address_id'=>$address['id'],
         ]);
         foreach ($request->input('products') as $product){
             $order->products()->attach([
@@ -82,7 +102,13 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        return new JsonResource(Order::with(['products', 'currency', 'user', 'address'])->findOrFail($id));
+        $user= auth()->user();
+        $order = Order::with(['products', 'currency', 'user', 'address'])->findOrFail($id);
+       if($user['id']==$order['user_id']){
+           return new JsonResource($order);
+       }else{
+           return new JsonResource(['error'=>'incorrect id']);
+       }
     }
 
     /**
@@ -102,18 +128,25 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user= auth()->user();
         $order = Order::findOrFail($id);
-        $this->validate($request,[
-            'user_id'=>'sometimes|numeric|digits_between:1,20',
-            'status'=>'sometimes|in:0,1,2',
-            'currency_id'=>'sometimes|numeric|digits_between:1,10',
-            'address_id'=>'sometimes|numeric|digits_between:1,20',
+        if($user['id']==$order['user_id']) {
+            $this->validate($request, [
+                'user_id' => 'sometimes|numeric|digits_between:1,20',
+                'status' => 'sometimes|in:0,1,2',
+                'currency_id' => 'sometimes|numeric|digits_between:1,10',
+                'address_id' => 'sometimes|numeric|digits_between:1,20',
 
-        ]);
-        $order->update(array_filter($request->all(), function($value) {
-            return !is_null($value);
-        }));
-        return new JsonResource($order);
+            ]);
+            $order->update(array_filter($request->all(), function ($value) {
+                return !is_null($value);
+            }));
+            return new JsonResource($order);
+        }
+        else{
+            return new JsonResource(['error'=>'incorrect id']);
+
+        }
     }
 
     /**
@@ -128,9 +161,14 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
+        $user = auth()->user();
         $order = Order::findOrFail($id);
-        $order->delete();
-        return response()->json(['message'=>'Order Deleted']);
+        if($user['id']==$order['user_id']) {
+            $order->delete();
+            return response()->json(['message' => 'Order Deleted']);
+        }else{
+            return response()->json(['error'=>'incorrect id']);
+        }
     }
 
 }

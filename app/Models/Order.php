@@ -29,6 +29,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|Product[] $products
  *
  * @package App\Models
+ * @method static where(string $string, $id)
  */
 class Order extends Model
 {

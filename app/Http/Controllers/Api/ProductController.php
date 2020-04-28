@@ -73,6 +73,7 @@ class ProductController extends Controller
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Product
      * @param Request $request
+     * @return JsonResource
      * @throws ValidationException
      */
     public function store(Request $request)
