@@ -31,7 +31,8 @@ Route::post('users/resetPassword', 'Api\UserController@resetPassword')->name('us
 Route::get('productList',   'Api\ProductController@index')->name('productList');
 Route::get('filterList',   'Api\FilterGroupController@index')->name('filterList');
 Route::get('categoryList', 'Api\CategoryController@index')->name('categoryList');
-Route::get('getProduct/{product}', 'Api\ProductController@show')->name('product');
+Route::get('categoryList{category}', 'Api\CategoryController@show')->name('categoryList.show');
+Route::get('productList/{product}', 'Api\ProductController@show')->name('productList.show');
 
 Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
     Route::apiResources([
@@ -54,6 +55,6 @@ Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
 
 Route::middleware(['auth:api'])->group(function () {
     Route::apiResources([
-        'userOrders' => 'Api\userOrderController',
+        'userOrders' => 'Api\UserOrderController',
     ]);
 });

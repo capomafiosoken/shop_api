@@ -19,7 +19,7 @@ use Illuminate\Validation\ValidationException;
  * @group Order management
  * APIs for managing addresses
  */
-class userOrderController extends Controller
+class UserOrderController extends Controller
 {
     /**
      * Display a listing of the order.
