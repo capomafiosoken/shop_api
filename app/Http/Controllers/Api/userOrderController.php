@@ -171,4 +171,9 @@ class userOrderController extends Controller
         }
     }
 
+    public function userAddresses(){
+        $user =  auth()->user();
+        return new JsonResource($user->addresses);
+    }
+
 }

@@ -28,6 +28,7 @@ use Laravel\Passport\HasApiTokens;
  *
  * @property Collection|Order[] $orders
  * @property Collection|Role[] $roles
+ * @property Collection|Address[] $addresses
  *
  * @package App\Models
  */

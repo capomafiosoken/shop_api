@@ -103,18 +103,19 @@ class PassportController extends Controller
 
         $user = User::where('email',$request->email)->first();
 
-        if($user->email_verified == 1) {
-            if (auth()->attempt($credentials)) {
+
+        if (auth()->attempt($credentials)) {
+            if($user->email_verified == 1) {
                 $user = auth()->user();
                 $token = $user->createToken('shop_api')->accessToken;
                 return response()->json([
                     'token' => $token,
                     'role' => $user->role]);
             }
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Verify email'],401);
 
         }
-        return response()->json(['error' => 'Verify email']);
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
 
     /**
