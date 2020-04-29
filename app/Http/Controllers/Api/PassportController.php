@@ -101,12 +101,12 @@ class PassportController extends Controller
     {
         $credentials = $request->only(['email', 'password']);
 
-        $user = User::where('email',$request->email)->first();
 
 
         if (auth()->attempt($credentials)) {
-            if($user->email_verified == 1) {
+
                 $user = auth()->user();
+            if($user->email_verified == 1) {
                 $token = $user->createToken('shop_api')->accessToken;
                 return response()->json([
                     'token' => $token,
