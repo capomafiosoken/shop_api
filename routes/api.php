@@ -23,7 +23,7 @@ Route::post('logout', 'Api\PassportController@logout');
 Route::post('register', 'Api\PassportController@register');
 Route::post('resetPassword', 'Api\PassportController@resetPassword');
 Route::middleware('auth:api')->get('test', 'Api\PassportController@test');
-Route::middleware('auth:api')->get('userAddresses', 'Api\userOrderController@userAddresses');
+Route::middleware('auth:api')->get('userAddresses', 'Api\UserOrderController@userAddresses');
 
 Route::post('products/setImage/{product}', 'Api\ProductController@setImage')->name('products.setImage');
 Route::get('verify/{token}', 'Api\VerifyController@VerifyEmail')->name('verify');

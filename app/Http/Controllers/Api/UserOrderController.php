@@ -40,9 +40,6 @@ class UserOrderController extends Controller
     /**
      * Store a newly created order in storage.
      * @authenticated
-     * @bodyParam user_id numeric required User Id
-     * @bodyParam status string required Status ,one of the 0,1,2
-     * @bodyParam currency_id numeric required Currency Id
      * @bodyParam address_id numeric required Address Id
      * @bodyParam products array required Array of Products json objects with id,prices,pieces parameters
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
@@ -56,31 +53,34 @@ class UserOrderController extends Controller
 
         $user= auth()->user();
         $this->validate($request,[
-            'city_id'=>'required|numeric|digits_between:1,20',
-            'zip_code'=>'required|max:6',
-            'address'=>'required|max:255',
-            'full_name'=>'required|max:255',
-            'telephone_number'=>'required|max:255',
-            'note'=>'nullable|max:255',
+            'address_id'=>'sometimes|numeric|digits_between:1,20',
+            'city_id'=>'sometimes|numeric|digits_between:1,20',
+            'zip_code'=>'sometimes|max:6',
+            'address'=>'sometimes|max:255',
+            'full_name'=>'sometimes|max:255',
+            'telephone_number'=>'sometimes|max:255',
+            'note'=>'sometimes|max:255',
             //'user_id'=>'required|numeric|digits_between:1,20',
-            'status'=>'required|in:0,1,2',
+//            'status'=>'required|in:0,1,2',
             // 'currency_id'=>'required|numeric|digits_between:1,10',
             //'address_id'=>'required|numeric|digits_between:1,20'
         ]);
-        $address =  Address::create([
-            'city_id'=>$request['city_id'],
-            'zip_code'=>$request['zip_code'],
-            'address'=>$request['address'],
-            'full_name'=>$request['full_name'],
-            'telephone_number'=>$request['telephone_number'],
-            'note'=>$request['note'],
-        ]);
-
+        if(!$request->exists('address_id')) {
+            $address = Address::create([
+                'city_id' => $request['city_id'],
+                'zip_code' => $request['zip_code'],
+                'address' => $request['address'],
+                'full_name' => $request['full_name'],
+                'telephone_number' => $request['telephone_number'],
+                'note' => $request['note'],
+            ]);
+        }
+        else{
+            $address = new Address(['id'=>$request['address_id']]);
+        }
         $order = Order::create([
             'user_id'=>$user['id'],
-            'status'=>$request['status'],
             'currency_id'=>1,
-            //'sum'=>$request['sum'],
             'address_id'=>$address['id'],
         ]);
         foreach ($request->input('products') as $product){
