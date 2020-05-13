@@ -23,7 +23,7 @@ use Illuminate\Validation\ValidationException;
 class UserOrderController extends Controller
 {
     /**
-     * Display a listing of the order.
+     * Display a listing of the User orders.
      * @authenticated
      * @queryParam page required The page number. default = 1
      * @queryParam per_page required The number of items per list. default = 15
@@ -39,7 +39,7 @@ class UserOrderController extends Controller
     }
 
     /**
-     * Store a newly created order in storage.
+     * Store a newly created order in storage for authorized User.
      * @authenticated
      * @bodyParam address_id numeric Address Id if this specified then other will not
      * @bodyParam city_id numeric City Id
@@ -85,7 +85,7 @@ class UserOrderController extends Controller
             'address_id'=>$address['id'],
         ]);
         foreach ($request['products'] as $product){
-            $p = Product::all()->findOrFail($product['id']);
+            $p = Product::findOrFail($product['id']);
             $order->products()->attach($product['id'],['pieces'=>$product['pieces'],'price'=>$p['price']]);
         }
         return new JsonResource($order);
