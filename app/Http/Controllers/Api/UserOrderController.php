@@ -41,8 +41,13 @@ class UserOrderController extends Controller
     /**
      * Store a newly created order in storage.
      * @authenticated
-     * @bodyParam address_id numeric required Address Id
-     * @bodyParam products array required Array of Products json objects with id,prices,pieces parameters
+     * @bodyParam address_id numeric Address Id if this specified then other will not
+     * @bodyParam city_id numeric City Id
+     * @bodyParam zip_code text Zip Code
+     * @bodyParam address text Address
+     * @bodyParam full_name text FullName
+     * @bodyParam telephone_number text Number
+     * @bodyParam products array required Array of Products json objects with id ,pieces parameters
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Order
      * @param Request $request
@@ -72,7 +77,7 @@ class UserOrderController extends Controller
             ]);
         }
         else{
-            $address = new Address(['id'=>$request['address_id']]);
+            $address = Address::findOrFail($request['address_id']);
         }
         $order = Order::create([
             'user_id'=>$user['id'],
