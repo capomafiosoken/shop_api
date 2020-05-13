@@ -53,7 +53,7 @@ class ProductController extends Controller
             $query->where('price', '>=', $request['price_from']);
         if($request->has('price_to'))
             $query->where('price', '<=', $request['price_to']);
-        return JsonResource::collection($query->paginate($request['per_page']));
+        return ProductResource::collection($query->paginate($request['per_page']));
     }
 
     /**

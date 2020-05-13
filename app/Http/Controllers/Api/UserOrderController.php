@@ -81,7 +81,7 @@ class UserOrderController extends Controller
         }
         $order = Order::create([
             'user_id'=>$user['id'],
-            'currency_id'=>1,
+            'currency_id'=> 1,
             'address_id'=>$address['id'],
         ]);
         foreach ($request['products'] as $product){
