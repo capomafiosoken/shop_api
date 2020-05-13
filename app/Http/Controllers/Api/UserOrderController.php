@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;
@@ -58,12 +59,7 @@ class UserOrderController extends Controller
             'zip_code'=>'sometimes|max:6',
             'address'=>'sometimes|max:255',
             'full_name'=>'sometimes|max:255',
-            'telephone_number'=>'sometimes|max:255',
-            'note'=>'sometimes|max:255',
-            //'user_id'=>'required|numeric|digits_between:1,20',
-//            'status'=>'required|in:0,1,2',
-            // 'currency_id'=>'required|numeric|digits_between:1,10',
-            //'address_id'=>'required|numeric|digits_between:1,20'
+            'telephone_number'=>'sometimes|max:255'
         ]);
         if(!$request->exists('address_id')) {
             $address = Address::create([
@@ -83,10 +79,9 @@ class UserOrderController extends Controller
             'currency_id'=>1,
             'address_id'=>$address['id'],
         ]);
-        foreach ($request->input('products') as $product){
-            $order->products()->attach([
-                $product['id']=>['price'=>$product['price'], 'pieces'=>$product['pieces']]
-            ]);
+        foreach ($request['products'] as $product){
+            $p = Product::all()->findOrFail($product['id']);
+            $order->products()->attach($product['id'],['pieces'=>$product['pieces'],'price'=>$p['price']]);
         }
         return new JsonResource($order);
     }
@@ -171,6 +166,13 @@ class UserOrderController extends Controller
         }
     }
 
+    /**
+     * Show authorized User addresses
+     * @authenticated
+     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Address
+     * @return JsonResource
+     */
     public function userAddresses(){
         $user =  auth()->user();
         return new JsonResource($user->addresses);
