@@ -27,6 +27,7 @@ use Laravel\Passport\HasApiTokens;
  * @property Carbon $updated_at
  *
  * @property Collection|Order[] $orders
+ * @property Collection|Product[] $likes
  * @property Collection|Role[] $roles
  * @property Collection|Address[] $addresses
  *

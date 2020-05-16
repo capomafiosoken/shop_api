@@ -22,19 +22,6 @@ use Illuminate\Validation\ValidationException;
 class UserOrderController extends Controller
 {
     /**
-     * Display a listing of the user orders.
-     * @authenticated
-     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
-     * @apiResourceModel App\Models\Order
-     * @return JsonResource
-     */
-    public function index()
-    {
-        $user= auth()->user();
-        return new JsonResource($user->load('orders'));
-    }
-
-    /**
      * Store a newly created order in storage.
      * @authenticated
      * @bodyParam address_id numeric required Address Id

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
+//Route::get('test', 'Api\PassportController@test');
 
 Route::post('login', 'Api\PassportController@login');
 Route::post('logout', 'Api\PassportController@logout');
@@ -31,7 +32,20 @@ Route::get('categoryList', 'Api\CategoryController@index')->name('categoryList')
 Route::get('categoryList/{category}', 'Api\CategoryController@show')->name('categoryList.show');
 Route::get('productList/{product}', 'Api\ProductController@show')->name('productList.show');
 
+Route::middleware(['auth:api'])->group(function () {
+    Route::apiResources([
+        'userOrders' => 'Api\UserOrderController',
+    ]);
+    Route::get('users/addresses', 'Api\UserController@userAddresses');
+    Route::get('users/likes', 'Api\UserController@userLikes');
+    Route::get('users/orders', 'Api\UserController@userOrders');
+    Route::get('users/profile', 'Api\UserController@userProfile');
+    Route::get('products/{product}/like', 'Api\ProductController@isLiked');
+    Route::post('products/{product}/like', 'Api\ProductController@like');
+    Route::delete('products/{product}/like', 'Api\ProductController@unlike');
+});
 Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
+    Route::post('products/{product}/setImage', 'Api\ProductController@setImage')->name('products.setImage');
     Route::apiResources([
         'products'=>'Api\ProductController',
         'users' => 'Api\UserController',
@@ -47,19 +61,5 @@ Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
         'regions' => 'Api\RegionController',
         'roles' => 'Api\RoleController',
     ]);
-    Route::post('products/setImage/{product}', 'Api\ProductController@setImage')->name('products.setImage');
 });
 
-
-Route::middleware(['auth:api'])->group(function () {
-    Route::apiResources([
-        'userOrders' => 'Api\UserOrderController',
-    ]);
-    Route::get('test', 'Api\PassportController@test');
-    Route::get('users/addresses', 'Api\UserController@userAddresses');
-    Route::get('users/likes', 'Api\UserController@userLikes');
-    Route::get('users/profile', 'Api\UserController@userProfile');
-    Route::get('products/{id}/like', 'Api\ProductController@isLiked');
-    Route::post('products/{id}/like', 'Api\ProductController@like');
-    Route::delete('products/{id}/like', 'Api\ProductController@unlike');
-});

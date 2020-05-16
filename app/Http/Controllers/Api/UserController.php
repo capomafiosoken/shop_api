@@ -148,16 +148,48 @@ class UserController extends Controller
             return response()->json(['message'=>"Haven't verified email"]);
         }
     }
+    /**
+     * Display a listing of the user addresses.
+     * @authenticated
+     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Order
+     * @return JsonResource
+     */
     public function userAddresses(){
         $user =  auth()->user();
         return new JsonResource($user->addresses);
     }
+    /**
+     * Display a listing of the user liked products.
+     * @authenticated
+     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Order
+     * @return JsonResource
+     */
     public function userLikes(){
         $user =  auth()->user();
         return new JsonResource($user->likes);
     }
-    public function userProfile()
-    {
-        return new JsonResource(auth()->user()->load(['likes', 'orders', 'addresses']));
+    /**
+     * Display a listing of the user orders.
+     * @authenticated
+     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Order
+     * @return JsonResource
+     */
+    public function userOrders(){
+        $user =  auth()->user();
+        return new JsonResource($user->orders);
+    }
+    /**
+     * Display a listing of the user profile.
+     * @authenticated
+     * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
+     * @apiResourceModel App\Models\Order
+     * @return JsonResource
+     */
+    public function userProfile(){
+        $user = auth()->user();
+        return new JsonResource($user);
     }
 }
