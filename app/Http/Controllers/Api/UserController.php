@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Like;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -119,59 +120,24 @@ class UserController extends Controller
         $user->delete();
         return response()->json(['message'=> 'User Deleted']);
     }
-
     /**
-     * Display the authenticated User
-     * @authenticated
-     * @apiResource Illuminate\Http\Resources\Json\JsonResource
-     * @apiResourceModel App\Models\User
-     */
-    public function profile()
-    {
-        return new JsonResource(auth()->user());
-    }
-
-    /**
-     * Updates the authenticated User
-     * @authenticated
-     * @bodyParam name string User Name
-     * @bodyParam password string  User Password
-     * @apiResource Illuminate\Http\Resources\Json\JsonResource
-     * @apiResourceModel App\Models\User
-     * @param Request $request
-     * @return JsonResource
-     * @throws ValidationException
-     */
-    public function updateProfile(Request $request)
-    {
-        $user = auth()->user();
-        $this->validate($request,[
-            'name' => 'sometimes|string|max:191',
-            'password' => 'sometimes|required|string|min:6'
-        ]);
-
-        $user ->update(array_filter($request ->all()));
-        return new JsonResource($user);
-    }
-
-    /**
-     * Resets the User Password
+     * Resets the User Password by Email
      * @authenticated
      * @bodyParam email string User Email
      * @bodyParam password string  User Password
      * @apiResource Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\User
      * @param Request $request
-     * @return JsonResource
+     * @return JsonResponse|JsonResource
      * @throws ValidationException
      */
     public function resetPassword(Request $request)
     {
-        /*$this->validate($request,[
+        $this->validate($request,[
             'email' => 'required|string|email|max:191',
-            'password' => 'sometimes|required|string|min:6'
-        ]);*/
-        $user = User::where('email',$request['email'])->first();
+            'password' => 'required|string|min:6'
+        ]);
+        $user = User::firstWhere('email',$request['email']);
         if ($user->ready_to_reset==1){
             $user->update([
                 'password'=>bcrypt($request['password']),
@@ -179,8 +145,19 @@ class UserController extends Controller
             ]);
             return new JsonResource($user);
         }else{
-            return new JsonResource(["message"=>"You haven't verified your email"]);
+            return response()->json(['message'=>"Haven't verified email"]);
         }
-
+    }
+    public function userAddresses(){
+        $user =  auth()->user();
+        return new JsonResource($user->addresses);
+    }
+    public function userLikes(){
+        $user =  auth()->user();
+        return new JsonResource($user->likes);
+    }
+    public function userProfile()
+    {
+        return new JsonResource(auth()->user()->load(['likes', 'orders', 'addresses']));
     }
 }

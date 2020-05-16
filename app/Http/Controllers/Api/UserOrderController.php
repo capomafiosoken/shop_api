@@ -16,22 +16,19 @@ use Illuminate\Validation\ValidationException;
 
 
 /**
- * @group Order management
+ * @group Users Order management
  * APIs for managing addresses
  */
 class UserOrderController extends Controller
 {
     /**
-     * Display a listing of the order.
+     * Display a listing of the user orders.
      * @authenticated
-     * @queryParam page required The page number. default = 1
-     * @queryParam per_page required The number of items per list. default = 15
      * @apiResourceCollection Illuminate\Http\Resources\Json\JsonResource
      * @apiResourceModel App\Models\Order
-     * @param Request $request
      * @return JsonResource
      */
-    public function index(Request $request)
+    public function index()
     {
         $user= auth()->user();
         return new JsonResource($user->orders);
@@ -60,10 +57,6 @@ class UserOrderController extends Controller
             'full_name'=>'sometimes|max:255',
             'telephone_number'=>'sometimes|max:255',
             'note'=>'sometimes|max:255',
-            //'user_id'=>'required|numeric|digits_between:1,20',
-//            'status'=>'required|in:0,1,2',
-            // 'currency_id'=>'required|numeric|digits_between:1,10',
-            //'address_id'=>'required|numeric|digits_between:1,20'
         ]);
         if(!$request->exists('address_id')) {
             $address = Address::create([
@@ -107,73 +100,68 @@ class UserOrderController extends Controller
        if($user['id']==$order['user_id']){
            return new JsonResource($order);
        }else{
-           return new JsonResource(['error'=>'incorrect id']);
+           return new JsonResource(['message'=>'Incorrect id']);
        }
     }
 
-    /**
-     * Update the specified order in storage.
-     * @authenticated
-     * @urlParam id required Address's Id to be Updated
-     * @bodyParam user_id numeric User Id
-     * @bodyParam status enum[0,1,2] Status ,one of the 0,1,2
-     * @bodyParam currency_id numeric  Currency Id
-     * @bodyParam address_id numeric  Address Id
-     * @apiResource Illuminate\Http\Resources\Json\JsonResource
-     * @apiResourceModel App\Models\Order
-     * @param Request $request
-     * @param $id
-     * @return JsonResource
-     * @throws ValidationException
-     */
-    public function update(Request $request, $id)
-    {
-        $user= auth()->user();
-        $order = Order::findOrFail($id);
-        if($user['id']==$order['user_id']) {
-            $this->validate($request, [
-                'user_id' => 'sometimes|numeric|digits_between:1,20',
-                'status' => 'sometimes|in:0,1,2',
-                'currency_id' => 'sometimes|numeric|digits_between:1,10',
-                'address_id' => 'sometimes|numeric|digits_between:1,20',
-
-            ]);
-            $order->update(array_filter($request->all(), function ($value) {
-                return !is_null($value);
-            }));
-            return new JsonResource($order);
-        }
-        else{
-            return new JsonResource(['error'=>'incorrect id']);
-
-        }
-    }
-
-    /**
-     * Remove the specified Order from storage.
-     * @authenticated
-     * @urlParam id  Order's Id to be Deleted
-     * @response {
-     *  "message" : "Order Deleted"
-     * }
-     * @param $id
-     * @return JsonResponse
-     */
-    public function destroy($id)
-    {
-        $user = auth()->user();
-        $order = Order::findOrFail($id);
-        if($user['id']==$order['user_id']) {
-            $order->delete();
-            return response()->json(['message' => 'Order Deleted']);
-        }else{
-            return response()->json(['error'=>'incorrect id']);
-        }
-    }
-
-    public function userAddresses(){
-        $user =  auth()->user();
-        return new JsonResource($user->addresses);
-    }
+//    /**
+//     * Update the specified order in storage.
+//     * @authenticated
+//     * @urlParam id required Address's Id to be Updated
+//     * @bodyParam user_id numeric User Id
+//     * @bodyParam status enum[0,1,2] Status ,one of the 0,1,2
+//     * @bodyParam currency_id numeric  Currency Id
+//     * @bodyParam address_id numeric  Address Id
+//     * @apiResource Illuminate\Http\Resources\Json\JsonResource
+//     * @apiResourceModel App\Models\Order
+//     * @param Request $request
+//     * @param $id
+//     * @return JsonResource
+//     * @throws ValidationException
+//     */
+//    public function update(Request $request, $id)
+//    {
+//        $user= auth()->user();
+//        $order = Order::findOrFail($id);
+//        if($user['id']==$order['user_id']) {
+//            $this->validate($request, [
+//                'user_id' => 'sometimes|numeric|digits_between:1,20',
+//                'status' => 'sometimes|in:0,1,2',
+//                'currency_id' => 'sometimes|numeric|digits_between:1,10',
+//                'address_id' => 'sometimes|numeric|digits_between:1,20',
+//
+//            ]);
+//            $order->update(array_filter($request->all(), function ($value) {
+//                return !is_null($value);
+//            }));
+//            return new JsonResource($order);
+//        }
+//        else{
+//            return new JsonResource(['error'=>'incorrect id']);
+//
+//        }
+//    }
+//
+//    /**
+//     * Remove the specified Order from storage.
+//     * @authenticated
+//     * @urlParam id  Order's Id to be Deleted
+//     * @response {
+//     *  "message" : "Order Deleted"
+//     * }
+//     * @param $id
+//     * @return JsonResponse
+//     */
+//    public function destroy($id)
+//    {
+//        $user = auth()->user();
+//        $order = Order::findOrFail($id);
+//        if($user['id']==$order['user_id']) {
+//            $order->delete();
+//            return response()->json(['message' => 'Order Deleted']);
+//        }else{
+//            return response()->json(['error'=>'incorrect id']);
+//        }
+//    }
 
 }

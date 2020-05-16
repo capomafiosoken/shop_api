@@ -22,17 +22,13 @@ Route::post('login', 'Api\PassportController@login');
 Route::post('logout', 'Api\PassportController@logout');
 Route::post('register', 'Api\PassportController@register');
 Route::post('resetPassword', 'Api\PassportController@resetPassword');
-Route::middleware('auth:api')->get('test', 'Api\PassportController@test');
-Route::middleware('auth:api')->get('userAddresses', 'Api\UserOrderController@userAddresses');
-
-Route::post('products/setImage/{product}', 'Api\ProductController@setImage')->name('products.setImage');
-Route::get('verify/{token}', 'Api\VerifyController@VerifyEmail')->name('verify');
-Route::get('reset/{token}', 'Api\VerifyController@ResetPassword')->name('reset');
 Route::post('users/resetPassword', 'Api\UserController@resetPassword')->name('user.resetPassword');
+Route::get('verify/{token}', 'Api\VerifyController@verifyEmail')->name('verify');
+Route::get('reset/{token}', 'Api\VerifyController@resetPassword')->name('reset');
 Route::get('productList',   'Api\ProductController@index')->name('productList');
 Route::get('filterList',   'Api\FilterGroupController@index')->name('filterList');
 Route::get('categoryList', 'Api\CategoryController@index')->name('categoryList');
-Route::get('categoryList{category}', 'Api\CategoryController@show')->name('categoryList.show');
+Route::get('categoryList/{category}', 'Api\CategoryController@show')->name('categoryList.show');
 Route::get('productList/{product}', 'Api\ProductController@show')->name('productList.show');
 
 Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
@@ -51,6 +47,7 @@ Route::middleware(['auth:api', 'can:isAdmin'])->group(function (){
         'regions' => 'Api\RegionController',
         'roles' => 'Api\RoleController',
     ]);
+    Route::post('products/setImage/{product}', 'Api\ProductController@setImage')->name('products.setImage');
 });
 
 
@@ -58,4 +55,11 @@ Route::middleware(['auth:api'])->group(function () {
     Route::apiResources([
         'userOrders' => 'Api\UserOrderController',
     ]);
+    Route::get('test', 'Api\PassportController@test');
+    Route::get('userAddresses', 'Api\UserController@userAddresses');
+    Route::get('userLikes', 'Api\UserController@userLikes');
+    Route::get('userProfile', 'Api\UserController@userProfile');
+    Route::get('products/{id}/like', 'Api\ProductController@isLiked');
+    Route::post('products/{id}/like', 'Api\ProductController@like');
+    Route::delete('products/{id}/like', 'Api\ProductController@unlike');
 });
