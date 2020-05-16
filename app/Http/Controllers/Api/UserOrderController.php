@@ -31,7 +31,7 @@ class UserOrderController extends Controller
     public function index()
     {
         $user= auth()->user();
-        return new JsonResource($user->orders);
+        return new JsonResource($user->load('orders'));
     }
 
     /**
