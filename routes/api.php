@@ -56,9 +56,9 @@ Route::middleware(['auth:api'])->group(function () {
         'userOrders' => 'Api\UserOrderController',
     ]);
     Route::get('test', 'Api\PassportController@test');
-    Route::get('userAddresses', 'Api\UserController@userAddresses');
-    Route::get('userLikes', 'Api\UserController@userLikes');
-    Route::get('userProfile', 'Api\UserController@userProfile');
+    Route::get('users/addresses', 'Api\UserController@userAddresses');
+    Route::get('users/likes', 'Api\UserController@userLikes');
+    Route::get('users/profile', 'Api\UserController@userProfile');
     Route::get('products/{id}/like', 'Api\ProductController@isLiked');
     Route::post('products/{id}/like', 'Api\ProductController@like');
     Route::delete('products/{id}/like', 'Api\ProductController@unlike');
