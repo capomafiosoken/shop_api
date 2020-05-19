@@ -26,11 +26,11 @@ Route::post('resetPassword', 'Api\PassportController@resetPassword');
 Route::post('users/resetPassword', 'Api\UserController@resetPassword')->name('user.resetPassword');
 Route::get('verify/{token}', 'Api\VerifyController@verifyEmail')->name('verify');
 Route::get('reset/{token}', 'Api\VerifyController@resetPassword')->name('reset');
-Route::get('productList',   'Api\ProductController@index')->name('productList');
-Route::get('filterList',   'Api\FilterGroupController@index')->name('filterList');
-Route::get('categoryList', 'Api\CategoryController@index')->name('categoryList');
-Route::get('categoryList/{category}', 'Api\CategoryController@show')->name('categoryList.show');
-Route::get('productList/{product}', 'Api\ProductController@show')->name('productList.show');
+Route::get('filters',   'Api\FilterGroupController@index')->name('filters.index');
+Route::get('categories', 'Api\CategoryController@index')->name('categories.index');
+Route::get('products',   'Api\ProductController@index')->name('products.index');
+Route::get('categories/{category}', 'Api\CategoryController@show')->name('categories.show');
+Route::get('products/{product}', 'Api\ProductController@show')->name('products.show');
 
 Route::middleware(['auth:api'])->group(function () {
     Route::apiResources([
