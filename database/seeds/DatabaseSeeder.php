@@ -563,6 +563,48 @@ class DatabaseSeeder extends Seeder
                 'category_id'=>13,
                 'product_id'=>15,
             ],
+            [
+                'category_id'=>4,
+                'product_id'=>16,
+            ],
+            [
+                'category_id'=>4,
+                'product_id'=>17,
+            ],
+            [
+                'category_id'=>4,
+                'product_id'=>18,
+            ],
+            [
+                'category_id'=>4,
+                'product_id'=>19,
+            ],
+            [
+                'category_id'=>3,
+                'product_id'=>20,
+            ],
+            [
+                'category_id'=>3,
+                'product_id'=>21,
+            ],
+            [
+                'category_id'=>3,
+                'product_id'=>22,
+            ],
+            [
+                'category_id'=>3,
+                'product_id'=>23,
+            ],
+            [
+                'category_id'=>3,
+                'product_id'=>24,
+            ],
+            [
+                'category_id'=>3,
+                'product_id'=>25,
+            ],
+
+
         ]);
         DB::table('order_product')->insert([
             [
